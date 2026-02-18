@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://ctky8oexwkf86"]
+
+[ext_resource type="PackedScene" uid="uid://b80v810mybrrj" path="res://assets/drone-blob.glb" id="1_dil0n"]
+[ext_resource type="Script" uid="uid://dqg4i1t2glqmu" path="res://scenes/character_body_3d.gd" id="1_knnud"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wymg3"]
+
+[node name="drone" type="Node3D"]
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.59859, 0)
+script = ExtResource("1_knnud")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.451867, 0)
+shape = SubResource("BoxShape3D_wymg3")
+
+[node name="drone-blob" parent="CharacterBody3D" instance=ExtResource("1_dil0n")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.0479953, -0.425474, 0.903697, -0.0753944, 0.903702, 0.421472, -0.995998, -0.047905, -0.0754518, 2.46345, 5.14871, -0.0519948)

@@ -1,0 +1,75 @@
+[gd_scene load_steps=10 format=3 uid="uid://bo2o503w3xbqr"]
+
+[ext_resource type="PackedScene" uid="uid://ctky8oexwkf86" path="res://scenes/drone.tscn" id="1_o3xum"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o3xum"]
+sky_top_color = Color(0.347204, 0.513378, 0.808163, 1)
+sky_horizon_color = Color(0.7626, 0.794484, 0.856968, 1)
+ground_bottom_color = Color(0.265662, 0.227025, 0.182173, 1)
+ground_horizon_color = Color(0.7626, 0.794484, 0.856968, 1)
+energy_multiplier = 1.5
+
+[sub_resource type="Sky" id="Sky_jn762"]
+sky_material = SubResource("ProceduralSkyMaterial_o3xum")
+
+[sub_resource type="Environment" id="Environment_b7hjm"]
+background_mode = 2
+sky = SubResource("Sky_jn762")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rwgxs"]
+albedo_color = Color(2.88785e-07, 0.488805, 0.0904435, 0.764706)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_4wyf3"]
+material = SubResource("StandardMaterial3D_rwgxs")
+size = Vector2(100, 100)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jn762"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_b7hjm"]
+
+[sub_resource type="TextMesh" id="TextMesh_87j0a"]
+text = "HELLO, KALIBUTAN!!! "
+
+[node name="world" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_b7hjm")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.902585, -0.372834, 0.215256, 0, 0.5, 0.866025, -0.430511, 0.781662, -0.451293, 0, 0, 0)
+light_color = Color(0.913725, 0.647059, 0, 1)
+light_energy = 10.75
+shadow_enabled = true
+
+[node name="plane" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_4wyf3")
+
+[node name="drone" parent="." instance=ExtResource("1_o3xum")]
+
+[node name="building-meshes" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.193352, 0.593704, -0.212074)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="building-meshes"]
+transform = Transform3D(6.09158, -0.0112456, -2.49577, 0.00683385, 10.6591, -0.00216765, 3.6465, -0.00118975, 4.16926, 8.64936, 4.51961, -29.311)
+mesh = SubResource("BoxMesh_jn762")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="building-meshes"]
+transform = Transform3D(-4.40073, 0.00749325, -9.34113, 0.00705452, 33.8677, -0.00521106, 5.86052, -0.0351407, -7.01435, 28.0504, 15.8558, 33.3822)
+mesh = SubResource("BoxMesh_jn762")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="building-meshes"]
+transform = Transform3D(7.80032, -0.00924669, 3.31551, 0.00905805, 16.8632, -0.00264407, -5.2639, 0.0153156, 4.91309, -31.6576, 8.05709, -29.0768)
+mesh = SubResource("BoxMesh_jn762")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="building-meshes"]
+transform = Transform3D(4.86783, 0, 0, 0, 5.66201, 0, 0, 0, 1, 8.34655, 12.7451, -28.8392)
+mesh = SubResource("PrismMesh_b7hjm")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="building-meshes"]
+transform = Transform3D(-2.32406, -19.4217, 112.11, 0.76711, 31.0883, 71.8301, -15.9514, 4.32472, -12.8797, -41.5631, 8.18285, 36.4634)
+mesh = SubResource("TextMesh_87j0a")
