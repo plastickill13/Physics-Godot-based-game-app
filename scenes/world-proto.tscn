@@ -47,7 +47,7 @@ light_energy = 10.75
 shadow_enabled = true
 
 [node name="drone" parent="." instance=ExtResource("1_o3xum")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.94299, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.494823, 0)
 
 [node name="building-meshes" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.193352, 0.593704, -0.212074)

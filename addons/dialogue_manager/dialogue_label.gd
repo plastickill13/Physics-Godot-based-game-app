@@ -1,4 +1,4 @@
-@icon("./assets/icon.svg")
+con("./assets/icon.svg")
 
 @tool
 

@@ -8,6 +8,7 @@ size = Vector3(0.990723, 1.56598, 2.03641)
 
 [node name="drone" type="RigidBody3D"]
 collision_mask = 2
+mass = 2.0
 script = ExtResource("1_knnud")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -19,3 +20,5 @@ shape = SubResource("BoxShape3D_knnud")
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.00445173, -0.271256, 0.962497, 0.0012546, 0.962507, 0.271253, -0.999989, 0, 0.00462514, 2.65908, 5.14153, 0)
 current = true
+
+[node name="Marker3D" type="Marker3D" parent="."]
