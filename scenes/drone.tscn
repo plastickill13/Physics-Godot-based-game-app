@@ -1,21 +1,21 @@
 [gd_scene load_steps=4 format=3 uid="uid://ctky8oexwkf86"]
 
 [ext_resource type="PackedScene" uid="uid://b80v810mybrrj" path="res://assets/drone-blob.glb" id="1_dil0n"]
-[ext_resource type="Script" uid="uid://dqg4i1t2glqmu" path="res://scenes/character_body_3d.gd" id="1_knnud"]
+[ext_resource type="Script" uid="uid://bwlmpnc02j8e2" path="res://scenes/drone.gd" id="1_knnud"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_wymg3"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_knnud"]
+size = Vector3(0.990723, 1.56598, 2.03641)
 
-[node name="drone" type="Node3D"]
-
-[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.59859, 0)
+[node name="drone" type="RigidBody3D"]
+collision_mask = 2
 script = ExtResource("1_knnud")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.451867, 0)
-shape = SubResource("BoxShape3D_wymg3")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00463867, 2.97442, 0.1418)
+shape = SubResource("BoxShape3D_knnud")
 
-[node name="drone-blob" parent="CharacterBody3D" instance=ExtResource("1_dil0n")]
+[node name="drone-blob" parent="." instance=ExtResource("1_dil0n")]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.0479953, -0.425474, 0.903697, -0.0753944, 0.903702, 0.421472, -0.995998, -0.047905, -0.0754518, 2.46345, 5.14871, -0.0519948)
+transform = Transform3D(0.00445173, -0.271256, 0.962497, 0.0012546, 0.962507, 0.271253, -0.999989, 0, 0.00462514, 2.65908, 5.14153, 0)
+current = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bo2o503w3xbqr"]
+[gd_scene load_steps=11 format=3 uid="uid://bo2o503w3xbqr"]
 
 [ext_resource type="PackedScene" uid="uid://ctky8oexwkf86" path="res://scenes/drone.tscn" id="1_o3xum"]
 
@@ -18,19 +18,22 @@ sky = SubResource("Sky_jn762")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rwgxs"]
-albedo_color = Color(2.88785e-07, 0.488805, 0.0904435, 0.764706)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_4wyf3"]
-material = SubResource("StandardMaterial3D_rwgxs")
-size = Vector2(100, 100)
-
 [sub_resource type="BoxMesh" id="BoxMesh_jn762"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_b7hjm"]
 
 [sub_resource type="TextMesh" id="TextMesh_87j0a"]
 text = "HELLO, KALIBUTAN!!! "
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o3xum"]
+size = Vector3(100, 2, 100)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rwgxs"]
+albedo_color = Color(2.88785e-07, 0.488805, 0.0904435, 0.764706)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_4wyf3"]
+material = SubResource("StandardMaterial3D_rwgxs")
+size = Vector2(100, 100)
 
 [node name="world" type="Node3D"]
 
@@ -43,10 +46,8 @@ light_color = Color(0.913725, 0.647059, 0, 1)
 light_energy = 10.75
 shadow_enabled = true
 
-[node name="plane" type="MeshInstance3D" parent="."]
-mesh = SubResource("PlaneMesh_4wyf3")
-
 [node name="drone" parent="." instance=ExtResource("1_o3xum")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.94299, 0)
 
 [node name="building-meshes" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.193352, 0.593704, -0.212074)
@@ -73,3 +74,14 @@ mesh = SubResource("PrismMesh_b7hjm")
 [node name="MeshInstance3D5" type="MeshInstance3D" parent="building-meshes"]
 transform = Transform3D(-2.32406, -19.4217, 112.11, 0.76711, 31.0883, 71.8301, -15.9514, 4.32472, -12.8797, -41.5631, 8.18285, 36.4634)
 mesh = SubResource("TextMesh_87j0a")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_o3xum")
+
+[node name="plane" type="MeshInstance3D" parent="Area3D/CollisionShape3D"]
+layers = 2
+mesh = SubResource("PlaneMesh_4wyf3")
+skeleton = NodePath("../../..")
