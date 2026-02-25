@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://bo2o503w3xbqr"]
+[gd_scene load_steps=12 format=3 uid="uid://bo2o503w3xbqr"]
 
 [ext_resource type="PackedScene" uid="uid://ctky8oexwkf86" path="res://scenes/drone.tscn" id="1_o3xum"]
+[ext_resource type="PackedScene" uid="uid://b1ceiubr3qhp6" path="res://scenes/package.tscn" id="2_jn762"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o3xum"]
 sky_top_color = Color(0.347204, 0.513378, 0.808163, 1)
@@ -85,3 +86,13 @@ shape = SubResource("BoxShape3D_o3xum")
 layers = 2
 mesh = SubResource("PlaneMesh_4wyf3")
 skeleton = NodePath("../../..")
+
+[node name="package" parent="." instance=ExtResource("2_jn762")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.30488, 1.18642, 0)
+collision_layer = 4
+mass = 2.0
+
+[node name="PinJoint3D" type="PinJoint3D" parent="."]
+node_a = NodePath("../drone")
+node_b = NodePath("../package")
+exclude_nodes_from_collision = false

@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dpmxx0q3veynn" path="res://assets/city-assets/citybits_texture.png" id="1_y5vkf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bfkic"]
-size = Vector3(0.203613, 0.126343, 0.182556)
+size = Vector3(0.202637, 0.175476, 0.198532)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ok7ew"]
 resource_name = "citybits_texture"
@@ -45,7 +45,7 @@ shadow_mesh = SubResource("ArrayMesh_xlt56")
 [node name="package" type="RigidBody3D"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00366211, 0.111877, 0.00527954)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000976593, 0.0873104, 0.00379182)
 shape = SubResource("BoxShape3D_bfkic")
 
 [node name="box_A" type="MeshInstance3D" parent="."]
