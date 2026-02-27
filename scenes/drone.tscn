@@ -20,7 +20,7 @@ transform = Transform3D(-0.999836, -0.000406559, -0.0181316, -0.0123053, 0.74962
 current = true
 
 [node name="Marker3D" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.09211, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.264959, 2.40485, 0.000468075)
 
 [node name="helicopter" parent="." instance=ExtResource("2_knnud")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.246777, 2.4168, 0)

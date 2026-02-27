@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://bo2o503w3xbqr"]
+[gd_scene load_steps=14 format=3 uid="uid://bo2o503w3xbqr"]
 
 [ext_resource type="PackedScene" uid="uid://ctky8oexwkf86" path="res://scenes/drone.tscn" id="1_o3xum"]
 [ext_resource type="PackedScene" uid="uid://b1ceiubr3qhp6" path="res://scenes/package.tscn" id="2_jn762"]
+[ext_resource type="Script" uid="uid://3kbll7myaltk" path="res://scenes/string_mesh.gd" id="3_b7hjm"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o3xum"]
 sky_top_color = Color(0.347204, 0.513378, 0.808163, 1)
@@ -36,6 +37,11 @@ albedo_color = Color(2.88785e-07, 0.488805, 0.0904435, 0.764706)
 material = SubResource("StandardMaterial3D_rwgxs")
 size = Vector2(100, 100)
 
+[sub_resource type="CylinderMesh" id="CylinderMesh_87j0a"]
+top_radius = 0.02
+bottom_radius = 0.02
+height = 5.0
+
 [node name="world" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -48,7 +54,7 @@ light_energy = 10.75
 shadow_enabled = true
 
 [node name="drone" parent="." instance=ExtResource("1_o3xum")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.494823, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27066, 0.183438, 0.0315857)
 
 [node name="building-meshes" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.193352, 0.593704, -0.212074)
@@ -88,11 +94,17 @@ mesh = SubResource("PlaneMesh_4wyf3")
 skeleton = NodePath("../../..")
 
 [node name="package" parent="." instance=ExtResource("2_jn762")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.30488, 1.18642, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.0126393, -0.023558, 0)
 collision_layer = 4
 mass = 2.0
 
 [node name="PinJoint3D" type="PinJoint3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.17701, -0.063422)
 node_a = NodePath("../drone")
 node_b = NodePath("../package")
 exclude_nodes_from_collision = false
+
+[node name="StringMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.136551, 0)
+mesh = SubResource("CylinderMesh_87j0a")
+script = ExtResource("3_b7hjm")
