@@ -4,6 +4,9 @@ extends Camera3D
 @export var follow_speed: float = 8.0
 @export var rotation_speed: float = 5.0
 
+@export var smooth_speed = 2.0
+@export var offset = Vector3.ZERO
+
 func _physics_process(delta: float) -> void:
 	if target:
 		# 1. Smoothly follow the position
@@ -15,3 +18,22 @@ func _physics_process(delta: float) -> void:
 		var target_quat = target.global_transform.basis.get_rotation_quaternion()
 		
 		quaternion = current_quat.slerp(target_quat, rotation_speed * delta)
+		
+	if target:
+		var target_pos = target.global_position + offset
+		global_position = global_position.lerp(target_pos, smooth_speed * delta)
+	
+	if(Input.is_action_just_pressed("scroll-up")):
+		if(size < 10):
+			size = 10
+		else:
+			size -= 1.0 
+	if(Input.is_action_just_pressed("scroll-down")):
+		if(size > 30):
+			size = 30
+		else:
+			size += 1.0 
+	if(Input.is_action_just_pressed("scroll-click")):
+		size = 15
+
+		
