@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bo2o503w3xbqr"]
+[gd_scene load_steps=22 format=3 uid="uid://bo2o503w3xbqr"]
 
 [ext_resource type="PackedScene" uid="uid://b1ceiubr3qhp6" path="res://scenes/package.tscn" id="2_jn762"]
 [ext_resource type="Script" uid="uid://bdd0a1aq82cvf" path="res://scenes/camera_3d.gd" id="3_b7hjm"]
@@ -8,8 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://b5y45f7h8m5l4" path="res://assets/city-assets/building_D.gltf" id="7_prv8u"]
 [ext_resource type="Script" uid="uid://c1fasx6kggn3o" path="res://addons/road-generator/nodes/road_manager.gd" id="8_q1jtj"]
 [ext_resource type="Script" uid="uid://b86hnpko6l1bm" path="res://addons/road-generator/nodes/road_container.gd" id="9_fhm83"]
+[ext_resource type="Material" uid="uid://dpashsuk5lr4x" path="res://addons/road-generator/resources/road_texture.material" id="9_i1ooc"]
 [ext_resource type="Script" uid="uid://da2gupb4uvutj" path="res://addons/road-generator/nodes/road_point.gd" id="10_i1ooc"]
-[ext_resource type="PackedScene" uid="uid://ctky8oexwkf86" path="res://scenes/drone.tscn" id="10_q1jtj"]
+[ext_resource type="PackedScene" uid="uid://c2j6041m2u020" path="res://scenes/vehicle.tscn" id="11_fhm83"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o3xum"]
 sky_top_color = Color(0.347204, 0.513378, 0.808163, 1)
@@ -101,8 +102,9 @@ collision_layer = 4
 mass = 2.0
 
 [node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("target")]
+doppler_tracking = 2
 script = ExtResource("3_b7hjm")
-target = NodePath("../drone/CameraTarget")
+target = NodePath("../vehicle/CameraTarget")
 follow_speed = 6.5
 
 [node name="package2" parent="." instance=ExtResource("2_jn762")]
@@ -137,6 +139,7 @@ metadata/_custom_type_script = "uid://c1fasx6kggn3o"
 [node name="Road_001" type="Node3D" parent="RoadManager"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.5787, 1, 36.9867)
 script = ExtResource("9_fhm83")
+material_resource = ExtResource("9_i1ooc")
 use_lowpoly_preview = true
 physics_material = SubResource("PhysicsMaterial_q1jtj")
 override_collision_layers = true
@@ -252,7 +255,8 @@ next_mag = 8.0
 prior_pt_init = NodePath("../RP_001")
 next_pt_init = NodePath("../RP_010")
 
-[node name="drone" parent="." instance=ExtResource("10_q1jtj")]
+[node name="vehicle" parent="." instance=ExtResource("11_fhm83")]
 
 [editable path="package"]
-[editable path="drone"]
+[editable path="vehicle"]
+[editable path="vehicle/pickup_truck"]
