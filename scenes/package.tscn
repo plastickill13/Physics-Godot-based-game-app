@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=4 uid="uid://b1ceiubr3qhp6"]
+[gd_scene load_steps=7 format=4 uid="uid://b1ceiubr3qhp6"]
 
+[ext_resource type="Script" uid="uid://dmdyui3kmh03k" path="res://scenes/package.gd" id="1_bfkic"]
 [ext_resource type="Texture2D" uid="uid://dpmxx0q3veynn" path="res://assets/city-assets/citybits_texture.png" id="1_y5vkf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bfkic"]
@@ -43,6 +44,8 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_xlt56")
 
 [node name="package" type="RigidBody3D"]
+mass = 0.001
+script = ExtResource("1_bfkic")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000976593, 0.0873104, 0.00379182)
@@ -52,5 +55,5 @@ shape = SubResource("BoxShape3D_bfkic")
 mesh = SubResource("ArrayMesh_bitfr")
 skeleton = NodePath("")
 
-[node name="Marker3D" type="Marker3D" parent="."]
+[node name="PackageHook" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.183182, 0)

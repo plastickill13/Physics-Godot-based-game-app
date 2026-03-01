@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bk0ijsylbktex"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wjlr7"]
+radius = 0.05
+height = 0.3
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_yu86l"]
+radius = 0.05
+height = 0.3
+
+[node name="ropelink" type="RigidBody3D"]
+mass = 0.2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_wjlr7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_yu86l")

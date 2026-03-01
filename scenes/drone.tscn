@@ -1,26 +1,28 @@
 [gd_scene load_steps=4 format=3 uid="uid://ctky8oexwkf86"]
 
 [ext_resource type="Script" uid="uid://bwlmpnc02j8e2" path="res://scenes/drone.gd" id="1_knnud"]
-[ext_resource type="PackedScene" uid="uid://duby8fulx24ls" path="res://helicopter.tscn" id="2_knnud"]
+[ext_resource type="PackedScene" uid="uid://cyp0goln1fgv5" path="res://assets/drones-assets/Spaceship_level1.glb" id="2_knnud"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_knnud"]
-size = Vector3(0.990723, 1.56598, 2.03641)
+size = Vector3(0.990723, 0.395401, 0.872811)
 
 [node name="drone" type="RigidBody3D"]
 collision_mask = 2
+mass = 10.0
+center_of_mass_mode = 1
 script = ExtResource("1_knnud")
 tilt_torque = 10.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00463867, 2.97442, 0.1418)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00463867, 2.69165, 0.148632)
 shape = SubResource("BoxShape3D_knnud")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-0.999836, -0.000406559, -0.0181316, -0.0123053, 0.749627, 0.661746, 0.0133229, 0.66186, -0.749509, 0.121482, 3.81955, -1.09348)
 current = true
 
-[node name="Marker3D" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.264959, 2.40485, 0.000468075)
+[node name="DroneHook" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00688496, 2.40485, 0.000468075)
 
-[node name="helicopter" parent="." instance=ExtResource("2_knnud")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.246777, 2.4168, 0)
+[node name="sprite" parent="." instance=ExtResource("2_knnud")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 2.52935, 0)

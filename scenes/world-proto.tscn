@@ -1,8 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://bo2o503w3xbqr"]
+[gd_scene load_steps=13 format=3 uid="uid://bo2o503w3xbqr"]
 
-[ext_resource type="PackedScene" uid="uid://ctky8oexwkf86" path="res://scenes/drone.tscn" id="1_o3xum"]
 [ext_resource type="PackedScene" uid="uid://b1ceiubr3qhp6" path="res://scenes/package.tscn" id="2_jn762"]
-[ext_resource type="Script" uid="uid://3kbll7myaltk" path="res://scenes/string_mesh.gd" id="3_b7hjm"]
+[ext_resource type="PackedScene" uid="uid://c2j6041m2u020" path="res://scenes/vehicle.tscn" id="3_87j0a"]
+[ext_resource type="Script" uid="uid://bdd0a1aq82cvf" path="res://scenes/camera_3d.gd" id="3_b7hjm"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o3xum"]
 sky_top_color = Color(0.347204, 0.513378, 0.808163, 1)
@@ -17,8 +17,9 @@ sky_material = SubResource("ProceduralSkyMaterial_o3xum")
 [sub_resource type="Environment" id="Environment_b7hjm"]
 background_mode = 2
 sky = SubResource("Sky_jn762")
-tonemap_mode = 2
+tonemap_mode = 4
 glow_enabled = true
+glow_intensity = 0.3
 
 [sub_resource type="BoxMesh" id="BoxMesh_jn762"]
 
@@ -37,11 +38,6 @@ albedo_color = Color(2.88785e-07, 0.488805, 0.0904435, 0.764706)
 material = SubResource("StandardMaterial3D_rwgxs")
 size = Vector2(100, 100)
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_87j0a"]
-top_radius = 0.02
-bottom_radius = 0.02
-height = 5.0
-
 [node name="world" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -52,9 +48,6 @@ transform = Transform3D(-0.902585, -0.372834, 0.215256, 0, 0.5, 0.866025, -0.430
 light_color = Color(0.913725, 0.647059, 0, 1)
 light_energy = 10.75
 shadow_enabled = true
-
-[node name="drone" parent="." instance=ExtResource("1_o3xum")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27066, 0.183438, 0.0315857)
 
 [node name="building-meshes" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.193352, 0.593704, -0.212074)
@@ -82,29 +75,30 @@ mesh = SubResource("PrismMesh_b7hjm")
 transform = Transform3D(-2.32406, -19.4217, 112.11, 0.76711, 31.0883, 71.8301, -15.9514, 4.32472, -12.8797, -41.5631, 8.18285, 36.4634)
 mesh = SubResource("TextMesh_87j0a")
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="ground" type="StaticBody3D" parent="."]
 collision_layer = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ground"]
 shape = SubResource("BoxShape3D_o3xum")
 
-[node name="plane" type="MeshInstance3D" parent="Area3D/CollisionShape3D"]
+[node name="plane" type="MeshInstance3D" parent="ground/CollisionShape3D"]
 layers = 2
 mesh = SubResource("PlaneMesh_4wyf3")
 skeleton = NodePath("../../..")
 
 [node name="package" parent="." instance=ExtResource("2_jn762")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.0126393, -0.023558, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -2.91744, -0.023558, 0)
 collision_layer = 4
 mass = 2.0
 
-[node name="PinJoint3D" type="PinJoint3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.17701, -0.063422)
-node_a = NodePath("../drone")
-node_b = NodePath("../package")
-exclude_nodes_from_collision = false
+[node name="vehicle" parent="." instance=ExtResource("3_87j0a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.61105, 0)
 
-[node name="StringMesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.136551, 0)
-mesh = SubResource("CylinderMesh_87j0a")
+[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("target")]
 script = ExtResource("3_b7hjm")
+target = NodePath("../vehicle/CameraTarget")
+follow_speed = 6.5
+
+[editable path="package"]
+[editable path="vehicle"]
+[editable path="vehicle/pickup_truck"]

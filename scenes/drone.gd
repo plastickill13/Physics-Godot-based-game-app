@@ -6,7 +6,7 @@ extends RigidBody3D
 
 # Helpful for testing: automatically counters gravity
 @export var auto_hover: bool = true 
-
+@onready var hook_marker = $DroneHook
 func _physics_process(_delta: float) -> void:
 	var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 	
