@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=2 format=3 uid="uid://duejtvc38jx7"]
 
-[ext_resource type="Script" path="res://scenes/level_hub.gd" id="1_lwswu"]
+[ext_resource type="Script" uid="uid://b4dggg28d3hef" path="res://scenes/level_hub.gd" id="1_lwswu"]
 
 [node name="LevelHub" type="Node3D"]
 script = ExtResource("1_lwswu")

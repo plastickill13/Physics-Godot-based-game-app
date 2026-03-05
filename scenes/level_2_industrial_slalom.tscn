@@ -1,11 +1,11 @@
-[gd_scene load_steps=20 format=3]
+[gd_scene load_steps=16 format=3 uid="uid://ckccyyddqo3v4"]
 
-[ext_resource type="PackedScene" path="res://scenes/vehicle.tscn" id="1_veh"]
-[ext_resource type="PackedScene" path="res://scenes/package.tscn" id="2_pkg"]
-[ext_resource type="Script" path="res://scenes/camera_3d.gd" id="3_cam"]
-[ext_resource type="PackedScene" path="res://assets/city-assets/dumpster.gltf" id="4_dump"]
-[ext_resource type="PackedScene" path="res://assets/city-assets/road_straight.gltf" id="5_rs"]
-[ext_resource type="PackedScene" path="res://assets/city-assets/building_D.gltf" id="6_bd"]
+[ext_resource type="PackedScene" uid="uid://c2j6041m2u020" path="res://scenes/vehicle.tscn" id="1_veh"]
+[ext_resource type="PackedScene" uid="uid://b1ceiubr3qhp6" path="res://scenes/package.tscn" id="2_pkg"]
+[ext_resource type="Script" uid="uid://bdd0a1aq82cvf" path="res://scenes/camera_3d.gd" id="3_cam"]
+[ext_resource type="PackedScene" uid="uid://dydf5g6wmme6l" path="res://assets/city-assets/dumpster.gltf" id="4_dump"]
+[ext_resource type="PackedScene" uid="uid://driv7xgqslhth" path="res://assets/city-assets/road_straight.gltf" id="5_rs"]
+[ext_resource type="PackedScene" uid="uid://b5y45f7h8m5l4" path="res://assets/city-assets/building_D.gltf" id="6_bd"]
 
 [sub_resource type="ProceduralSkyMaterial" id="1_sky_mat"]
 sky_top_color = Color(0.321569, 0.337255, 0.486275, 1)
@@ -28,20 +28,19 @@ size = Vector3(220, 2, 220)
 
 [sub_resource type="StandardMaterial3D" id="5_ground_mat"]
 albedo_color = Color(0.196078, 0.223529, 0.219608, 1)
-roughness = 1.0
 
 [sub_resource type="PlaneMesh" id="6_ground_mesh"]
 material = SubResource("5_ground_mat")
 size = Vector2(220, 220)
-
-[sub_resource type="BoxMesh" id="7_wall_mesh"]
-size = Vector3(3, 3.5, 3)
 
 [sub_resource type="BoxShape3D" id="8_wall_shape"]
 size = Vector3(3, 3.5, 3)
 
 [sub_resource type="StandardMaterial3D" id="9_wall_mat"]
 albedo_color = Color(0.627451, 0.431373, 0.231373, 1)
+
+[sub_resource type="BoxMesh" id="7_wall_mesh"]
+size = Vector3(3, 3.5, 3)
 
 [node name="Level2IndustrialSlalom" type="Node3D"]
 
@@ -85,7 +84,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 52)
 transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 8.5, 63)
 current = true
 script = ExtResource("3_cam")
-target = NodePath("../vehicle/CameraTarget")
+target = NodePath("../vehicle")
 follow_speed = 6.5
 rotation_speed = 5.5
 offset = Vector3(0, 6, 12)
@@ -99,7 +98,7 @@ transform = Transform3D(1.45, 0, 0, 0, 1.45, 0, 0, 0, 1.45, 1.1, 0.65, 54.8)
 mass = 9.0
 
 [node name="PackageMedium" parent="." instance=ExtResource("2_pkg")]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0.4, 2.0, 55.5)
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0.4, 2, 55.5)
 mass = 4.5
 
 [node name="SlalomBarriers" type="Node3D" parent="."]
@@ -112,8 +111,8 @@ collision_layer = 2
 shape = SubResource("8_wall_shape")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="SlalomBarriers/barrier_1"]
-mesh = SubResource("7_wall_mesh")
 material_override = SubResource("9_wall_mat")
+mesh = SubResource("7_wall_mesh")
 
 [node name="barrier_2" type="StaticBody3D" parent="SlalomBarriers"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1.75, 20)
@@ -123,8 +122,8 @@ collision_layer = 2
 shape = SubResource("8_wall_shape")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="SlalomBarriers/barrier_2"]
-mesh = SubResource("7_wall_mesh")
 material_override = SubResource("9_wall_mat")
+mesh = SubResource("7_wall_mesh")
 
 [node name="barrier_3" type="StaticBody3D" parent="SlalomBarriers"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 1.75, 8)
@@ -134,8 +133,8 @@ collision_layer = 2
 shape = SubResource("8_wall_shape")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="SlalomBarriers/barrier_3"]
-mesh = SubResource("7_wall_mesh")
 material_override = SubResource("9_wall_mat")
+mesh = SubResource("7_wall_mesh")
 
 [node name="barrier_4" type="StaticBody3D" parent="SlalomBarriers"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1.75, -4)
@@ -145,8 +144,8 @@ collision_layer = 2
 shape = SubResource("8_wall_shape")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="SlalomBarriers/barrier_4"]
-mesh = SubResource("7_wall_mesh")
 material_override = SubResource("9_wall_mat")
+mesh = SubResource("7_wall_mesh")
 
 [node name="barrier_5" type="StaticBody3D" parent="SlalomBarriers"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 1.75, -16)
@@ -156,8 +155,8 @@ collision_layer = 2
 shape = SubResource("8_wall_shape")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="SlalomBarriers/barrier_5"]
-mesh = SubResource("7_wall_mesh")
 material_override = SubResource("9_wall_mat")
+mesh = SubResource("7_wall_mesh")
 
 [node name="barrier_6" type="StaticBody3D" parent="SlalomBarriers"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1.75, -28)
@@ -167,8 +166,8 @@ collision_layer = 2
 shape = SubResource("8_wall_shape")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="SlalomBarriers/barrier_6"]
-mesh = SubResource("7_wall_mesh")
 material_override = SubResource("9_wall_mat")
+mesh = SubResource("7_wall_mesh")
 
 [node name="dumpster_a" parent="." instance=ExtResource("4_dump")]
 transform = Transform3D(1.9, 0, 0, 0, 1.9, 0, 0, 0, 1.9, -11.5, 0, 12)
