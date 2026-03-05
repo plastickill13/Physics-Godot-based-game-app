@@ -32,4 +32,4 @@ func _physics_process(delta: float) -> void:
 	else:
 		# Letting go of the gas
 		engine_force = 0.0
-		brake = 0.0 # Let it coast naturally, or add a small number here to simulate friction
+		brake = 0.125 # Let it coast naturally, or add a small number here to simulate friction
