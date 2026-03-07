@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://bbtqc6bjuyiqc" path="res://scenes/cargo_zone.gd" id="4_psfx0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d0fkt"]
-size = Vector3(1.36646, 0.279541, 3.61691)
+size = Vector3(1.36646, 0.520081, 3.61691)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tvtne"]
 size = Vector3(1.52972, 0.85437, 1.26086)
@@ -35,33 +35,33 @@ point_count = 4
 size = Vector3(1.17285, 0.880737, 1)
 
 [node name="vehicle" type="VehicleBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0120463, 0.423883, -0.00812459)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0120463, 0.629174, -0.00812459)
 collision_mask = 2
 mass = 50.0
 script = ExtResource("1_pu4i8")
 
 [node name="col-bottom" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0589603, 0.25896, 0.0795752)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0589603, 0.419772, 0.0795752)
 shape = SubResource("BoxShape3D_d0fkt")
 
 [node name="col-front" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0260315, 0.76465, 0.0184755)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0260315, 1.04573, 0.0184755)
 shape = SubResource("BoxShape3D_tvtne")
 
 [node name="col-left-side" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.669438, 0.494347, 0.732422)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.669438, 0.775429, 0.732422)
 shape = SubResource("BoxShape3D_psfx0")
 
 [node name="col-left-right" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.672528, 0.494347, 0.732422)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.672528, 0.775429, 0.732422)
 shape = SubResource("BoxShape3D_psfx0")
 
 [node name="col-rear" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.017657, 0.477768, 1.95964)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.017657, 0.75885, 1.95964)
 shape = SubResource("BoxShape3D_6gcpt")
 
 [node name="pickup_truck" parent="." instance=ExtResource("2_tvtne")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0230334, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.304115, 0)
 
 [node name="Wheel 2" parent="pickup_truck" index="2"]
 visible = false
