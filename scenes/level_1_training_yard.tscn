@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bcjtwheuwsd8m"]
+[gd_scene load_steps=16 format=3 uid="uid://bcjtwheuwsd8m"]
 
 [ext_resource type="PackedScene" uid="uid://c2j6041m2u020" path="res://scenes/vehicle.tscn" id="1_veh"]
 [ext_resource type="Script" uid="uid://bdd0a1aq82cvf" path="res://scenes/camera_3d.gd" id="3_cam"]
@@ -6,7 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://l207ivgjibpp" path="res://assets/city-assets/building_C.gltf" id="5_bc"]
 [ext_resource type="Script" uid="uid://c1fasx6kggn3o" path="res://addons/road-generator/nodes/road_manager.gd" id="5_ncck5"]
 [ext_resource type="Script" uid="uid://b86hnpko6l1bm" path="res://addons/road-generator/nodes/road_container.gd" id="6_1uhmg"]
+[ext_resource type="Material" uid="uid://dpashsuk5lr4x" path="res://addons/road-generator/resources/road_texture.material" id="7_1uhmg"]
 [ext_resource type="Script" uid="uid://da2gupb4uvutj" path="res://addons/road-generator/nodes/road_point.gd" id="7_bawic"]
+[ext_resource type="PackedScene" uid="uid://b1ceiubr3qhp6" path="res://scenes/package.tscn" id="9_bawic"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jtl3q"]
 sky_top_color = Color(0.347204, 0.513378, 0.808163, 1)
@@ -82,6 +84,7 @@ metadata/_custom_type_script = "uid://c1fasx6kggn3o"
 [node name="Road_001" type="Node3D" parent="roads/RoadManager"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.093, 0.999878, 4.50472)
 script = ExtResource("6_1uhmg")
+material_resource = ExtResource("7_1uhmg")
 use_lowpoly_preview = true
 override_collision_layers = true
 collision_layer = 2
@@ -198,5 +201,12 @@ next_mag = 18.779
 prior_pt_init = NodePath("../RP_002")
 next_pt_init = NodePath("../RP_010")
 
+[node name="package" parent="." instance=ExtResource("9_bawic")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -30.6157, 1.94087, -13.0363)
+
+[node name="CollisionShape3D" parent="package" index="0"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.000976593, 0.0873104, 0.00379182)
+
 [editable path="vehicle"]
 [editable path="vehicle/pickup_truck"]
+[editable path="package"]

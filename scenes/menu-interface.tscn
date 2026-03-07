@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=3 uid="uid://650kwkx1awab"]
+
+[ext_resource type="Script" uid="uid://c2grxaejw5q8a" path="res://scenes/menu_interface.gd" id="1_bw4i8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_n7fws"]
+font_size = 128
+
+[node name="interface" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_right = 511.0
+offset_bottom = 168.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bw4i8")
+
+[node name="CenterContainer" type="VSplitContainer" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Title"
+label_settings = SubResource("LabelSettings_n7fws")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="play-button" type="Button" parent="CenterContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Play"
+
+[node name="settings-button" type="Button" parent="CenterContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Settings"
+
+[node name="exit-button" type="Button" parent="CenterContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Exit"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer2/play-button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer2/settings-button" to="." method="_on_settingsbutton_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer2/exit-button" to="." method="_on_exitbutton_pressed"]
