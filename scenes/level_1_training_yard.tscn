@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bcjtwheuwsd8m"]
+[gd_scene load_steps=20 format=3 uid="uid://bcjtwheuwsd8m"]
 
 [ext_resource type="PackedScene" uid="uid://c2j6041m2u020" path="res://scenes/vehicle.tscn" id="1_veh"]
 [ext_resource type="PackedScene" uid="uid://cbjo44edd4pxh" path="res://assets/city-assets/building_A.gltf" id="4_ba"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://b1ceiubr3qhp6" path="res://scenes/package.tscn" id="9_bawic"]
 [ext_resource type="Script" uid="uid://cbc7rdf36ywwd" path="res://scenes/marker_3d.gd" id="10_fbfj4"]
 [ext_resource type="PackedScene" uid="uid://bqx38rsdpdk6r" path="res://scenes/player.tscn" id="11_h62me"]
+[ext_resource type="Shader" uid="uid://banyqsqduwx5u" path="res://shaders/ToonShader.gdshader" id="11_qi1id"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jtl3q"]
 sky_top_color = Color(0.347204, 0.513378, 0.808163, 1)
@@ -38,6 +39,10 @@ material = SubResource("5_ground_mat")
 size = Vector2(220, 220)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_h62me"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5wywx"]
+render_priority = 0
+shader = ExtResource("11_qi1id")
 
 [node name="Level1TrainingYard" type="Node3D"]
 
@@ -212,6 +217,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.3347, 43.5588)
 
 [node name="player" parent="." instance=ExtResource("11_h62me")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00634766, 2.6521, 49.8916)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_5wywx")
+offset_right = 1151.0
+offset_bottom = 646.0
 
 [editable path="vehicle"]
 [editable path="vehicle/pickup_truck"]
