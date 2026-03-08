@@ -5,7 +5,7 @@
 [ext_resource type="ArrayMesh" uid="uid://dvqygq57caiio" path="res://assets/wheel.res" id="3_psfx0"]
 [ext_resource type="Script" uid="uid://bbtqc6bjuyiqc" path="res://scenes/cargo_zone.gd" id="4_psfx0"]
 [ext_resource type="Script" uid="uid://csinldj0iy3m2" path="res://scenes/door_zone.gd" id="5_6gcpt"]
-[ext_resource type="Script" uid="uid://cvxl8jpcmxifa" path="res://scenes/truck_camera.gd" id="6_e2g1l"]
+[ext_resource type="Script" uid="uid://bdd0a1aq82cvf" path="res://scenes/camera_3d.gd" id="6_e2g1l"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d0fkt"]
 size = Vector3(1.36646, 0.520081, 3.61691)
@@ -112,6 +112,9 @@ use_as_traction = true
 transform = Transform3D(-0.0331602, 0, -20, 0, 50, 0, 50, 0, -0.0132641, 0.144002, 0, -0.0657349)
 mesh = ExtResource("3_psfx0")
 
+[node name="CameraTarget" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.93216, 2.85275)
+
 [node name="smoke-particles" type="CPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0375541, 1.99221)
 amount = 16
@@ -143,22 +146,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0112305, 0.757548, 1.24631)
 shape = SubResource("BoxShape3D_e2g1l")
 
 [node name="door-zone" type="Area3D" parent="."]
-collision_layer = 0
-collision_mask = 8
 script = ExtResource("5_6gcpt")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="door-zone"]
 transform = Transform3D(3.14082, 0, 0, 0, 1, 0, 0, 0, 1.85462, -0.0126522, 0.783681, -0.145515)
 shape = SubResource("BoxShape3D_vuxys")
 
-[node name="truck-camera" type="Node3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.29252, 7.37286)
+doppler_tracking = 2
 script = ExtResource("6_e2g1l")
-speed_for_max_fov = 10.0
-
-[node name="SpringArm3D" type="SpringArm3D" parent="truck-camera"]
-transform = Transform3D(1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 2.23345, 0.718981)
-spring_length = 5.0
-
-[node name="Camera3D" type="Camera3D" parent="truck-camera/SpringArm3D"]
+target = NodePath("")
+follow_speed = 6.5
+rotation_speed = null
+smooth_speed = null
+offset = null
 
 [editable path="pickup_truck"]

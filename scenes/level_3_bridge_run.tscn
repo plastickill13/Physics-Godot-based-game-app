@@ -121,11 +121,10 @@ mesh = SubResource("7_bridge_mesh")
 [node name="vehicle" parent="." instance=ExtResource("1_veh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.8, 63)
 
-[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("target")]
+[node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 13, 77)
 current = true
 script = ExtResource("3_cam")
-target = NodePath("../vehicle/CameraTarget")
 follow_speed = 7.0
 rotation_speed = 5.5
 offset = Vector3(0, 7, 13)

@@ -1,7 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://bcjtwheuwsd8m"]
+[gd_scene load_steps=18 format=3 uid="uid://bcjtwheuwsd8m"]
 
 [ext_resource type="PackedScene" uid="uid://c2j6041m2u020" path="res://scenes/vehicle.tscn" id="1_veh"]
-[ext_resource type="Script" uid="uid://bdd0a1aq82cvf" path="res://scenes/camera_3d.gd" id="3_cam"]
 [ext_resource type="PackedScene" uid="uid://cbjo44edd4pxh" path="res://assets/city-assets/building_A.gltf" id="4_ba"]
 [ext_resource type="PackedScene" uid="uid://l207ivgjibpp" path="res://assets/city-assets/building_C.gltf" id="5_bc"]
 [ext_resource type="Script" uid="uid://c1fasx6kggn3o" path="res://addons/road-generator/nodes/road_manager.gd" id="5_ncck5"]
@@ -9,6 +8,8 @@
 [ext_resource type="Material" uid="uid://dpashsuk5lr4x" path="res://addons/road-generator/resources/road_texture.material" id="7_1uhmg"]
 [ext_resource type="Script" uid="uid://da2gupb4uvutj" path="res://addons/road-generator/nodes/road_point.gd" id="7_bawic"]
 [ext_resource type="PackedScene" uid="uid://b1ceiubr3qhp6" path="res://scenes/package.tscn" id="9_bawic"]
+[ext_resource type="Script" uid="uid://cbc7rdf36ywwd" path="res://scenes/marker_3d.gd" id="10_fbfj4"]
+[ext_resource type="PackedScene" uid="uid://bqx38rsdpdk6r" path="res://scenes/player.tscn" id="11_h62me"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jtl3q"]
 sky_top_color = Color(0.347204, 0.513378, 0.808163, 1)
@@ -27,7 +28,7 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="BoxShape3D" id="4_ground_shape"]
-size = Vector3(220, 2, 220)
+size = Vector3(220, 0.5, 220)
 
 [sub_resource type="StandardMaterial3D" id="5_ground_mat"]
 albedo_color = Color(0.243137, 0.52549, 0.211765, 1)
@@ -35,6 +36,8 @@ albedo_color = Color(0.243137, 0.52549, 0.211765, 1)
 [sub_resource type="PlaneMesh" id="6_ground_mesh"]
 material = SubResource("5_ground_mat")
 size = Vector2(220, 220)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_h62me"]
 
 [node name="Level1TrainingYard" type="Node3D"]
 
@@ -51,6 +54,7 @@ shadow_enabled = true
 collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.548642, 0)
 shape = SubResource("4_ground_shape")
 
 [node name="ground_mesh" type="MeshInstance3D" parent="ground"]
@@ -65,15 +69,6 @@ transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 24, -0.192064, -24)
 
 [node name="vehicle" parent="." instance=ExtResource("1_veh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.48558, 42)
-
-[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("target")]
-transform = Transform3D(1, 0, 0, 0, 0.978148, 0.207912, 0, -0.207912, 0.978148, 0, 8, 52)
-doppler_tracking = 2
-current = true
-script = ExtResource("3_cam")
-target = NodePath("../vehicle/CameraTarget")
-follow_speed = 6.0
-offset = Vector3(0, 5.5, 11)
 
 [node name="roads" type="Node3D" parent="."]
 
@@ -201,12 +196,24 @@ next_mag = 18.779
 prior_pt_init = NodePath("../RP_002")
 next_pt_init = NodePath("../RP_010")
 
-[node name="package" parent="." instance=ExtResource("9_bawic")]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -30.6157, 1.94087, -13.0363)
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -30.7739, 1.51139, -12.2512)
 
-[node name="CollisionShape3D" parent="package" index="0"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.000976593, 0.0873104, 0.00379182)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_h62me")
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2277, 4.15762, 43.886)
+script = ExtResource("10_fbfj4")
+package_scene = ExtResource("9_bawic")
+
+[node name="package" parent="." instance=ExtResource("9_bawic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.3347, 43.5588)
+
+[node name="player" parent="." instance=ExtResource("11_h62me")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00634766, 2.6521, 49.8916)
 
 [editable path="vehicle"]
 [editable path="vehicle/pickup_truck"]
-[editable path="package"]
+[editable path="player"]
+[editable path="player/godot_plush_model"]

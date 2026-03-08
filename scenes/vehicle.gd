@@ -4,9 +4,16 @@ extends VehicleBody3D
 @export var max_brake_force: float = 10.0
 @export var max_steer_angle: float = 0.6 # Roughly 35 degrees
 @export var steering_speed: float = 5.0
+var is_driven: bool = false 
 
 func _physics_process(delta: float) -> void:
 	# 1. Get Inputs
+	if not is_driven:
+		engine_force = 0.0
+		brake = 10.0 # Keeps the truck from rolling away on hills!
+		steering = 0.0
+		return 
+	
 	var accel_input = Input.get_axis("move_backward", "move_forward")
 	var steer_input = Input.get_axis("move_right", "move_left")
 	
