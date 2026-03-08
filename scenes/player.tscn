@@ -1,16 +1,64 @@
-[gd_scene load_steps=4 format=3 uid="uid://bqx38rsdpdk6r"]
+[gd_scene load_steps=6 format=3 uid="uid://bqx38rsdpdk6r"]
 
 [ext_resource type="Script" uid="uid://q8yfn2lvsv65" path="res://scenes/player.gd" id="1_3vyb7"]
+[ext_resource type="PackedScene" uid="uid://cnehluehwp1ie" path="res://assets/godot_plush_model.glb" id="2_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://dm4uw7rhn1aw8" path="res://assets/godot_plush_albedo.png" id="3_dqkch"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u8vuu"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_3vyb7"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qlg0r"]
+albedo_texture = ExtResource("3_dqkch")
 
 [node name="player" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00634766, 0.592224, -0.00299072)
+collision_layer = 8
+collision_mask = 7
 script = ExtResource("1_3vyb7")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.666992, 0)
 shape = SubResource("CapsuleShape3D_u8vuu")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("CapsuleMesh_3vyb7")
+[node name="godot_plush_model" parent="." instance=ExtResource("2_qhqgy")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="Skeleton3D" parent="godot_plush_model/Rig" index="0"]
+bones/0/position = Vector3(0, 0.771006, 0)
+bones/0/rotation = Quaternion(2.18024e-08, 0.0599597, -1.24453e-09, 0.998201)
+bones/1/rotation = Quaternion(0.125416, -0.226887, 0.907592, -0.330256)
+bones/2/rotation = Quaternion(0.125935, 0.0289419, -0.00367561, 0.99161)
+bones/4/rotation = Quaternion(0.0740746, 0.160829, 0.923674, 0.339814)
+bones/5/rotation = Quaternion(0.272695, 0.0280672, -0.00795898, 0.961658)
+bones/7/position = Vector3(0, 0.771006, 0)
+bones/7/rotation = Quaternion(0.998201, 1.36311e-09, -0.0599597, 2.18252e-08)
+bones/8/rotation = Quaternion(-0.139453, -0.00633837, -0.0925323, 0.985876)
+bones/9/position = Vector3(-2.9284e-08, 0.151421, -1.09753e-09)
+bones/9/rotation = Quaternion(0.340107, -0.190579, 0.0705765, 0.918164)
+bones/10/position = Vector3(-3.82414e-09, 0.205209, 1.63783e-08)
+bones/10/rotation = Quaternion(-0.568572, 0.0496917, 0.040212, 0.820146)
+bones/11/position = Vector3(-1.89742e-08, 0.251212, -1.34573e-08)
+bones/11/rotation = Quaternion(-0.000102663, 0.932449, -0.361302, 4.62663e-05)
+bones/12/rotation = Quaternion(-0.0442836, 0.00377904, 0.058496, 0.997298)
+bones/13/position = Vector3(3.86347e-08, 0.151858, 7.4507e-09)
+bones/13/rotation = Quaternion(0.287264, 0.196155, -0.0602435, 0.935614)
+bones/14/position = Vector3(-2.37578e-08, 0.205671, -1.50549e-09)
+bones/14/rotation = Quaternion(-0.60112, 0.0707537, -0.0230304, 0.795687)
+bones/15/position = Vector3(-4.38181e-08, 0.251207, -3.54451e-08)
+bones/15/rotation = Quaternion(-2.78112e-05, 0.93246, -0.361272, 0.000277901)
+
+[node name="GodotPlushMesh" parent="godot_plush_model/Rig/Skeleton3D" index="0"]
+material_override = SubResource("StandardMaterial3D_qlg0r")
+
+[node name="AnimationPlayer" parent="godot_plush_model" index="1"]
+autoplay = "idle"
+
+[node name="CameraPivot" type="Node3D" parent="."]
+
+[node name="SpringArm3D" type="SpringArm3D" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.69324, 0)
+spring_length = 4.0
+
+[node name="PlayerCamera" type="Camera3D" parent="CameraPivot/SpringArm3D"]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 3.17425, 3.56067)
+
+[editable path="godot_plush_model"]
