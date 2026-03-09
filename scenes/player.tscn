@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bqx38rsdpdk6r"]
+[gd_scene load_steps=12 format=3 uid="uid://bqx38rsdpdk6r"]
 
 [ext_resource type="Script" uid="uid://q8yfn2lvsv65" path="res://scenes/player.gd" id="1_3vyb7"]
 [ext_resource type="PackedScene" uid="uid://cnehluehwp1ie" path="res://assets/godot_plush_model.glb" id="2_qhqgy"]
@@ -6,6 +6,7 @@
 [ext_resource type="Shader" uid="uid://dnixfrns3rt86" path="res://addons/flexible_toon_shader/flexible_toon.gdshader" id="4_dqkch"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u8vuu"]
+height = 1.68147
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qlg0r"]
 albedo_texture = ExtResource("3_dqkch")
@@ -38,6 +39,9 @@ lifetime_randomness = 0.3
 material = SubResource("StandardMaterial3D_dqkch")
 size = Vector2(0.25, 0.25)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_dqkch"]
+size = Vector3(1.66217, 1, 1.03955)
+
 [node name="player" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00634766, 0.592224, -0.00299072)
 collision_layer = 8
@@ -45,7 +49,7 @@ collision_mask = 7
 script = ExtResource("1_3vyb7")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.06354, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.742485, 0)
 shape = SubResource("CapsuleShape3D_u8vuu")
 
 [node name="sprite" parent="." instance=ExtResource("2_qhqgy")]
@@ -94,5 +98,16 @@ emitting = false
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_qhqgy")
 draw_pass_1 = SubResource("QuadMesh_qlg0r")
+
+[node name="hold-package" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1.36755, 0, 0, 0, 1, -0.0272102, 2.07504, -0.635193)
+
+[node name="interactable-area" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="interactable-area"]
+transform = Transform3D(1, 0, 0, 0, 0.661774, 0, 0, 0, 1, 0.0586853, 0.681491, -0.346116)
+shape = SubResource("BoxShape3D_dqkch")
 
 [editable path="sprite"]

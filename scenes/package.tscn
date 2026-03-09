@@ -5,7 +5,7 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bfkic"]
 
-[node name="package" type="RigidBody3D"]
+[node name="package" type="RigidBody3D" groups=["package"]]
 collision_layer = 4
 collision_mask = 3
 mass = 5.0

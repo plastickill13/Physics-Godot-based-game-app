@@ -7,6 +7,10 @@ const MAX_TILT_DEGREES = 15.0
 @onready var camera = $CameraPivot/SpringArm3D/PlayerCamera
 @onready var visual_node = $sprite # Or MeshInstance3D
 @onready var dust_particles = $dust # Reference to your new particle node!
+@onready var hold_position = $"hold-package"
+@onready var pickup_zone = $"interactable-area"
+
+var carried_package: RigidBody3D = null
 
 var bounce_tween: Tween 
 var is_bouncing: bool = false
@@ -82,7 +86,53 @@ func stop_bounce_animation() -> void:
 	bounce_tween = create_tween()
 	bounce_tween.tween_property(visual_node, "position:y", 0.0, 0.1).set_trans(Tween.TRANS_SINE)
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("interact"): # Change "interact" to whatever key you use!
+		if carried_package:
+			drop_package()
+		else:
+			try_pickup_package()
+
 func spawn_dust() -> void:
 	# Double check we are actually on the ground (so dust doesn't spawn mid-air if we fall)
 	if is_on_floor() and dust_particles:
 		dust_particles.restart() # Forces the One-Shot emitter to burst immediately
+		
+		
+func try_pickup_package() -> void:
+	# 1. Ask the Area3D what physical bodies are currently inside it
+	var bodies = pickup_zone.get_overlapping_bodies()
+	
+	for body in bodies:
+		# 2. Check if the body has the "package" group tag we added earlier
+		if body is RigidBody3D and body.is_in_group("package"):
+			carried_package = body
+			
+			# 3. THE PHYSICS TRICK
+			carried_package.freeze = true # Stop it from falling
+			
+			# Move it from the world into the player's hands in the scene tree
+			carried_package.reparent(hold_position) 
+			
+			# Snap its physical position and rotation to exactly match the Marker3D
+			carried_package.global_position = hold_position.global_position
+			carried_package.global_rotation = hold_position.global_rotation
+			
+			break # Stop looping so we only pick up one box at a time!
+
+func drop_package() -> void:
+	# 1. Un-glue it from the player and put it back in the main world level
+	carried_package.reparent(get_tree().current_scene)
+	
+	# 2. Turn gravity and physics back on
+	carried_package.freeze = false
+	
+	# 3. Give it a gentle toss forward and slightly up
+	# We use the player's forward direction (-Z axis)
+	var throw_direction = -global_transform.basis.z + Vector3(0, 0.5, 0)
+	
+	# apply_central_impulse acts like a sudden kick to the physics object
+	carried_package.apply_central_impulse(throw_direction.normalized() * 4.0)
+	
+	# 4. Clear our hands
+	carried_package = null
