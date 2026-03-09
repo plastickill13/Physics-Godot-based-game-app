@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d3ia0dgkea62f"
+path="res://.godot/imported/Careless whisper (MEOW Version).mp3-e288ef95c78390998b4230557cd01966.mp3str"
+
+[deps]
+
+source_file="res://radio/Careless whisper (MEOW Version).mp3"
+dest_files=["res://.godot/imported/Careless whisper (MEOW Version).mp3-e288ef95c78390998b4230557cd01966.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
