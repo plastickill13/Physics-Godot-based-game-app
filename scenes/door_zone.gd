@@ -2,10 +2,13 @@ extends Area3D
 
 @onready var truck = $".." # Gets the parent VehicleBody3D
 @onready var truck_camera = $"../truck-camera/SpringArm3D/Camera3D" # Adjust this path to wherever your truck camera is!
-
+@onready var label = $"door-label"
+@onready var lights = $"../lights"
 var player_node: Node3D = null
+var lights_on = true
 
 func _ready() -> void:
+	label.visible = false
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
 
@@ -13,10 +16,16 @@ func _ready() -> void:
 func _on_body_entered(body: Node3D) -> void:
 	if body.name == "player": # Ensure your player node is named exactly "Player"
 		player_node = body
-
+		label.visible = true
+	
 func _on_body_exited(body: Node3D) -> void:
-	if body.name == "player":
-		player_node = null
+	if body.name == "Player":
+		# ONLY clear the player variable if the truck is NOT being driven.
+		# If they are inside driving, hold onto that reference!
+		if not truck.is_driven:
+			player_node = null
+	
+	label.visible = false		
 
 # 2. Listen for the Interact button
 func _unhandled_input(event: InputEvent) -> void:
@@ -29,7 +38,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		# GETTING OUT: If the truck IS currently being driven
 		elif truck.is_driven:
 			exit_truck()
-
+	if event.is_action_pressed("lights"):
+		lights_on = !lights_on
+		lights.visible = lights_on
+		
 func enter_truck() -> void:
 	truck.is_driven = true
 	
@@ -37,7 +49,8 @@ func enter_truck() -> void:
 	player_node.set_physics_process(false)
 	player_node.set_process(false)
 	player_node.hide() 
-	
+	print("Found Truck: ", truck)
+	print("Found Camera: ", truck_camera)
 	# Switch to the truck's camera!
 	truck_camera.make_current()
 
