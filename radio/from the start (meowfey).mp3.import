@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bavxyqeyyntx2"
+path="res://.godot/imported/from the start (meowfey).mp3-1c3b0c86aa155a405e3b33477d4e9b92.mp3str"
+
+[deps]
+
+source_file="res://radio/from the start (meowfey).mp3"
+dest_files=["res://.godot/imported/from the start (meowfey).mp3-1c3b0c86aa155a405e3b33477d4e9b92.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
