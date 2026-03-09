@@ -214,6 +214,7 @@ omni_range = 0.2
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0153418, 1.50208, 0.012872)
 stream = ExtResource("8_p2hth")
+max_db = 1.75
 autoplay = true
 max_distance = 100.0
 doppler_tracking = 2

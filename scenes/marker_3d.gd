@@ -16,9 +16,9 @@ func spawn_random_package() -> void:
 	var new_package = package_scene.instantiate() as RigidBody3D
 	
 	# 1. Generate Random Dimensions (e.g., between 0.4 and 1.2 meters)
-	var rand_x = randf_range(0.4, 1.2)
-	var rand_y = randf_range(0.4, 1.2)
-	var rand_z = randf_range(0.4, 1.2)
+	var rand_x = randf_range(0.4, 1.0)
+	var rand_y = randf_range(0.4, 1.0)
+	var rand_z = randf_range(0.4, 1.0)
 	var random_size = Vector3(rand_x, rand_y, rand_z)
 	
 	# 2. Resize the Collision Shape (Must duplicate to make it unique!)

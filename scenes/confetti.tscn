@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://be1di3bljswsr"]
+
+[ext_resource type="Script" uid="uid://cn4dbuauq6gdt" path="res://scenes/confetti.gd" id="1_xjk0n"]
+
+[sub_resource type="Gradient" id="Gradient_du648"]
+offsets = PackedFloat32Array(0.227273, 0.6, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.800601, 0.47512, 0.136105, 1, 0.521348, 0.80923, 0.506489, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_xjk0n"]
+gradient = SubResource("Gradient_du648")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xejpt"]
+direction = Vector3(0, 1, 0)
+spread = 90.0
+initial_velocity_min = 3.0
+initial_velocity_max = 6.0
+scale_min = 0.5
+scale_max = 0.9
+color_ramp = SubResource("GradientTexture1D_xjk0n")
+hue_variation_min = -0.46
+hue_variation_max = 0.35
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_du648"]
+albedo_color = Color(0.367395, 0.258855, 0.0705904, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2hbhx"]
+material = SubResource("StandardMaterial3D_du648")
+size = Vector3(0.25, 0.25, 0.25)
+
+[node name="confetti" type="GPUParticles3D"]
+emitting = false
+amount = 30
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_xejpt")
+draw_pass_1 = SubResource("BoxMesh_2hbhx")
+script = ExtResource("1_xjk0n")
