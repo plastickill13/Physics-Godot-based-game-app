@@ -10,7 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://bavxyqeyyntx2" path="res://radio/from the start (meowfey).mp3" id="8_p2hth"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d0fkt"]
-size = Vector3(1.36646, 0.520081, 3.61691)
+size = Vector3(1.36646, 0.551633, 3.61691)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tvtne"]
 size = Vector3(1.52972, 0.85437, 1.26086)
@@ -36,7 +36,7 @@ _data = [Vector2(0.119318, -0.370787), 0.0, 0.0, 0, 0, Vector2(0.380682, 0.19101
 point_count = 4
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e2g1l"]
-size = Vector3(1.17285, 0.880737, 1)
+size = Vector3(1.17285, 1.05902, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vuxys"]
 size = Vector3(3, 1, 0.766)
@@ -48,27 +48,27 @@ mass = 50.0
 script = ExtResource("1_pu4i8")
 
 [node name="col-bottom" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0589603, 0.676499, 0.0795752)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.178829, 0.608387, 0.0621435)
 shape = SubResource("BoxShape3D_d0fkt")
 
 [node name="col-front" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0260315, 1.30246, 0.0184755)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1459, 1.43029, 0.00104376)
 shape = SubResource("BoxShape3D_tvtne")
 
 [node name="col-left-side" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.669438, 1.03216, 0.732422)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.549569, 1.15999, 0.71499)
 shape = SubResource("BoxShape3D_psfx0")
 
 [node name="col-left-right" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.672528, 1.03216, 0.732422)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.792397, 1.15999, 0.71499)
 shape = SubResource("BoxShape3D_psfx0")
 
 [node name="col-rear" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.017657, 1.01558, 1.95964)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.137526, 1.14341, 1.94221)
 shape = SubResource("BoxShape3D_6gcpt")
 
 [node name="pickup_truck" parent="." instance=ExtResource("2_tvtne")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.560842, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.119869, 0.507959, -0.0174317)
 
 [node name="Wheel 2" parent="pickup_truck" index="2"]
 visible = false
@@ -86,35 +86,36 @@ visible = false
 surface_material_override/0 = ExtResource("3_vuxys")
 
 [node name="front-a" type="VehicleWheel3D" parent="."]
-transform = Transform3D(-0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, -0.609331, 0.24566, -0.978986)
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -0.51284, 0.24566, -1.02446)
 use_as_steering = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="front-a"]
-transform = Transform3D(0.0331559, 0, 20, 0, 50, 0, -50, 0, 0.0132624, 0.144002, 0, -0.065735)
+transform = Transform3D(0.0265247, 0, 20, 0, 40, 0, -40, 0, 0.0132624, 0, 0, 0)
 mesh = ExtResource("3_psfx0")
 
 [node name="front-b" type="VehicleWheel3D" parent="."]
-transform = Transform3D(-0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, 0.801817, 0.24566, -0.972625)
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0.799385, 0.24566, -1.01809)
 use_as_steering = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="front-b"]
-transform = Transform3D(-0.0331602, 0, -20, 0, 50, 0, 50, 0, -0.0132641, 0.144002, 0, -0.0657349)
+transform = Transform3D(-0.0265282, 0, -20, 0, 40, 0, 40, 0, -0.0132641, 0, 0, 0)
 mesh = ExtResource("3_psfx0")
 
 [node name="back-a" type="VehicleWheel3D" parent="."]
-transform = Transform3D(-0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, -0.647601, 0.24566, 1.28093)
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -0.55111, 0.24566, 1.18807)
 use_as_traction = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="back-a"]
-transform = Transform3D(0.0331559, 0, 20, 0, 50, 0, -50, 0, 0.0132624, 0.144002, 0, -0.065735)
+transform = Transform3D(0.0265247, 0, 20, 0, 40, 0, -40, 0, 0.0132624, 0, 0, 0)
 mesh = ExtResource("3_psfx0")
 
 [node name="back-b" type="VehicleWheel3D" parent="."]
-transform = Transform3D(-0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, 0.801817, 0.24566, 1.28093)
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0.799385, 0.24566, 1.18807)
 use_as_traction = true
+wheel_roll_influence = 1.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="back-b"]
-transform = Transform3D(-0.0331602, 0, -20, 0, 50, 0, 50, 0, -0.0132641, 0.144002, 0, -0.0657349)
+transform = Transform3D(-0.0265282, 0, -20, 0, 40, 0, 40, 0, -0.0132641, 0, 0, 0)
 mesh = ExtResource("3_psfx0")
 
 [node name="smoke-particles" type="CPUParticles3D" parent="."]
@@ -142,13 +143,15 @@ hue_variation_max = 0.18
 hue_variation_curve = SubResource("Curve_psfx0")
 
 [node name="cargo-zone" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.119869, 0.127833, -0.0174317)
 script = ExtResource("4_psfx0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="cargo-zone"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0112305, 0.757548, 1.24631)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0112305, 0.84669, 1.24631)
 shape = SubResource("BoxShape3D_e2g1l")
 
 [node name="door-zone" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.119869, 0.127833, -0.0174317)
 collision_layer = 0
 collision_mask = 8
 script = ExtResource("5_6gcpt")
@@ -165,15 +168,18 @@ text = "enter
 "
 
 [node name="truck-camera" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.135549, 0.691302, 0)
 script = ExtResource("6_e2g1l")
 
 [node name="SpringArm3D" type="SpringArm3D" parent="truck-camera"]
-transform = Transform3D(1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 2.23345, 0.718981)
+transform = Transform3D(1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, -0.0645447, 2.23345, 0.718981)
 spring_length = 5.0
 
 [node name="Camera3D" type="Camera3D" parent="truck-camera/SpringArm3D"]
+doppler_tracking = 2
 
 [node name="lights" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.119869, 0.127833, -0.0174317)
 
 [node name="light-right" type="SpotLight3D" parent="lights"]
 transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, -0.530636, 1.1033, -1.68978)
@@ -190,6 +196,7 @@ shadow_enabled = true
 spot_range = 20.0
 
 [node name="backlights" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.119869, 0.127833, -0.0174317)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="backlights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.700157, 1.06296, 1.96586)
@@ -204,7 +211,7 @@ light_energy = 0.5
 omni_range = 0.2
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0153418, -4.76837e-07, 0.012872)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0153418, 1.50208, 0.012872)
 stream = ExtResource("8_p2hth")
 autoplay = true
 max_distance = 10.0

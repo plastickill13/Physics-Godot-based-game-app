@@ -1,48 +1,37 @@
 extends Node3D
 
-# --- MOVEMENT SETTINGS ---
-@export var follow_speed: float = 8.0
-@export var rotation_speed: float = 5.0
-@export var rig_offset: Vector3 = Vector3(0.0,0.0, 0.0) # Lifts the camera 1.5m above the truck
-
-# --- SPEED EFFECT SETTINGS ---
-@export var min_fov: float = 75.0  # Normal view when stopped
-@export var max_fov: float = 95.0  # Wide view when driving fast
-@export var speed_for_max_fov: float = 15.0 # How fast the truck needs to go to hit max_fov
-@export var fov_transition_speed: float = 3.0
+@export var follow_speed: float = 4.0 
+@export var rotation_speed: float = 2.0 
+@export var max_camera_drift: float = 15.0 # Max degrees the camera is allowed to lag behind
+@export var rig_offset: Vector3 = Vector3(0.0, 0.0, 0.0)
 
 @onready var truck: VehicleBody3D = $".."
-@onready var camera: Camera3D = $SpringArm3D/Camera3D # Make sure this path matches your tree!
-
-func _ready() -> void:
-	print("Camera Script Loaded!")
-	print("Found Truck: ", truck)
-	print("Found Camera: ", camera)
+@onready var camera: Camera3D = $SpringArm3D/Camera3Ds
 
 func _physics_process(delta: float) -> void:
 	if not truck or not camera:
 		return
 		
-	# 1. SMOOTH ROTATION (Steering)
-	# Match the truck's Y-axis rotation so we look where the truck is going
-
-	var target_y = truck.rotation.y
-	rotation.y = lerp_angle(rotation.y, target_y, rotation_speed * delta)
+	# 1. Find the target forward angle (using positive Z so we look at the tailgate!)
+	var forward = truck.global_transform.basis.z 
+	var target_y = atan2(forward.x, forward.z)
 	
-	# 2. SMOOTH POSITION & OFFSET
-	# We want to hover at the truck's position PLUS our height offset.
+	# 2. Calculate the lazy, smooth rotation first
+	var smoothed_y = lerp_angle(rotation.y, target_y, rotation_speed * delta)
+	
+	# 3. THE HARD LEASH (Angle Clamping)
+	# Convert our 15-degree limit into radians (the math Godot uses under the hood)
+	var drift_limit_rads = deg_to_rad(max_camera_drift)
+	
+	# Find out exactly how far our lazy camera is from the truck's true forward direction
+	var angle_diff = angle_difference(target_y, smoothed_y)
+	
+	# Clamp that difference so it can never exceed our limit (-15 to 15 degrees)
+	var clamped_diff = clamp(angle_diff, -drift_limit_rads, drift_limit_rads)
+	
+	# Apply the final rotation (The truck's true angle + the allowed camera drift)
+	rotation.y = target_y + clamped_diff
+	
+	# 4. Smooth, Predictable Follow
 	var target_position = truck.global_position + rig_offset
 	global_position = global_position.lerp(target_position, follow_speed * delta)
-	
-	# 3. DYNAMIC SPEED SENSE (FOV Shift)
-	# Get the truck's current speed (length of its velocity vector)
-	var current_speed = truck.linear_velocity.length()
-	
-	# Create a ratio from 0.0 (stopped) to 1.0 (going really fast)
-	var speed_ratio = clamp(current_speed / speed_for_max_fov, 0.0, 1.0)
-	
-	# Calculate what the FOV should be right now
-	var target_fov = lerp(min_fov, max_fov, speed_ratio)
-	
-	# Smoothly transition the camera's actual FOV to the target
-	camera.fov = lerp(camera.fov, target_fov, fov_transition_speed * delta)

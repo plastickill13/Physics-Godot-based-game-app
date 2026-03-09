@@ -13,7 +13,7 @@ config_version=5
 config/name="Physics Project -- Midterm"
 config/description="Hello, this is supposed to be our project for our midterm on Physics. This showcases the Laws of Motion, and how this game should solve a problem."
 config/version="1.0.0"
-run/main_scene="uid://yupgfffcp445"
+run/main_scene="uid://covtxlmc6pq4t"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 

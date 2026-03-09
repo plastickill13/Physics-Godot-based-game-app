@@ -28,7 +28,7 @@ background_mode = 1
 background_color = Color(0.113763, 0.127754, 0.225406, 1)
 sky = SubResource("Sky_ncck5")
 ambient_light_source = 2
-ambient_light_color = Color(0.109804, 0.133333, 0.227451, 1)
+ambient_light_color = Color(0.662765, 0.706954, 0.857055, 1)
 ambient_light_energy = 0.25
 tonemap_mode = 3
 glow_enabled = true
@@ -214,9 +214,6 @@ shape = SubResource("SphereShape3D_h62me")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2277, 4.15762, 43.886)
 script = ExtResource("10_fbfj4")
 package_scene = ExtResource("9_bawic")
-
-[node name="package" parent="." instance=ExtResource("9_bawic")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.3347, 43.5588)
 
 [node name="player" parent="." instance=ExtResource("11_h62me")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00634766, 2.6521, 49.8916)
