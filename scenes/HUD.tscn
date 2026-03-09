@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dn0mjbr4ta4wo"]
+[gd_scene load_steps=4 format=3 uid="uid://dn0mjbr4ta4wo"]
 
+[ext_resource type="Script" uid="uid://ohuw545g0e6p" path="res://scripts/hud-update.gd" id="1_fls4u"]
 [ext_resource type="Script" uid="uid://br81ari4cj2nw" path="res://scenes/nowplaying.gd" id="1_qpvh6"]
 
 [sub_resource type="Environment" id="Environment_qpvh6"]
@@ -7,7 +8,8 @@ background_mode = 3
 glow_enabled = true
 glow_hdr_scale = 0.35
 
-[node name="CanvasLayer" type="CanvasLayer"]
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_fls4u")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -33,13 +35,13 @@ theme_override_constants/margin_bottom = 48
 clip_contents = true
 layout_mode = 2
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="Control/MarginContainer/VBoxContainer"]
+[node name="money-text" type="RichTextLabel" parent="Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "This is a text
 "
 fit_content = true
 
-[node name="RichTextLabel3" type="RichTextLabel" parent="Control/MarginContainer/VBoxContainer"]
+[node name="package-text" type="RichTextLabel" parent="Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "This is another text
 "
