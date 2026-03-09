@@ -33,7 +33,7 @@ theme_override_constants/margin_bottom = 40
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 4
 size_flags_vertical = 0
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
@@ -45,23 +45,35 @@ label_settings = SubResource("LabelSettings_n7fws")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer"]
+[node name="Control" type="Control" parent="MarginContainer"]
 layout_mode = 2
-size_flags_horizontal = 0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/Control"]
+layout_mode = 2
+offset_left = 508.0
+offset_top = 240.0
+offset_right = 564.0
+offset_bottom = 328.0
+size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="play-button" type="Button" parent="MarginContainer/VBoxContainer2"]
+[node name="play-button" type="Button" parent="MarginContainer/Control/VBoxContainer2"]
 layout_mode = 2
 text = "Play"
 
-[node name="settings-button" type="Button" parent="MarginContainer/VBoxContainer2"]
+[node name="settings-button" type="Button" parent="MarginContainer/Control/VBoxContainer2"]
 layout_mode = 2
 text = "Settings"
 
-[node name="exit-button" type="Button" parent="MarginContainer/VBoxContainer2"]
+[node name="exit-button" type="Button" parent="MarginContainer/Control/VBoxContainer2"]
 layout_mode = 2
 text = "Exit"
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer2/play-button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer2/settings-button" to="." method="_on_settingsbutton_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer2/exit-button" to="." method="_on_exitbutton_pressed"]
+[node name="Label2" type="Label" parent="MarginContainer/Control/VBoxContainer2"]
+layout_mode = 2
+text = "ver 1.0.1"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="MarginContainer/Control/VBoxContainer2/play-button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/Control/VBoxContainer2/settings-button" to="." method="_on_settingsbutton_pressed"]
+[connection signal="pressed" from="MarginContainer/Control/VBoxContainer2/exit-button" to="." method="_on_exitbutton_pressed"]
