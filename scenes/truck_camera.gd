@@ -2,8 +2,8 @@ extends Node3D
 
 # --- MOVEMENT SETTINGS ---
 @export var follow_speed: float = 8.0
-@export var rotation_speed: float = 4.0
-@export var rig_offset: Vector3 = Vector3(0.0, 5.0, 0.0) # Lifts the camera 1.5m above the truck
+@export var rotation_speed: float = 5.0
+@export var rig_offset: Vector3 = Vector3(0.0,0.0, 0.0) # Lifts the camera 1.5m above the truck
 
 # --- SPEED EFFECT SETTINGS ---
 @export var min_fov: float = 75.0  # Normal view when stopped
@@ -12,7 +12,7 @@ extends Node3D
 @export var fov_transition_speed: float = 3.0
 
 @onready var truck: VehicleBody3D = $".."
-@onready var camera: Camera3D = $SpringArm3D/TruckCamera # Make sure this path matches your tree!
+@onready var camera: Camera3D = $SpringArm3D/Camera3D # Make sure this path matches your tree!
 
 func _ready() -> void:
 	print("Camera Script Loaded!")
@@ -25,6 +25,7 @@ func _physics_process(delta: float) -> void:
 		
 	# 1. SMOOTH ROTATION (Steering)
 	# Match the truck's Y-axis rotation so we look where the truck is going
+
 	var target_y = truck.rotation.y
 	rotation.y = lerp_angle(rotation.y, target_y, rotation_speed * delta)
 	
