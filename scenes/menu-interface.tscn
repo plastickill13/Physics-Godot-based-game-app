@@ -1,11 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://650kwkx1awab"]
+[gd_scene load_steps=4 format=3 uid="uid://650kwkx1awab"]
 
 [ext_resource type="Script" uid="uid://c2grxaejw5q8a" path="res://scenes/menu_interface.gd" id="1_bw4i8"]
-[ext_resource type="Shader" uid="uid://cs2kdok5ckylv" path="res://scenes/title.gdshader" id="2_m2354"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7my6y"]
-render_priority = 0
-shader = ExtResource("2_m2354")
 
 [sub_resource type="LabelSettings" id="LabelSettings_n7fws"]
 font_size = 128
@@ -37,6 +34,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 0
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+modulate = Color(2, 2, 2, 1)
 material = SubResource("ShaderMaterial_7my6y")
 layout_mode = 2
 text = "Driving Game:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bcjtwheuwsd8m"]
+[gd_scene load_steps=21 format=3 uid="uid://bcjtwheuwsd8m"]
 
 [ext_resource type="PackedScene" uid="uid://c2j6041m2u020" path="res://scenes/vehicle.tscn" id="1_veh"]
 [ext_resource type="PackedScene" uid="uid://cbjo44edd4pxh" path="res://assets/city-assets/building_A.gltf" id="4_ba"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://cbc7rdf36ywwd" path="res://scenes/marker_3d.gd" id="10_fbfj4"]
 [ext_resource type="PackedScene" uid="uid://bqx38rsdpdk6r" path="res://scenes/player.tscn" id="11_h62me"]
 [ext_resource type="PackedScene" uid="uid://bho3q8hg0enx8" path="res://assets/city-assets/streetlight.gltf" id="11_qi1id"]
+[ext_resource type="PackedScene" uid="uid://cus7w8ste6qdj" path="res://crt_layer.tscn" id="12_5wywx"]
 [ext_resource type="PackedScene" uid="uid://dn0mjbr4ta4wo" path="res://scenes/HUD.tscn" id="12_qi1id"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jtl3q"]
@@ -300,6 +301,8 @@ shape = SubResource("CapsuleShape3D_h62me")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [node name="CanvasLayer" parent="." instance=ExtResource("12_qi1id")]
+
+[node name="crt-layer" parent="." instance=ExtResource("12_5wywx")]
 
 [editable path="vehicle"]
 [editable path="vehicle/pickup_truck"]

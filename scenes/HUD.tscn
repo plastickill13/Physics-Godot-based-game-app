@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://dn0mjbr4ta4wo"]
+[gd_scene load_steps=3 format=3 uid="uid://dn0mjbr4ta4wo"]
 
 [ext_resource type="Script" uid="uid://br81ari4cj2nw" path="res://scenes/nowplaying.gd" id="1_qpvh6"]
+
+[sub_resource type="Environment" id="Environment_qpvh6"]
+background_mode = 3
+glow_enabled = true
+glow_hdr_scale = 0.35
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
@@ -73,3 +78,6 @@ grow_horizontal = 0
 grow_vertical = 0
 text = "from the start - meowfey"
 script = ExtResource("1_qpvh6")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_qpvh6")
