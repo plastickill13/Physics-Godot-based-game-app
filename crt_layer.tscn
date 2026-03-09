@@ -4,10 +4,10 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h74qu"]
 shader = ExtResource("1_tyi1f")
-shader_parameter/curvature = 6.0
+shader_parameter/curvature = 4.0
 shader_parameter/scanline_count = 250.0
-shader_parameter/scanline_opacity = 0.492
-shader_parameter/vignette_multiplier = 1.229
+shader_parameter/scanline_opacity = 0.2
+shader_parameter/vignette_multiplier = 1.2
 
 [node name="crt-layer" type="CanvasLayer"]
 layer = 99
