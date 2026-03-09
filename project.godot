@@ -34,9 +34,15 @@ project/assembly_name="New Game Project"
 
 enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/road-generator/plugin.cfg")
 
+[global_group]
+
+package="a package to be picked up by someone"
+
 [gui]
 
+theme/default_theme_scale=2.0
 theme/custom_font="uid://k3f47pwwkttm"
+theme/default_font_antialiasing=0
 
 [input]
 
