@@ -12,6 +12,7 @@ func _process(delta: float) -> void:
 
 
 func _on_button_pressed() -> void:
+	$AudioStreamPlayer.stop()
 	get_tree().change_scene_to_file("res://scenes/level_1_training_yard.tscn")
 
 func _on_settingsbutton_pressed() -> void:

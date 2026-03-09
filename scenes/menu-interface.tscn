@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://650kwkx1awab"]
+[gd_scene load_steps=5 format=3 uid="uid://650kwkx1awab"]
 
 [ext_resource type="Script" uid="uid://c2grxaejw5q8a" path="res://scenes/menu_interface.gd" id="1_bw4i8"]
+[ext_resource type="AudioStream" uid="uid://bfg2cplprnh5k" path="res://radio/Meow.mp3" id="2_m2354"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7my6y"]
 
@@ -78,6 +79,21 @@ text = "Exit"
 layout_mode = 2
 text = "ver 1.0.1"
 horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = -526.0
+offset_top = -31.0
+offset_right = -442.0
+offset_bottom = -5.0
+grow_vertical = 2
+text = "Group 3"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_m2354")
+autoplay = true
 
 [connection signal="pressed" from="MarginContainer/Control/VBoxContainer2/play-button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="MarginContainer/Control/VBoxContainer2/settings-button" to="." method="_on_settingsbutton_pressed"]

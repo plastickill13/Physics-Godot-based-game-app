@@ -35,15 +35,15 @@ theme_override_constants/margin_bottom = 48
 clip_contents = true
 layout_mode = 2
 
-[node name="money-text" type="RichTextLabel" parent="Control/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "This is a text
-"
-fit_content = true
-
 [node name="package-text" type="RichTextLabel" parent="Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "This is another text
+"
+fit_content = true
+
+[node name="money-text" type="RichTextLabel" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "This is a text
 "
 fit_content = true
 
@@ -80,6 +80,39 @@ grow_horizontal = 0
 grow_vertical = 0
 text = "from the start - meowfey"
 script = ExtResource("1_qpvh6")
+
+[node name="Control2" type="Control" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="package-text2" type="RichTextLabel" parent="Control/MarginContainer/VBoxContainer/Control2"]
+layout_mode = 2
+anchor_left = 0.605
+anchor_top = 1.505
+anchor_right = 0.605
+anchor_bottom = 1.505
+offset_left = -638.88
+offset_top = -56.0
+offset_right = 417.12
+offset_bottom = -30.0
+grow_vertical = 0
+size_flags_vertical = 0
+text = "(E) to interact"
+fit_content = true
+
+[node name="package-text3" type="RichTextLabel" parent="Control/MarginContainer/VBoxContainer/Control2"]
+layout_mode = 2
+anchor_left = 0.605
+anchor_top = 1.505
+anchor_right = 0.605
+anchor_bottom = 1.505
+offset_left = -638.88
+offset_top = -34.0
+offset_right = 417.12
+offset_bottom = -8.0
+grow_vertical = 0
+size_flags_vertical = 0
+text = "(H) toggle lights"
+fit_content = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_qpvh6")

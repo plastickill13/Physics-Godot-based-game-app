@@ -6,7 +6,7 @@ extends Area3D
 @onready var lights = $"../lights"
 var player_node: Node3D = null
 var lights_on = true
-
+var start_music = false
 #func _ready() -> void:
 	#label.visible = false
 	#body_entered.connect(_on_body_entered)
@@ -65,6 +65,9 @@ func enter_truck() -> void:
 	player_node.hide() 
 	
 	truck_camera.make_current()
+	if !start_music:
+		$"../AudioStreamPlayer3D".play()
+		start_music = true
 
 func exit_truck() -> void:
 	truck.is_driven = false
