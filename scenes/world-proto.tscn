@@ -250,5 +250,6 @@ next_pt_init = NodePath("../RP_010")
 [node name="vehicle" parent="." instance=ExtResource("11_fhm83")]
 
 [editable path="package"]
+[editable path="package/MeshInstance3D"]
 [editable path="vehicle"]
 [editable path="vehicle/pickup_truck"]

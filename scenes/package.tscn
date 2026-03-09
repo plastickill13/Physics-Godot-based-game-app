@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://bddicu23vriv3" path="res://assets/city-assets/box_A.gltf" id="2_bfkic"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bfkic"]
-size = Vector3(0.19873, 0.244507, 0.201904)
 
 [node name="package" type="RigidBody3D"]
 collision_layer = 4
@@ -15,10 +14,13 @@ angular_damp = 1.0
 script = ExtResource("1_bfkic")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.178279, 0)
 shape = SubResource("BoxShape3D_bfkic")
 
 [node name="PackageHook" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.183182, 0)
 
 [node name="MeshInstance3D" parent="." instance=ExtResource("2_bfkic")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0766275, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0839174, 0)
+
+[editable path="MeshInstance3D"]

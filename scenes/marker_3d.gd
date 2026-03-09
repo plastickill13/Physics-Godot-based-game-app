@@ -22,13 +22,19 @@ func spawn_random_package() -> void:
 	var random_size = Vector3(rand_x, rand_y, rand_z)
 	
 	# 2. Resize the Collision Shape (Must duplicate to make it unique!)
+	# 2. Resize the Collision Shape (Must duplicate to make it unique!)
 	var collider = new_package.get_node("CollisionShape3D")
 	collider.shape = collider.shape.duplicate() 
 	collider.shape.size = random_size
 	
-	# 3. Resize the Visual Mesh (Must duplicate!)
-	var mesh_instance = new_package.get_node("MeshInstance3D")
-	mesh_instance.scale = random_size
+	# 3. Resize the Visual Mesh Perfectly
+	var mesh_instance = new_package.get_node("MeshInstance3D/box_A")
+	
+	# Get the base dimensions of whatever 3D model you attached
+	var base_mesh_size = mesh_instance.mesh.get_aabb().size
+	
+	# Divide the target size by the base size to get the exact scale multiplier needed!
+	mesh_instance.scale = random_size / base_mesh_size
 	
 	# 4. The Physics Calculation (Mass = Volume * Density)
 	var volume = rand_x * rand_y * rand_z
