@@ -4,6 +4,7 @@ extends Area3D
 @onready var truck_camera = $"../truck-camera/SpringArm3D/Camera3D" # Adjust this path to wherever your truck camera is!
 @onready var label = $"door-label"
 @onready var lights = $"../lights"
+@onready var exit_area = $"exit-area"
 var player_node: Node3D = null
 var lights_on = true
 var start_music = false
@@ -57,7 +58,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		
 func enter_truck() -> void:
 	truck.is_driven = true
-	
+
+	$"../engine-start".play()
 	# Disable and hide the player
 	player_node.set_physics_process(false)
 	player_node.set_process(false)
@@ -66,14 +68,15 @@ func enter_truck() -> void:
 	
 	truck_camera.make_current()
 	if !start_music:
-		$"../AudioStreamPlayer3D".play()
+		$"../radio".play()
 		start_music = true
 
 func exit_truck() -> void:
 	truck.is_driven = false
-	
+	$"../engine-stop".play()
+	$"../engine-sounds".stop()
 	# Teleport them safely to the door
-	player_node.global_position = global_position 
+	player_node.global_position = $"exit-area".global_position 
 	
 	# Wake the player back up
 	player_node.set_physics_process(true)
