@@ -1,5 +1,5 @@
-# drone-fly-flyhics
-4th year game app Project for Physics Showcasing Different Laws of Motion using the Godot 4 Engine.
+# driving-game
+A Physics-based driving game made with Godot 4.4.
 
 ## Overview
 A 3D physics-based vehicle simulation game developed in Godot 4. This project serves as an interactive demonstration of classical mechanics, specifically Newton's Laws of Motion, applied within a game development context. Players operate a delivery truck, navigating environmental hazards while managing unsecured, physics-enabled cargo.
