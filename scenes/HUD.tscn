@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dn0mjbr4ta4wo"]
+[gd_scene load_steps=5 format=3 uid="uid://dn0mjbr4ta4wo"]
 
 [ext_resource type="Script" uid="uid://ohuw545g0e6p" path="res://scripts/hud-update.gd" id="1_fls4u"]
 [ext_resource type="Script" uid="uid://br81ari4cj2nw" path="res://scenes/nowplaying.gd" id="1_qpvh6"]
+[ext_resource type="Script" uid="uid://ckngtjqhakluh" path="res://scripts/audio-visualizer.gd" id="2_1etfg"]
 
 [sub_resource type="Environment" id="Environment_qpvh6"]
 background_mode = 3
@@ -64,7 +65,7 @@ offset_top = -17.0
 offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "Now Playing 📻"
+text = "Now Playing "
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="Control/MarginContainer/VBoxContainer/Control"]
@@ -80,6 +81,89 @@ grow_horizontal = 0
 grow_vertical = 0
 text = "from the start - meowfey"
 script = ExtResource("1_qpvh6")
+
+[node name="bar1" type="ColorRect" parent="Control/MarginContainer/VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.015
+anchor_top = 0.641333
+anchor_right = 0.934
+anchor_bottom = 0.824667
+offset_left = 142.0
+offset_top = 6.03999
+offset_right = -39.8
+offset_bottom = 0.0399933
+pivot_offset = Vector2(8, 16)
+script = ExtResource("2_1etfg")
+metadata/_edit_use_anchors_ = true
+
+[node name="bar2" type="ColorRect" parent="Control/MarginContainer/VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.02
+anchor_top = 0.641333
+anchor_right = 0.969
+anchor_bottom = 0.824667
+offset_left = 142.0
+offset_top = 6.03999
+offset_right = -39.8
+offset_bottom = 0.0399933
+pivot_offset = Vector2(8, 16)
+script = ExtResource("2_1etfg")
+max_freq = 400.0
+min_freq = 200.0
+metadata/_edit_use_anchors_ = true
+
+[node name="bar3" type="ColorRect" parent="Control/MarginContainer/VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.055
+anchor_top = 0.641333
+anchor_right = 1.004
+anchor_bottom = 0.824667
+offset_left = 142.0
+offset_top = 6.03999
+offset_right = -39.8
+offset_bottom = 0.0399933
+pivot_offset = Vector2(8, 16)
+script = ExtResource("2_1etfg")
+max_freq = 600.0
+min_freq = 400.0
+metadata/_edit_use_anchors_ = true
+
+[node name="bar4" type="ColorRect" parent="Control/MarginContainer/VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.641333
+anchor_right = 1.039
+anchor_bottom = 0.824667
+offset_left = 142.0
+offset_top = 6.03999
+offset_right = -39.8
+offset_bottom = 0.0399933
+pivot_offset = Vector2(8, 16)
+script = ExtResource("2_1etfg")
+max_freq = 800.0
+min_freq = 600.0
+metadata/_edit_use_anchors_ = true
+
+[node name="bar5" type="ColorRect" parent="Control/MarginContainer/VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.125
+anchor_top = 0.641333
+anchor_right = 1.074
+anchor_bottom = 0.824667
+offset_left = 142.0
+offset_top = 6.03999
+offset_right = -39.8
+offset_bottom = 0.0399933
+pivot_offset = Vector2(8, 16)
+script = ExtResource("2_1etfg")
+max_freq = 1000.0
+min_freq = 800.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Control2" type="Control" parent="Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
