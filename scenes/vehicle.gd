@@ -8,6 +8,15 @@ extends VehicleBody3D
 # NEW: The "Anti-Flip" weight. This pulls the physical center of gravity down half a meter.
 @export var center_of_mass_offset: Vector3 = Vector3(0.0, -0.5, 0.0) 
 
+
+@onready var engine_audio = $"engine-sounds"
+
+# Tweak these to make the engine sound heavier or whinier
+@export var idle_pitch: float = 0.8
+@export var max_pitch: float = 2.0
+@export var max_audio_speed: float = 20.0 # The speed where the engine screams the loudest
+
+
 var is_driven: bool = false 
 
 func _ready() -> void:
@@ -52,3 +61,21 @@ func _physics_process(delta: float) -> void:
 		# Letting go of the gas
 		engine_force = 0.0
 		brake = 0.125
+	
+	if is_driven:
+		if not engine_audio.playing:
+			engine_audio.play()
+			
+		print(current_speed)
+		var speed_ratio = clamp(current_speed / max_audio_speed, 0.0, 1.0)
+		var target_pitch = lerp(idle_pitch, max_pitch, speed_ratio)
+		engine_audio.pitch_scale = lerp(engine_audio.pitch_scale, target_pitch, 5.0 * delta)
+		
+		if current_speed <= 0.005:
+			
+			if engine_audio.playing:
+				engine_audio.stop()
+	
+		# Turn off the running loop if the player isn't inside
+		
+		
