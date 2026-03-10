@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://650kwkx1awab"]
 
 [ext_resource type="Script" uid="uid://c2grxaejw5q8a" path="res://scenes/menu_interface.gd" id="1_bw4i8"]
-[ext_resource type="AudioStream" uid="uid://bfg2cplprnh5k" path="res://radio/Meow.mp3" id="2_m2354"]
+[ext_resource type="AudioStream" uid="uid://dthkh418jip0v" path="res://radio/foxboytails-game-start-317318.mp3" id="2_m2354"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7my6y"]
 

@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://bqx38rsdpdk6r"]
+[gd_scene load_steps=13 format=3 uid="uid://bqx38rsdpdk6r"]
 
 [ext_resource type="Script" uid="uid://q8yfn2lvsv65" path="res://scenes/player.gd" id="1_3vyb7"]
 [ext_resource type="PackedScene" uid="uid://cnehluehwp1ie" path="res://assets/godot_plush_model.glb" id="2_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://dm4uw7rhn1aw8" path="res://assets/godot_plush_albedo.png" id="3_dqkch"]
 [ext_resource type="Shader" uid="uid://dnixfrns3rt86" path="res://addons/flexible_toon_shader/flexible_toon.gdshader" id="4_dqkch"]
+[ext_resource type="Script" uid="uid://cesegsi5a2yio" path="res://scripts/camera_pivot.gd" id="5_qlg0r"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u8vuu"]
 height = 1.68147
@@ -84,6 +85,8 @@ material_override = SubResource("StandardMaterial3D_qlg0r")
 surface_material_override/0 = SubResource("ShaderMaterial_qlg0r")
 
 [node name="CameraPivot" type="Node3D" parent="."]
+script = ExtResource("5_qlg0r")
+follow_speed = 2.0
 
 [node name="SpringArm3D" type="SpringArm3D" parent="CameraPivot"]
 transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 1.69324, 0)
