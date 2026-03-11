@@ -11,7 +11,7 @@
 [ext_resource type="Script" uid="uid://cbc7rdf36ywwd" path="res://scenes/marker_3d.gd" id="10_fbfj4"]
 [ext_resource type="PackedScene" uid="uid://bqx38rsdpdk6r" path="res://scenes/player.tscn" id="11_h62me"]
 [ext_resource type="PackedScene" uid="uid://bho3q8hg0enx8" path="res://assets/city-assets/streetlight.gltf" id="11_qi1id"]
-[ext_resource type="PackedScene" uid="uid://cus7w8ste6qdj" path="res://crt_layer.tscn" id="12_5wywx"]
+[ext_resource type="PackedScene" uid="uid://cus7w8ste6qdj" path="res://scenes/crt_layer.tscn" id="12_5wywx"]
 [ext_resource type="PackedScene" uid="uid://dn0mjbr4ta4wo" path="res://scenes/HUD.tscn" id="12_qi1id"]
 [ext_resource type="PackedScene" uid="uid://c6chcre6lftj3" path="res://scenes/drop_off_zone.tscn" id="13_5wywx"]
 
@@ -262,6 +262,14 @@ shape = SubResource("CapsuleShape3D_5wywx")
 
 [node name="building_C" parent="buildings" instance=ExtResource("5_bc")]
 transform = Transform3D(0.899398, 0, -0.437132, 0, 1, 0, 0.437132, 0, 0.899398, 2.20124, -0.166435, 2.62601)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="buildings/building_C"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="buildings/building_C/StaticBody3D"]
+transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, -0.00533772, 1.12067, -0.173655)
+shape = SubResource("BoxShape3D_5wywx")
 
 [node name="streetlight2" parent="buildings" instance=ExtResource("11_qi1id")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.86208, 0.0997248, -1.52122)
