@@ -93,9 +93,8 @@ visible = false
 surface_material_override/0 = ExtResource("3_vuxys")
 
 [node name="front-a" type="VehicleWheel3D" parent="."]
-transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -0.51284, 0.24566, -1.02446)
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -0.51284, 0.64084, -1.02446)
 use_as_steering = true
-wheel_rest_length = 0.3
 wheel_friction_slip = 5.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="front-a"]
@@ -103,9 +102,8 @@ transform = Transform3D(0.0265247, 0, 20, 0, 40, 0, -40, 0, 0.0132624, 0, 0, 0)
 mesh = ExtResource("3_psfx0")
 
 [node name="front-b" type="VehicleWheel3D" parent="."]
-transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0.799385, 0.24566, -1.01809)
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0.799385, 0.64084, -1.01809)
 use_as_steering = true
-wheel_rest_length = 0.3
 wheel_friction_slip = 5.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="front-b"]
@@ -113,19 +111,17 @@ transform = Transform3D(-0.0265282, 0, -20, 0, 40, 0, 40, 0, -0.0132641, 0, 0, 0
 mesh = ExtResource("3_psfx0")
 
 [node name="back-a" type="VehicleWheel3D" parent="."]
-transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -0.55111, 0.24566, 1.18807)
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -0.55111, 0.64084, 1.18807)
 use_as_traction = true
-wheel_rest_length = 0.3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="back-a"]
 transform = Transform3D(0.0265247, 0, 20, 0, 40, 0, -40, 0, 0.0132624, 0, 0, 0)
 mesh = ExtResource("3_psfx0")
 
 [node name="back-b" type="VehicleWheel3D" parent="."]
-transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0.799385, 0.24566, 1.18807)
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0.799385, 0.64084, 1.18807)
 use_as_traction = true
 wheel_roll_influence = 1.0
-wheel_rest_length = 0.3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="back-b"]
 transform = Transform3D(-0.0265282, 0, -20, 0, 40, 0, 40, 0, -0.0132641, 0, 0, 0)
