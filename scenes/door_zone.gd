@@ -5,6 +5,8 @@ extends Area3D
 @onready var label = $"door-label"
 @onready var lights = $"../lights"
 @onready var exit_area = $"exit-area"
+@onready var pos_timer = $"../Timer"
+
 var player_node: Node3D = null
 var lights_on = true
 var start_music = false
@@ -57,8 +59,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		lights.visible = lights_on
 		
 func enter_truck() -> void:
+	$"../door".play()
 	truck.is_driven = true
-
+	pos_timer.start()
+	
 	$"../engine-start".play()
 	# Disable and hide the player
 	player_node.set_physics_process(false)
@@ -72,7 +76,9 @@ func enter_truck() -> void:
 		start_music = true
 
 func exit_truck() -> void:
+	$"../door".play()
 	truck.is_driven = false
+	pos_timer.stop()
 	$"../engine-stop".play()
 	$"../engine-sounds".stop()
 	# Teleport them safely to the door
@@ -85,3 +91,7 @@ func exit_truck() -> void:
 	
 	# Switch back to the player's camera (assumes the player has a Camera3D child named PlayerCamera)
 	player_node.get_node("CameraPivot/SpringArm3D/PlayerCamera").make_current()
+
+
+func _on_timer_timeout() -> void:
+	player_node.global_position = $"exit-area".global_position

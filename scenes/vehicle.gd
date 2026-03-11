@@ -6,7 +6,7 @@ extends VehicleBody3D
 @export var steering_speed: float = 5.0
 
 # NEW: The "Anti-Flip" weight. This pulls the physical center of gravity down half a meter.
-@export var center_of_mass_offset: Vector3 = Vector3(0.0, -0.5, 0.0) 
+@export var center_of_mass_offset: Vector3 = Vector3(0.0, -0.25, 0.0) 
 
 
 @onready var engine_audio = $"engine-sounds"
@@ -27,7 +27,8 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	# 1. Get Inputs
 	if not is_driven:
-		engine_force = 0.0
+		while engine_force > 0:
+			engine_force -= 0.5
 		brake = 10.0 # Keeps the truck from rolling away on hills!
 		steering = 0.0
 		return 
@@ -66,7 +67,7 @@ func _physics_process(delta: float) -> void:
 		if not engine_audio.playing:
 			engine_audio.play()
 			
-		print(current_speed)
+		
 		var speed_ratio = clamp(current_speed / max_audio_speed, 0.0, 1.0)
 		var target_pitch = lerp(idle_pitch, max_pitch, speed_ratio)
 		engine_audio.pitch_scale = lerp(engine_audio.pitch_scale, target_pitch, 5.0 * delta)

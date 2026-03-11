@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c2j6041m2u020"]
+[gd_scene load_steps=23 format=3 uid="uid://c2j6041m2u020"]
 
 [ext_resource type="Script" uid="uid://cqsak5nrcrmm" path="res://scenes/vehicle.gd" id="1_pu4i8"]
 [ext_resource type="PackedScene" uid="uid://ddn6f5847mxi3" path="res://assets/pickup_truck.fbx" id="2_tvtne"]
@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://dl2eq7w6f0gj6" path="res://radio/car-run.wav" id="9_mcce1"]
 [ext_resource type="AudioStream" uid="uid://bx7ill38p8opr" path="res://radio/car-start.wav" id="10_kcati"]
 [ext_resource type="AudioStream" uid="uid://b2qoq1vfow6n1" path="res://radio/car-stop.wav" id="11_v3p7b"]
+[ext_resource type="AudioStream" uid="uid://daf7ist2ptnyp" path="res://radio/door-open-close.wav" id="12_srgl8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d0fkt"]
 size = Vector3(1.36646, 0.551633, 3.61691)
@@ -94,6 +95,8 @@ surface_material_override/0 = ExtResource("3_vuxys")
 [node name="front-a" type="VehicleWheel3D" parent="."]
 transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -0.51284, 0.24566, -1.02446)
 use_as_steering = true
+wheel_rest_length = 0.3
+wheel_friction_slip = 5.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="front-a"]
 transform = Transform3D(0.0265247, 0, 20, 0, 40, 0, -40, 0, 0.0132624, 0, 0, 0)
@@ -102,6 +105,8 @@ mesh = ExtResource("3_psfx0")
 [node name="front-b" type="VehicleWheel3D" parent="."]
 transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0.799385, 0.24566, -1.01809)
 use_as_steering = true
+wheel_rest_length = 0.3
+wheel_friction_slip = 5.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="front-b"]
 transform = Transform3D(-0.0265282, 0, -20, 0, 40, 0, 40, 0, -0.0132641, 0, 0, 0)
@@ -110,6 +115,7 @@ mesh = ExtResource("3_psfx0")
 [node name="back-a" type="VehicleWheel3D" parent="."]
 transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -0.55111, 0.24566, 1.18807)
 use_as_traction = true
+wheel_rest_length = 0.3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="back-a"]
 transform = Transform3D(0.0265247, 0, 20, 0, 40, 0, -40, 0, 0.0132624, 0, 0, 0)
@@ -119,6 +125,7 @@ mesh = ExtResource("3_psfx0")
 transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0.799385, 0.24566, 1.18807)
 use_as_traction = true
 wheel_roll_influence = 1.0
+wheel_rest_length = 0.3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="back-b"]
 transform = Transform3D(-0.0265282, 0, -20, 0, 40, 0, 40, 0, -0.0132641, 0, 0, 0)
@@ -240,5 +247,13 @@ volume_db = 50.0
 
 [node name="engine-stop" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("11_v3p7b")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="door" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_srgl8")
+
+[connection signal="timeout" from="Timer" to="door-zone" method="_on_timer_timeout"]
 
 [editable path="pickup_truck"]
