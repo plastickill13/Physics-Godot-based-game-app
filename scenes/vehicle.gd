@@ -80,3 +80,7 @@ func _physics_process(delta: float) -> void:
 		# Turn off the running loop if the player isn't inside
 		
 		
+
+
+func _on_doorzone_song_changed(display_name: String) -> void:
+	pass # Replace with function body.

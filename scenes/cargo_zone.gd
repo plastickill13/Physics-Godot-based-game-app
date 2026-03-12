@@ -9,7 +9,7 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node3D) -> void:
 	# Check if the object falling in is actually a package
-	if body.name.begins_with("Package"):
+	if body.name.begins_with("package"):
 		if not loaded_packages.has(body):
 			loaded_packages.append(body)
 			print("Package loaded! Total cargo: ", loaded_packages.size())

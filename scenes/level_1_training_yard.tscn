@@ -30,7 +30,8 @@ sky_material = SubResource("ProceduralSkyMaterial_jtl3q")
 
 [sub_resource type="Environment" id="Environment_1uhmg"]
 background_mode = 1
-background_color = Color(0.113763, 0.127754, 0.225406, 1)
+background_color = Color(0.104725, 0.0887752, 0.254905, 1)
+background_energy_multiplier = 0.25
 sky = SubResource("Sky_ncck5")
 ambient_light_source = 2
 ambient_light_color = Color(0.662765, 0.706954, 0.857055, 1)
@@ -39,7 +40,6 @@ tonemap_mode = 3
 glow_enabled = true
 glow_strength = 0.1
 glow_bloom = 0.15
-glow_blend_mode = 0
 volumetric_fog_enabled = true
 volumetric_fog_emission = Color(0.150414, 0.170109, 0.307692, 1)
 volumetric_fog_detail_spread = 3.73213
@@ -246,7 +246,7 @@ environment = SubResource("Environment_1uhmg")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.902585, -0.372834, 0.215255, 0, 0.5, 0.866026, -0.430511, 0.781662, -0.451293, 80.3625, 90.7201, 34.7671)
-light_color = Color(0.232616, 0.537159, 0.698908, 1)
+light_color = Color(0.474188, 0.33669, 0.647012, 1)
 light_energy = 0.4
 shadow_enabled = true
 
@@ -297,7 +297,7 @@ script = ExtResource("7_bawic")
 traffic_dir = Array[int]([2, 2])
 lanes = Array[int]([2, 0])
 prior_mag = 131.495
-next_mag = 34.2726
+next_mag = 34.4451
 prior_pt_init = NodePath("../RP_003")
 next_pt_init = NodePath("../RP_001")
 
@@ -356,8 +356,8 @@ transform = Transform3D(-0.258834, 0, 0.965922, 0, 1, 0, -0.965922, 0, -0.258834
 script = ExtResource("7_bawic")
 traffic_dir = Array[int]([2, 2])
 lanes = Array[int]([2, 0])
-prior_mag = 16.6336
-next_mag = 21.5628
+prior_mag = 17.1454
+next_mag = 21.6904
 prior_pt_init = NodePath("../RP_009")
 next_pt_init = NodePath("../RP_007")
 
@@ -366,8 +366,8 @@ transform = Transform3D(-0.998059, 0, 0.0622748, 0, 1, 0, -0.0622748, 0, -0.9980
 script = ExtResource("7_bawic")
 traffic_dir = Array[int]([2, 2])
 lanes = Array[int]([2, 0])
-prior_mag = 0.0
-next_mag = 16.6336
+prior_mag = 0.808899
+next_mag = 16.1218
 prior_pt_init = NodePath("../RP_010")
 next_pt_init = NodePath("../RP_008")
 
@@ -502,7 +502,10 @@ storage_version = 4
 metadata/class = "Gardener"
 metadata/_custom_type_script = "uid://bc7pailucq83t"
 
+[connection signal="song_changed" from="vehicle/door-zone" to="CanvasLayer/Control/MarginContainer/VBoxContainer/Control/radio-song" method="_on_doorzone_song_changed"]
+
 [editable path="vehicle"]
 [editable path="vehicle/pickup_truck"]
 [editable path="player"]
 [editable path="player/sprite"]
+[editable path="CanvasLayer"]

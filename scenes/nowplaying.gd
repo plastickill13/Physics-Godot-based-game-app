@@ -1,7 +1,7 @@
 extends Label
 
 @export var scroll_speed: float = 40.0 # Pixels per second
-
+@onready var song_label = $Label
 @onready var container: Control = get_parent()
 
 func _process(delta: float) -> void:
@@ -13,3 +13,6 @@ func _process(delta: float) -> void:
 	if position.x > container.size.x:
 		# Teleport it to the far left, just out of sight, so it scrolls back in
 		position.x = -size.x
+		
+func _on_doorzone_song_changed(display_name: String) -> void:
+	text = display_name

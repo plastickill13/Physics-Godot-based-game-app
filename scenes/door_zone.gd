@@ -6,29 +6,29 @@ extends Area3D
 @onready var lights = $"../lights"
 @onready var exit_area = $"exit-area"
 @onready var pos_timer = $"../Timer"
+@export var radio_sounds: Array[AudioStreamPlayer3D] = []
+
+signal song_changed(display_name: String)
 
 var player_node: Node3D = null
 var lights_on = true
 var start_music = false
-#func _ready() -> void:
-	#label.visible = false
-	#body_entered.connect(_on_body_entered)
-	#body_exited.connect(_on_body_exited)
+
+func _ready() -> void:
+	label.visible = false
+	body_entered.connect(_on_body_entered)
+	body_exited.connect(_on_body_exited)
 
 # 1. Detect if the Player is standing near the door
-#func _on_body_entered(body: Node3D) -> void:
-	#if body.name == "player": # Ensure your player node is named exactly "Player"
-		#player_node = body
-		#label.visible = true
-	#
-#func _on_body_exited(body: Node3D) -> void:
-	#if body.name == "Player":
-		## ONLY clear the player variable if the truck is NOT being driven.
-		## If they are inside driving, hold onto that reference!
-		#if not truck.is_driven:
-			#player_node = null
-	#
-	#label.visible = false		
+func _on_body_entered(body: Node3D) -> void:
+	if body.name == "player" and not truck.is_driven: # Ensure your player node is named exactly "Player"
+		label.visible = true
+	
+func _on_body_exited(body: Node3D) -> void:
+	if body.name == "player":
+		label.visible = false		
+	
+	
 
 # 2. Listen for the Interact button
 func _unhandled_input(event: InputEvent) -> void:
@@ -72,7 +72,7 @@ func enter_truck() -> void:
 	
 	truck_camera.make_current()
 	if !start_music:
-		$"../radio".play()
+		play_random_song()
 		start_music = true
 
 func exit_truck() -> void:
@@ -92,6 +92,14 @@ func exit_truck() -> void:
 	# Switch back to the player's camera (assumes the player has a Camera3D child named PlayerCamera)
 	player_node.get_node("CameraPivot/SpringArm3D/PlayerCamera").make_current()
 
+func play_random_song():
+	if radio_sounds.size() > 0:
+		var random_index = randi() % radio_sounds.size()
+		var selected_sound = radio_sounds[random_index]
+		selected_sound.play()
+		var raw_name = selected_sound.name
+		var clean_name = raw_name.replace("_", " ")
+		song_changed.emit(clean_name)
 
 func _on_timer_timeout() -> void:
 	player_node.global_position = $"exit-area".global_position

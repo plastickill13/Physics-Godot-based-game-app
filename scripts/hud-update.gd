@@ -11,7 +11,7 @@ func _ready() -> void:
 	# "Connect" the signals so the labels update automatically whenever the GameManager shouts!
 	moneyManager.money_changed.connect(update_money_display)
 	moneyManager.packages_updated.connect(update_package_display)
-
+	
 func update_money_display(amount: float) -> void:
 	# %.2f formats the math float into a clean "dollars and cents" string!
 	money_label.text = "$%.2f" % amount

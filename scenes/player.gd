@@ -9,6 +9,9 @@ const MAX_TILT_DEGREES = 15.0
 @onready var dust_particles = $dust # Reference to your new particle node!
 @onready var hold_position = $"hold-package"
 @onready var pickup_zone = $"interactable-area"
+@onready var player_audio = $walk
+
+
 
 var carried_package: RigidBody3D = null
 
@@ -32,11 +35,14 @@ func _physics_process(delta: float) -> void:
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
+		if not player_audio.playing:
+			player_audio.play()
 		
 		# 1. ROTATION: Face the movement direction using atan2
 		# We calculate the angle between the X and Z movement vectors
 		var target_y_rotation = atan2(direction.x, direction.z)
 		visual_node.rotation.y = lerp_angle(visual_node.rotation.y, target_y_rotation, 15.0 * delta)
+		pickup_zone.rotation.y = lerp_angle(-visual_node.rotation.y, -target_y_rotation, 15.0 * delta)
 		
 		# 2. TILT: Lean into the walk
 		# (Assuming you want to keep the side-to-side lean we added earlier!)
@@ -54,7 +60,7 @@ func _physics_process(delta: float) -> void:
 		
 		stop_bounce_animation()
 		visual_node.rotation_degrees.z = lerp(visual_node.rotation_degrees.z, 0.0, 10.0 * delta)
-
+		player_audio.stop()
 	move_and_slide()
 
 # --- ANIMATION & FX FUNCTIONS ---
