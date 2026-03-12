@@ -1,5 +1,6 @@
-[gd_scene load_steps=38 format=3 uid="uid://bcjtwheuwsd8m"]
+[gd_scene load_steps=40 format=3 uid="uid://bcjtwheuwsd8m"]
 
+[ext_resource type="Script" uid="uid://bqxlstimu8llx" path="res://scripts/herecomesthesun.gd" id="1_7js3k"]
 [ext_resource type="PackedScene" uid="uid://c2j6041m2u020" path="res://scenes/vehicle.tscn" id="1_veh"]
 [ext_resource type="PackedScene" uid="uid://cbjo44edd4pxh" path="res://assets/city-assets/building_A.gltf" id="4_ba"]
 [ext_resource type="PackedScene" uid="uid://l207ivgjibpp" path="res://assets/city-assets/building_C.gltf" id="5_bc"]
@@ -17,6 +18,7 @@
 [ext_resource type="Script" uid="uid://dieiojnt518h" path="res://addons/dreadpon.spatial_gardener/arborist/mmi_octree/mmi_octree_node.gd" id="15_imp6i"]
 [ext_resource type="Script" uid="uid://c4s4x5b27vdf6" path="res://addons/dreadpon.spatial_gardener/arborist/mmi_octree/mmi_octree_manager.gd" id="16_7js3k"]
 [ext_resource type="Script" uid="uid://d1pavk3gl4atd" path="res://addons/dreadpon.spatial_gardener/arborist/arborist.gd" id="17_jt46h"]
+[ext_resource type="PackedScene" uid="uid://kpf57x6vrndl" path="res://scenes/npc.tscn" id="18_imp6i"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jtl3q"]
 sky_top_color = Color(0.347204, 0.513378, 0.808163, 1)
@@ -29,7 +31,7 @@ energy_multiplier = 1.5
 sky_material = SubResource("ProceduralSkyMaterial_jtl3q")
 
 [sub_resource type="Environment" id="Environment_1uhmg"]
-background_mode = 1
+background_mode = 2
 background_color = Color(0.104725, 0.0887752, 0.254905, 1)
 background_energy_multiplier = 0.25
 sky = SubResource("Sky_ncck5")
@@ -246,9 +248,11 @@ environment = SubResource("Environment_1uhmg")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.902585, -0.372834, 0.215255, 0, 0.5, 0.866026, -0.430511, 0.781662, -0.451293, 80.3625, 90.7201, 34.7671)
-light_color = Color(0.474188, 0.33669, 0.647012, 1)
+light_color = Color(0.439968, 0.690799, 0.724455, 1)
 light_energy = 0.4
 shadow_enabled = true
+script = ExtResource("1_7js3k")
+day_speed = 2.0
 
 [node name="ground" type="StaticBody3D" parent="."]
 collision_layer = 2
@@ -501,6 +505,10 @@ plugin_version = "1.4.1"
 storage_version = 4
 metadata/class = "Gardener"
 metadata/_custom_type_script = "uid://bc7pailucq83t"
+
+[node name="npc" parent="." node_paths=PackedStringArray("target") instance=ExtResource("18_imp6i")]
+transform = Transform3D(-0.749245, 0, 0.662293, 0, 1, 0, -0.662293, 0, -0.749245, -39.1476, 0.996563, -16.799)
+target = NodePath("../player")
 
 [connection signal="song_changed" from="vehicle/door-zone" to="CanvasLayer/Control/MarginContainer/VBoxContainer/Control/radio-song" method="_on_doorzone_song_changed"]
 

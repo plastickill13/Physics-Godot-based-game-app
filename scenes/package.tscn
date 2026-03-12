@@ -1,9 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://b1ceiubr3qhp6"]
+[gd_scene load_steps=6 format=3 uid="uid://b1ceiubr3qhp6"]
 
 [ext_resource type="Script" uid="uid://dmdyui3kmh03k" path="res://scenes/package.gd" id="1_bfkic"]
 [ext_resource type="PackedScene" uid="uid://bddicu23vriv3" path="res://assets/city-assets/box_A.gltf" id="2_bfkic"]
+[ext_resource type="Script" uid="uid://crvd5lyg54ral" path="res://scripts/npc_textarea.gd" id="3_bitfr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bfkic"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_38om8"]
+size = Vector3(2, 2, 2)
 
 [node name="package" type="RigidBody3D" groups=["package"]]
 collision_layer = 4
@@ -22,5 +26,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.183182, 0)
 
 [node name="MeshInstance3D" parent="." instance=ExtResource("2_bfkic")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0839174, 0)
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("3_bitfr")
+
+[node name="talk-label" type="Label3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.426214, 0)
+billboard = 1
+fixed_size = true
+text = "pick up"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_38om8")
 
 [editable path="MeshInstance3D"]

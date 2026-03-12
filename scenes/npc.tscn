@@ -1,0 +1,103 @@
+[gd_scene load_steps=11 format=3 uid="uid://kpf57x6vrndl"]
+
+[ext_resource type="PackedScene" uid="uid://db7ujjleeus5j" path="res://assets/skeleton.glb" id="1_7n8xq"]
+[ext_resource type="PackedScene" uid="uid://cnehluehwp1ie" path="res://assets/godot_plush_model.glb" id="1_rv78h"]
+[ext_resource type="Script" uid="uid://cpe3x2ijk1do2" path="res://scripts/npc.gd" id="1_tl2vt"]
+[ext_resource type="Texture2D" uid="uid://dm4uw7rhn1aw8" path="res://assets/godot_plush_albedo.png" id="2_7n8xq"]
+[ext_resource type="Shader" uid="uid://dnixfrns3rt86" path="res://addons/flexible_toon_shader/flexible_toon.gdshader" id="3_4wlns"]
+[ext_resource type="Script" uid="uid://crvd5lyg54ral" path="res://scripts/npc_textarea.gd" id="5_4wlns"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tl2vt"]
+height = 1.69355
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hwkja"]
+albedo_texture = ExtResource("2_7n8xq")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0tygy"]
+render_priority = 1
+shader = ExtResource("3_4wlns")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/clamp_diffuse_to_max = false
+shader_parameter/cuts = 3
+shader_parameter/wrap = 0.0
+shader_parameter/steepness = 1.0
+shader_parameter/use_attenuation = true
+shader_parameter/use_specular = true
+shader_parameter/specular_strength = 1.0
+shader_parameter/specular_shininess = 16.0
+shader_parameter/use_rim = true
+shader_parameter/rim_width = 8.0
+shader_parameter/rim_color = Color(1, 1, 1, 1)
+shader_parameter/use_ramp = false
+shader_parameter/use_borders = false
+shader_parameter/border_width = 0.01
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_7n8xq"]
+radius = 2.0
+
+[node name="npc" type="CharacterBody3D"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+collision_layer = 16
+collision_mask = 10
+script = ExtResource("1_tl2vt")
+
+[node name="skeleton" parent="." instance=ExtResource("1_7n8xq")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1.04645, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.751444, 0)
+shape = SubResource("CapsuleShape3D_tl2vt")
+
+[node name="sprite" parent="." instance=ExtResource("1_rv78h")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+visible = false
+
+[node name="Skeleton3D" parent="sprite/Rig" index="0"]
+bones/0/rotation = Quaternion(0.0695865, 0.0695866, -0.00486596, 0.995134)
+bones/1/rotation = Quaternion(0.000542667, -0.0428615, 0.540813, -0.84005)
+bones/2/rotation = Quaternion(0.237215, 1.75613e-07, -2.75586e-09, 0.971457)
+bones/4/rotation = Quaternion(-0.000542672, -0.0428615, 0.540813, 0.84005)
+bones/5/rotation = Quaternion(0.119222, -2.05008e-07, 3.47948e-08, 0.992868)
+bones/7/rotation = Quaternion(0.995134, -0.00486597, -0.0695866, -0.0695866)
+bones/8/rotation = Quaternion(-0.26097, -0.00625246, -0.091285, 0.961001)
+bones/9/position = Vector3(-3.33083e-08, 0.153684, -1.23515e-08)
+bones/9/rotation = Quaternion(0.123899, -0.214617, 0.0274412, 0.968419)
+bones/10/position = Vector3(-3.4176e-09, 0.207547, -5.71803e-09)
+bones/10/rotation = Quaternion(-0.458251, -5.05235e-05, 8.52508e-05, 0.888823)
+bones/11/position = Vector3(-7.28638e-09, 0.251236, -2.03372e-08)
+bones/11/rotation = Quaternion(-0.000106263, 0.932428, -0.361356, 4.76573e-05)
+bones/12/rotation = Quaternion(-0.260995, 0.00597631, 0.0912485, 0.960999)
+bones/13/position = Vector3(-1.63072e-08, 0.153684, -3.30356e-09)
+bones/13/rotation = Quaternion(0.485043, 0.187894, -0.107585, 0.847263)
+bones/14/position = Vector3(1.86051e-09, 0.207547, -3.29986e-08)
+bones/14/rotation = Quaternion(-0.458251, 0.000165632, -2.59477e-05, 0.888823)
+bones/15/position = Vector3(-5.61806e-09, 0.251236, -3.5407e-08)
+bones/15/rotation = Quaternion(-1.85061e-05, 0.932428, -0.361356, 0.000274284)
+
+[node name="GodotPlushMesh" parent="sprite/Rig/Skeleton3D" index="0"]
+material_override = SubResource("StandardMaterial3D_hwkja")
+surface_material_override/0 = SubResource("ShaderMaterial_0tygy")
+
+[node name="AnimationPlayer" parent="sprite" index="1"]
+autoplay = "idle"
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("5_4wlns")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.03321, 0)
+shape = SubResource("SphereShape3D_7n8xq")
+
+[node name="talk-label" type="Label3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.42657, 0)
+billboard = 1
+fixed_size = true
+text = "talk
+"
+
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area3D" to="Area3D" method="_on_body_exited"]
+
+[editable path="sprite"]

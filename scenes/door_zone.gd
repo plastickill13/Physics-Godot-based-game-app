@@ -103,3 +103,7 @@ func play_random_song():
 
 func _on_timer_timeout() -> void:
 	player_node.global_position = $"exit-area".global_position
+
+
+func _on_from_the_start__meowfey_finished() -> void:
+	pass # Replace with function body.

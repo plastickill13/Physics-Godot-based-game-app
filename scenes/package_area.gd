@@ -1,6 +1,6 @@
 extends Area3D
 
-
+@onready var truck = $".."
 @onready var package_location = $"../package-location"
 @onready var label = $"door-label2"
 var player_node: Node3D = null
@@ -13,7 +13,7 @@ func _ready() -> void:
 
 
 func _on_body_entered(body: Node3D) -> void:
-	if body.is_in_group("package"): # Ensure your player node is named exactly "Player"
+	if body.is_in_group("package") and not truck.is_driven: # Ensure your player node is named exactly "Player"
 		package_node = body
 		label.visible = true
 	

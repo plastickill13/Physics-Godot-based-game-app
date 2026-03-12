@@ -13,11 +13,6 @@ glow_hdr_scale = 0.35
 script = ExtResource("1_fls4u")
 
 [node name="Control" type="Control" parent="."]
-modulate = Color(2, 2, 2, 1)
-self_modulate = Color(2, 2, 2, 1)
-show_behind_parent = true
-top_level = true
-z_index = 55
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

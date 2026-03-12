@@ -272,7 +272,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0715239, 0.895686, 1.17126)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0153418, 1.50208, 0.012872)
 stream = ExtResource("8_p2hth")
 max_db = 1.75
-pitch_scale = 0.75
 max_distance = 50.0
 bus = &"radio-music"
 doppler_tracking = 2
@@ -281,7 +280,6 @@ doppler_tracking = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0153418, 1.50208, 0.012872)
 stream = ExtResource("9_eewpg")
 max_db = 1.75
-pitch_scale = 0.75
 max_distance = 50.0
 bus = &"radio-music"
 doppler_tracking = 2
@@ -290,12 +288,12 @@ doppler_tracking = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0153418, 1.50208, 0.012872)
 stream = ExtResource("10_37whr")
 max_db = 1.75
-pitch_scale = 0.75
 max_distance = 50.0
 bus = &"radio-music"
 doppler_tracking = 2
 
 [connection signal="song_changed" from="door-zone" to="." method="_on_doorzone_song_changed"]
 [connection signal="timeout" from="Timer" to="door-zone" method="_on_timer_timeout"]
+[connection signal="finished" from="radio/from_the_start_-_meowfey" to="door-zone" method="_on_from_the_start__meowfey_finished"]
 
 [editable path="pickup_truck"]

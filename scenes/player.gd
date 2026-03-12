@@ -42,7 +42,7 @@ func _physics_process(delta: float) -> void:
 		# We calculate the angle between the X and Z movement vectors
 		var target_y_rotation = atan2(direction.x, direction.z)
 		visual_node.rotation.y = lerp_angle(visual_node.rotation.y, target_y_rotation, 15.0 * delta)
-		pickup_zone.rotation.y = lerp_angle(-visual_node.rotation.y, -target_y_rotation, 15.0 * delta)
+		
 		
 		# 2. TILT: Lean into the walk
 		# (Assuming you want to keep the side-to-side lean we added earlier!)

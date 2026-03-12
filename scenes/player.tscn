@@ -42,12 +42,12 @@ material = SubResource("StandardMaterial3D_dqkch")
 size = Vector2(0.25, 0.25)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dqkch"]
-size = Vector3(1.66217, 1, 1.03955)
+size = Vector3(4, 1.45459, 3)
 
 [node name="player" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00634766, 0.592224, -0.00299072)
 collision_layer = 8
-collision_mask = 7
+collision_mask = 23
 script = ExtResource("1_3vyb7")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -55,7 +55,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.742485, 0)
 shape = SubResource("CapsuleShape3D_u8vuu")
 
 [node name="sprite" parent="." instance=ExtResource("2_qhqgy")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="Skeleton3D" parent="sprite/Rig" index="0"]
 bones/0/position = Vector3(0, 0.771006, 0)
@@ -107,11 +106,12 @@ draw_pass_1 = SubResource("QuadMesh_qlg0r")
 transform = Transform3D(1, 0, 0, 0, 1.36755, 0, 0, 0, 1, -0.0272102, 2.07504, -0.635193)
 
 [node name="interactable-area" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.853168)
 collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="interactable-area"]
-transform = Transform3D(1, 0, 0, 0, 0.661774, 0, 0, 0, 1, 0.0586853, 0.681491, -0.346116)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.168915, 0.586421, -0.90202)
 shape = SubResource("BoxShape3D_dqkch")
 
 [node name="walk" type="AudioStreamPlayer3D" parent="."]
