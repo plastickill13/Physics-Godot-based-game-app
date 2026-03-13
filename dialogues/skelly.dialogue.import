@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bafn6asa8ygqf"
+path="res://.godot/imported/skelly.dialogue-541205f28f2923dfb82316876713ff3b.tres"
+
+[deps]
+
+source_file="res://dialogues/skelly.dialogue"
+dest_files=["res://.godot/imported/skelly.dialogue-541205f28f2923dfb82316876713ff3b.tres"]
+
+[params]
+
+defaults=true

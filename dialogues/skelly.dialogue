@@ -1,0 +1,14 @@
+~ start
+???: [[Hi|Hello|Howdy]], stranger.
+???: Welcome aboard!.
+???: My name's [wave]Skelly[/wave], short for Skeleton. 
+Skelly: Are ye the new delivery guy?
+- Yes
+	Skelly: Good, now deliver this package for me!
+- No
+	Skelly: Buddy, you don't have a [wave]choice[/wave], deliver this for me!!
+- Maybe
+	Skelly: Hah, well deliver this package for me!
+
+do spawn_package()
+=> END
