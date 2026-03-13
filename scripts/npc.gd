@@ -6,6 +6,7 @@ extends CharacterBody3D
 
 @onready var visual_mesh = $skeleton 
 
+
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 

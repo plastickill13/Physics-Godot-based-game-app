@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://kpf57x6vrndl"]
+[gd_scene load_steps=12 format=3 uid="uid://kpf57x6vrndl"]
 
 [ext_resource type="PackedScene" uid="uid://db7ujjleeus5j" path="res://assets/skeleton.glb" id="1_7n8xq"]
 [ext_resource type="PackedScene" uid="uid://cnehluehwp1ie" path="res://assets/godot_plush_model.glb" id="1_rv78h"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dm4uw7rhn1aw8" path="res://assets/godot_plush_albedo.png" id="2_7n8xq"]
 [ext_resource type="Shader" uid="uid://dnixfrns3rt86" path="res://addons/flexible_toon_shader/flexible_toon.gdshader" id="3_4wlns"]
 [ext_resource type="Script" uid="uid://crvd5lyg54ral" path="res://scripts/npc_textarea.gd" id="5_4wlns"]
+[ext_resource type="PackedScene" uid="uid://cllidq86otntd" path="res://scenes/spawn_package.tscn" id="7_hwkja"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tl2vt"]
 height = 1.69355
@@ -96,6 +97,9 @@ billboard = 1
 fixed_size = true
 text = "talk
 "
+
+[node name="Marker3D" parent="." instance=ExtResource("7_hwkja")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1002e-07, 1.64643, 2.40235)
 
 [connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area3D" to="Area3D" method="_on_body_exited"]
