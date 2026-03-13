@@ -1,14 +1,13 @@
-[gd_scene load_steps=40 format=3 uid="uid://bcjtwheuwsd8m"]
+[gd_scene load_steps=39 format=3 uid="uid://bcjtwheuwsd8m"]
 
 [ext_resource type="Script" uid="uid://bqxlstimu8llx" path="res://scripts/herecomesthesun.gd" id="1_7js3k"]
 [ext_resource type="PackedScene" uid="uid://c2j6041m2u020" path="res://scenes/vehicle.tscn" id="1_veh"]
 [ext_resource type="PackedScene" uid="uid://cbjo44edd4pxh" path="res://assets/city-assets/building_A.gltf" id="4_ba"]
 [ext_resource type="PackedScene" uid="uid://l207ivgjibpp" path="res://assets/city-assets/building_C.gltf" id="5_bc"]
+[ext_resource type="Material" uid="uid://dpashsuk5lr4x" path="res://addons/road-generator/resources/road_texture.material" id="5_jt46h"]
 [ext_resource type="Script" uid="uid://c1fasx6kggn3o" path="res://addons/road-generator/nodes/road_manager.gd" id="5_ncck5"]
 [ext_resource type="Script" uid="uid://b86hnpko6l1bm" path="res://addons/road-generator/nodes/road_container.gd" id="6_1uhmg"]
 [ext_resource type="Script" uid="uid://da2gupb4uvutj" path="res://addons/road-generator/nodes/road_point.gd" id="7_bawic"]
-[ext_resource type="PackedScene" uid="uid://b1ceiubr3qhp6" path="res://scenes/package.tscn" id="9_bawic"]
-[ext_resource type="Script" uid="uid://cbc7rdf36ywwd" path="res://scenes/marker_3d.gd" id="10_fbfj4"]
 [ext_resource type="PackedScene" uid="uid://bqx38rsdpdk6r" path="res://scenes/player.tscn" id="11_h62me"]
 [ext_resource type="PackedScene" uid="uid://bho3q8hg0enx8" path="res://assets/city-assets/streetlight.gltf" id="11_qi1id"]
 [ext_resource type="PackedScene" uid="uid://cus7w8ste6qdj" path="res://scenes/crt_layer.tscn" id="12_5wywx"]
@@ -81,7 +80,7 @@ extent = 128.0
 bounds = AABB(-223, -341, -385, 256, 256, 256)
 max_bounds_to_center_dist = 221.703
 min_bounds_to_center_dist = 128.0
-active_LOD_index = 2
+active_LOD_index = 0
 metadata/class = "MMIOctreeNode"
 
 [sub_resource type="Resource" id="Resource_1xhtx"]
@@ -99,7 +98,7 @@ extent = 128.0
 bounds = AABB(-223, -341, -129, 256, 256, 256)
 max_bounds_to_center_dist = 221.703
 min_bounds_to_center_dist = 128.0
-active_LOD_index = 2
+active_LOD_index = 0
 metadata/class = "MMIOctreeNode"
 
 [sub_resource type="Resource" id="Resource_dr5a3"]
@@ -117,7 +116,7 @@ extent = 128.0
 bounds = AABB(-223, -85, -385, 256, 256, 256)
 max_bounds_to_center_dist = 221.703
 min_bounds_to_center_dist = 128.0
-active_LOD_index = 2
+active_LOD_index = 0
 metadata/class = "MMIOctreeNode"
 
 [sub_resource type="Resource" id="Resource_uxerf"]
@@ -153,7 +152,7 @@ extent = 128.0
 bounds = AABB(33, -341, -385, 256, 256, 256)
 max_bounds_to_center_dist = 221.703
 min_bounds_to_center_dist = 128.0
-active_LOD_index = 2
+active_LOD_index = 0
 metadata/class = "MMIOctreeNode"
 
 [sub_resource type="Resource" id="Resource_w7rvm"]
@@ -171,7 +170,7 @@ extent = 128.0
 bounds = AABB(33, -341, -129, 256, 256, 256)
 max_bounds_to_center_dist = 221.703
 min_bounds_to_center_dist = 128.0
-active_LOD_index = 2
+active_LOD_index = 0
 metadata/class = "MMIOctreeNode"
 
 [sub_resource type="Resource" id="Resource_1nmm8"]
@@ -189,7 +188,7 @@ extent = 128.0
 bounds = AABB(33, -85, -385, 256, 256, 256)
 max_bounds_to_center_dist = 221.703
 min_bounds_to_center_dist = 128.0
-active_LOD_index = 2
+active_LOD_index = 0
 metadata/class = "MMIOctreeNode"
 
 [sub_resource type="Resource" id="Resource_ccyts"]
@@ -207,7 +206,7 @@ extent = 128.0
 bounds = AABB(33, -85, -129, 256, 256, 256)
 max_bounds_to_center_dist = 221.703
 min_bounds_to_center_dist = 128.0
-active_LOD_index = 2
+active_LOD_index = 0
 metadata/class = "MMIOctreeNode"
 
 [sub_resource type="Resource" id="Resource_axy54"]
@@ -279,6 +278,7 @@ metadata/_custom_type_script = "uid://c1fasx6kggn3o"
 [node name="Road_001" type="Node3D" parent="roads/RoadManager"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71.238, 0.999265, 1.76473)
 script = ExtResource("6_1uhmg")
+material_resource = ExtResource("5_jt46h")
 density = 1.0
 use_lowpoly_preview = true
 underside_thickness = 2.0
@@ -384,11 +384,6 @@ prior_mag = 27.1994
 next_mag = 57.295
 prior_pt_init = NodePath("../RP_001")
 next_pt_init = NodePath("../RP_009")
-
-[node name="Marker3D" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2277, 4.15762, 43.886)
-script = ExtResource("10_fbfj4")
-package_scene = ExtResource("9_bawic")
 
 [node name="player" parent="." instance=ExtResource("11_h62me")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.2612, 2.6521, -13.7363)

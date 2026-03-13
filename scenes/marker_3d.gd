@@ -5,9 +5,9 @@ extends Marker3D
 
 # You can call this function from an input or when an NPC dialogue finishes
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_accept"): # Usually the Spacebar or Enter key
-		spawn_random_package()
-
+	#if event.is_action_pressed("ui_accept"): # Usually the Spacebar or Enter key
+		#spawn_random_package()
+	pass
 func spawn_random_package() -> void:
 	if not package_scene:
 		push_error("Package scene not assigned!")
