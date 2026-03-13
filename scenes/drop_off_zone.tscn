@@ -17,12 +17,8 @@ transform = Transform3D(1.2343, 0, 0, 0, 1, 0, 0, 0, 1.26631, 0, 0, 0)
 shape = SubResource("SphereShape3D_igchk")
 
 [node name="Label3D" type="Label3D" parent="."]
-visibility_range_end = 10.0
-billboard = 2
-shaded = true
-no_depth_test = true
+billboard = 1
 fixed_size = true
-text = "drop package here
-"
+text = "📦"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

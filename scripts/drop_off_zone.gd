@@ -2,6 +2,10 @@ extends Area3D
 
 @export var delivery_payout: float = 15.50
 @export var confetti_scene: PackedScene
+
+func _ready() -> void:
+	pass
+
 func _on_body_entered(body: Node3D) -> void:
 	# Check if the object thrown in here has the "package" tag we set up earlier!
 	if body is RigidBody3D and body.is_in_group("package"):

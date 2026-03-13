@@ -30,5 +30,11 @@ func spawn_package():
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
 		if player_node:
-			DialogueManager.show_dialogue_balloon(resource, "start", [self])
+			if moneyManager.delivering == true:
+				DialogueManager.show_dialogue_balloon(resource, "delivering", [self])
+			elif moneyManager.packages_delivered == 0:
+				DialogueManager.show_dialogue_balloon(resource, "start", [self])
+			elif moneyManager.packages_delivered == 1:
+				DialogueManager.show_dialogue_balloon(resource, "one_delivered", [self])
+			
 			

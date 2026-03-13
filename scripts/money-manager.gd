@@ -6,6 +6,7 @@ signal packages_updated(new_count)
 
 var current_money: float = 0.0
 var packages_delivered: int = 0
+var delivering: bool = false
 
 func add_money(amount: float) -> void:
 	current_money += amount
@@ -13,4 +14,5 @@ func add_money(amount: float) -> void:
 
 func deliver_package() -> void:
 	packages_delivered += 1
+	delivering = false
 	packages_updated.emit(packages_delivered)
