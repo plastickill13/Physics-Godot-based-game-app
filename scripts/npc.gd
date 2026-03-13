@@ -40,14 +40,14 @@ func _physics_process(delta: float) -> void:
 		return
 		
 	# 1. Find the direction to the player
-	var direction = global_position.direction_to(target.global_position)
+	var direction = -visual_mesh.global_position.direction_to(target.global_position)
 	
 	# 2. Calculate the rotation angle ONLY on the Y-axis
 	# This ensures the NPC doesn't tilt backward into the floor if the player jumps
 	var target_angle_y = atan2(direction.x, direction.z)
 	
 	# 3. Smoothly rotate towards the player
-	rotation.y = lerp_angle(rotation.y, target_angle_y, turn_speed * delta)
+	visual_mesh.rotation.y = lerp_angle(visual_mesh.rotation.y, target_angle_y, turn_speed * delta)
 
 func start_breathing() -> void:
 	# 1. Create a Tween and tell it to loop forever

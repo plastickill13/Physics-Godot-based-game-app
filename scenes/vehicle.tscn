@@ -43,10 +43,10 @@ _data = [Vector2(0.119318, -0.370787), 0.0, 0.0, 0, 0, Vector2(0.380682, 0.19101
 point_count = 4
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e2g1l"]
-size = Vector3(1.17285, 1.05902, 1)
+size = Vector3(1.17285, 1.05902, 1.0907)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vuxys"]
-size = Vector3(3, 1, 0.766)
+size = Vector3(3, 1, 1.85027)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v3p7b"]
 
@@ -162,7 +162,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.119869, 0.127833, -0.017431
 script = ExtResource("4_psfx0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="cargo-zone"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0112305, 0.84669, 1.24631)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0112305, 0.84669, 1.29166)
 shape = SubResource("BoxShape3D_e2g1l")
 
 [node name="door-zone" type="Area3D" parent="." node_paths=PackedStringArray("radio_sounds")]
@@ -173,7 +173,7 @@ script = ExtResource("5_6gcpt")
 radio_sounds = [NodePath("../radio/from_the_start_-_meowfey"), NodePath("../radio/careless_whisker"), NodePath("../radio/meow_meow")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="door-zone"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.037251, 0.783681, -0.345862)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.037251, 0.783681, -1.00374)
 shape = SubResource("BoxShape3D_vuxys")
 
 [node name="door-label" type="Label3D" parent="door-zone"]

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dmdyui3kmh03k" path="res://scenes/package.gd" id="1_bfkic"]
 [ext_resource type="PackedScene" uid="uid://bddicu23vriv3" path="res://assets/city-assets/box_A.gltf" id="2_bfkic"]
-[ext_resource type="Script" uid="uid://crvd5lyg54ral" path="res://scripts/npc_textarea.gd" id="3_bitfr"]
+[ext_resource type="Script" uid="uid://bw7e0yt0fery7" path="res://scripts/package_textarea.gd" id="3_bitfr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bfkic"]
 
@@ -11,7 +11,7 @@ size = Vector3(2, 2, 2)
 
 [node name="package" type="RigidBody3D" groups=["package"]]
 collision_layer = 4
-collision_mask = 7
+collision_mask = 15
 mass = 5.0
 linear_damp = 1.0
 angular_damp = 1.0
@@ -33,12 +33,15 @@ collision_mask = 8
 script = ExtResource("3_bitfr")
 
 [node name="talk-label" type="Label3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.426214, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.595788, 0)
 billboard = 1
 fixed_size = true
 text = "pick up"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("BoxShape3D_38om8")
+
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area3D" to="Area3D" method="_on_body_exited"]
 
 [editable path="MeshInstance3D"]

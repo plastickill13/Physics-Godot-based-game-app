@@ -102,8 +102,8 @@ func play_random_song():
 		song_changed.emit(clean_name)
 
 func _on_timer_timeout() -> void:
-	player_node.global_position = $"exit-area".global_position
-
+	#player_node.global_position = $"exit-area".global_position
+	pass
 
 func _on_from_the_start__meowfey_finished() -> void:
 	pass # Replace with function body.

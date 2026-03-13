@@ -42,7 +42,7 @@ material = SubResource("StandardMaterial3D_dqkch")
 size = Vector2(0.25, 0.25)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dqkch"]
-size = Vector3(4, 1.45459, 3)
+size = Vector3(2, 1.5, 2)
 
 [node name="player" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00634766, 0.592224, -0.00299072)
@@ -111,7 +111,7 @@ collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="interactable-area"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.168915, 0.586421, -0.90202)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0719912, 0.847774, -0.85899)
 shape = SubResource("BoxShape3D_dqkch")
 
 [node name="walk" type="AudioStreamPlayer3D" parent="."]

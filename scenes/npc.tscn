@@ -37,13 +37,12 @@ shader_parameter/border_width = 0.01
 radius = 2.0
 
 [node name="npc" type="CharacterBody3D"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 collision_layer = 16
 collision_mask = 10
 script = ExtResource("1_tl2vt")
 
 [node name="skeleton" parent="." instance=ExtResource("1_7n8xq")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1.04645, 0)
+transform = Transform3D(-0.5, 0, 4.37114e-08, 0, 0.5, 0, -4.37114e-08, 0, -0.5, 0, 1.04645, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.751444, 0)
@@ -99,7 +98,7 @@ text = "talk
 "
 
 [node name="Marker3D" parent="." instance=ExtResource("7_hwkja")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1002e-07, 1.64643, 2.40235)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.61867e-07, 2.81554, -2.99541)
 
 [connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area3D" to="Area3D" method="_on_body_exited"]
