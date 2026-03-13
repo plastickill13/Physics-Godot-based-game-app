@@ -80,7 +80,7 @@ extent = 128.0
 bounds = AABB(-223, -341, -385, 256, 256, 256)
 max_bounds_to_center_dist = 221.703
 min_bounds_to_center_dist = 128.0
-active_LOD_index = 0
+active_LOD_index = 2
 metadata/class = "MMIOctreeNode"
 
 [sub_resource type="Resource" id="Resource_1xhtx"]
@@ -98,7 +98,7 @@ extent = 128.0
 bounds = AABB(-223, -341, -129, 256, 256, 256)
 max_bounds_to_center_dist = 221.703
 min_bounds_to_center_dist = 128.0
-active_LOD_index = 0
+active_LOD_index = 2
 metadata/class = "MMIOctreeNode"
 
 [sub_resource type="Resource" id="Resource_dr5a3"]
@@ -116,7 +116,7 @@ extent = 128.0
 bounds = AABB(-223, -85, -385, 256, 256, 256)
 max_bounds_to_center_dist = 221.703
 min_bounds_to_center_dist = 128.0
-active_LOD_index = 0
+active_LOD_index = 2
 metadata/class = "MMIOctreeNode"
 
 [sub_resource type="Resource" id="Resource_uxerf"]
@@ -134,7 +134,7 @@ extent = 128.0
 bounds = AABB(-223, -85, -129, 256, 256, 256)
 max_bounds_to_center_dist = 221.703
 min_bounds_to_center_dist = 128.0
-active_LOD_index = 0
+active_LOD_index = 2
 metadata/class = "MMIOctreeNode"
 
 [sub_resource type="Resource" id="Resource_kehwm"]
@@ -152,7 +152,7 @@ extent = 128.0
 bounds = AABB(33, -341, -385, 256, 256, 256)
 max_bounds_to_center_dist = 221.703
 min_bounds_to_center_dist = 128.0
-active_LOD_index = 0
+active_LOD_index = 2
 metadata/class = "MMIOctreeNode"
 
 [sub_resource type="Resource" id="Resource_w7rvm"]
@@ -170,7 +170,7 @@ extent = 128.0
 bounds = AABB(33, -341, -129, 256, 256, 256)
 max_bounds_to_center_dist = 221.703
 min_bounds_to_center_dist = 128.0
-active_LOD_index = 0
+active_LOD_index = 2
 metadata/class = "MMIOctreeNode"
 
 [sub_resource type="Resource" id="Resource_1nmm8"]
@@ -188,7 +188,7 @@ extent = 128.0
 bounds = AABB(33, -85, -385, 256, 256, 256)
 max_bounds_to_center_dist = 221.703
 min_bounds_to_center_dist = 128.0
-active_LOD_index = 0
+active_LOD_index = 2
 metadata/class = "MMIOctreeNode"
 
 [sub_resource type="Resource" id="Resource_ccyts"]
@@ -256,6 +256,8 @@ day_speed = 2.0
 [node name="ground" type="StaticBody3D" parent="."]
 collision_layer = 2
 collision_mask = 9
+constant_linear_velocity = Vector3(2, 2, 2)
+constant_angular_velocity = Vector3(0.0174533, 0.0174533, 0.0174533)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.724304, -0.00610656, -1.2738)
@@ -485,7 +487,7 @@ shape = SubResource("CapsuleShape3D_h62me")
 [node name="zones" type="Node3D" parent="."]
 
 [node name="drop-off-zone" parent="zones" instance=ExtResource("13_5wywx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.7526, 3.97476, -12.6375)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 83.9555, 3.97476, 70.151)
 
 [node name="Node3D" type="Node3D" parent="."]
 
