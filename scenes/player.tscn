@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://bqx38rsdpdk6r"]
+[gd_scene load_steps=15 format=3 uid="uid://bqx38rsdpdk6r"]
 
 [ext_resource type="Script" uid="uid://q8yfn2lvsv65" path="res://scenes/player.gd" id="1_3vyb7"]
 [ext_resource type="PackedScene" uid="uid://cnehluehwp1ie" path="res://assets/godot_plush_model.glb" id="2_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://dm4uw7rhn1aw8" path="res://assets/godot_plush_albedo.png" id="3_dqkch"]
 [ext_resource type="Shader" uid="uid://dnixfrns3rt86" path="res://addons/flexible_toon_shader/flexible_toon.gdshader" id="4_dqkch"]
+[ext_resource type="PackedScene" uid="uid://5gv35wfxl0c2" path="res://scenes/cap.tscn" id="5_fjrip"]
 [ext_resource type="Script" uid="uid://cesegsi5a2yio" path="res://scripts/camera_pivot.gd" id="5_qlg0r"]
 [ext_resource type="AudioStream" uid="uid://cjaai0dwbc43t" path="res://audio/walk.mp3" id="6_tuyoq"]
 
@@ -83,6 +84,9 @@ bones/15/rotation = Quaternion(-2.78112e-05, 0.93246, -0.361272, 0.000277901)
 [node name="GodotPlushMesh" parent="sprite/Rig/Skeleton3D" index="0"]
 material_override = SubResource("StandardMaterial3D_qlg0r")
 surface_material_override/0 = SubResource("ShaderMaterial_qlg0r")
+
+[node name="Cap" parent="sprite" instance=ExtResource("5_fjrip")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 1.25913, 0.40236)
 
 [node name="CameraPivot" type="Node3D" parent="."]
 script = ExtResource("5_qlg0r")
