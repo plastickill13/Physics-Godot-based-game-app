@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://bcjtwheuwsd8m"]
+[gd_scene load_steps=54 format=3 uid="uid://bcjtwheuwsd8m"]
 
 [ext_resource type="Script" uid="uid://bqxlstimu8llx" path="res://scripts/herecomesthesun.gd" id="1_7js3k"]
 [ext_resource type="PackedScene" uid="uid://c2j6041m2u020" path="res://scenes/vehicle.tscn" id="1_veh"]
@@ -80,6 +80,12 @@ height = 0.355501
 [sub_resource type="BoxShape3D" id="BoxShape3D_ccyts"]
 size = Vector3(1.92349, 2.09875, 1.2655)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_axy54"]
+size = Vector3(0.364746, 0.450867, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nuae8"]
+size = Vector3(0.503479, 0.284332, 0.412231)
+
 [sub_resource type="Resource" id="Resource_hsdvi"]
 resource_local_to_scene = true
 resource_name = "MMIOctreeNode"
@@ -149,7 +155,7 @@ extent = 128.0
 bounds = AABB(-223, -85, -129, 256, 256, 256)
 max_bounds_to_center_dist = 221.703
 min_bounds_to_center_dist = 128.0
-active_LOD_index = 2
+active_LOD_index = 0
 metadata/class = "MMIOctreeNode"
 
 [sub_resource type="Resource" id="Resource_kehwm"]
@@ -619,6 +625,14 @@ shape = SubResource("BoxShape3D_ccyts")
 [node name="car_police2" parent="buildings" instance=ExtResource("15_uxerf")]
 transform = Transform3D(-0.491816, 0, 0.870699, 0, 1, 0, -0.870699, 0, -0.491816, 13.0612, 0.135401, -1.02963)
 
+[node name="StaticBody3D" type="StaticBody3D" parent="buildings/car_police2"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="buildings/car_police2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00659132, 0.0937242, 9.53674e-07)
+shape = SubResource("BoxShape3D_axy54")
+
 [node name="bench2" parent="buildings" instance=ExtResource("16_kehwm")]
 transform = Transform3D(0.866026, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866026, -4.61923, 0.0494879, -2.20048)
 
@@ -628,8 +642,24 @@ transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 
 [node name="car_taxi2" parent="buildings" instance=ExtResource("17_w7rvm")]
 transform = Transform3D(0.864565, 0, -0.502522, 0, 1, 0, 0.502522, 0, 0.864565, -1.48427, 0.131688, -1.55126)
 
+[node name="StaticBody3D" type="StaticBody3D" parent="buildings/car_taxi2"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="buildings/car_taxi2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00659132, 0.0937242, 9.53674e-07)
+shape = SubResource("BoxShape3D_axy54")
+
 [node name="dumpster2" parent="buildings" instance=ExtResource("18_1nmm8")]
 transform = Transform3D(-0.285136, 0, 0.958487, 0, 1, 0, -0.958487, 0, -0.285136, -6.96531, 0.0569867, -3.61008)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="buildings/dumpster2"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="buildings/dumpster2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00747681, 0.173355, -0.0228891)
+shape = SubResource("BoxShape3D_nuae8")
 
 [node name="trash" type="Node3D" parent="buildings"]
 
