@@ -39,8 +39,8 @@ theme_override_constants/separation = 20
 modulate = Color(2, 2, 2, 1)
 material = SubResource("ShaderMaterial_7my6y")
 layout_mode = 2
-text = "Driving Game:
-Physics Project"
+text = "Package:
+The Deliverance"
 label_settings = SubResource("LabelSettings_n7fws")
 horizontal_alignment = 1
 vertical_alignment = 1
