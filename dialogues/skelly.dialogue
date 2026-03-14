@@ -33,6 +33,7 @@ Skelly: Deliver 4 more and I will give you a bonus.
 	do spawn_package()
 	do spawn_package()
 	do spawn_package()
+	do moneyManager.delivering = true
 - Maybe later
 	Skelly: Okay, come back here if you decided to continue with the deliveries.
 	
