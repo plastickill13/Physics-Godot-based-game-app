@@ -8,15 +8,24 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="Package: The Deliverance"
 config/description="Hello, this is supposed to be our project for our midterm on Physics. This showcases the Laws of Motion, and how this game should solve a problem."
-config/version="1.0.0"
+config/version="1.0.1"
 run/main_scene="uid://covtxlmc6pq4t"
-config/features=PackedStringArray("4.4", "Forward Plus")
+config/features=PackedStringArray("4.6", "Forward Plus")
+run/max_fps=30
 boot_splash/image="uid://c37dp02qmpc22"
 config/icon="res://icon.svg"
+
+[audio]
+
+buses/default_bus_layout="uid://bfrg6bicgh51j"
 
 [autoload]
 
@@ -38,7 +47,7 @@ project/assembly_name="New Game Project"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/dreadpon.spatial_gardener/plugin.cfg", "res://addons/road-generator/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/road-generator/plugin.cfg")
 
 [global_group]
 
@@ -46,9 +55,9 @@ package="a package to be picked up by someone"
 
 [gui]
 
+theme/default_font_antialiasing=0
 theme/default_theme_scale=2.0
 theme/custom_font="uid://k3f47pwwkttm"
-theme/default_font_antialiasing=0
 
 [input]
 
