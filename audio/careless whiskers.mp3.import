@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d33a8ffxeeh62"
+path="res://.godot/imported/careless whiskers.mp3-888c36b10a1e203384c6a9d5bc5f3eb2.mp3str"
+
+[deps]
+
+source_file="res://audio/careless whiskers.mp3"
+dest_files=["res://.godot/imported/careless whiskers.mp3-888c36b10a1e203384c6a9d5bc5f3eb2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
