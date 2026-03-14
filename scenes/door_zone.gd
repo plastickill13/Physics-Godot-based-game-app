@@ -7,7 +7,7 @@ extends Area3D
 @onready var exit_area = $"exit-area"
 @onready var pos_timer = $"../Timer"
 @export var radio_sounds: Array[AudioStreamPlayer3D] = []
-
+@onready var headlights_sound = $"../headlights"
 signal song_changed(display_name: String)
 
 var player_node: Node3D = null
@@ -56,6 +56,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			
 	if event.is_action_pressed("lights"):
 		lights_on = !lights_on
+		headlights_sound.play()
 		lights.visible = lights_on
 		
 func enter_truck() -> void:

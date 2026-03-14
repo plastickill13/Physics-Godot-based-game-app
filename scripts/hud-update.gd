@@ -2,7 +2,7 @@ extends CanvasLayer
 
 @onready var money_label = $"Control/MarginContainer/VBoxContainer/money-text"
 @onready var package_label = $"Control/MarginContainer/VBoxContainer/package-text"
-
+@onready var delivered_package_sfx = $delivered
 func _ready() -> void:
 	# Tell the labels to display the starting values (which are 0)
 	update_money_display(moneyManager.current_money)
@@ -18,3 +18,4 @@ func update_money_display(amount: float) -> void:
 
 func update_package_display(count: int) -> void:
 	package_label.text = "Packages Delivered: " + str(count)
+	delivered_package_sfx.play()
