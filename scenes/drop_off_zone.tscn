@@ -20,5 +20,7 @@ shape = SubResource("SphereShape3D_igchk")
 billboard = 1
 fixed_size = true
 text = "📦"
+font_size = 18
+outline_size = 2
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
