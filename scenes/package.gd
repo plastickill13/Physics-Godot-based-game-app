@@ -2,11 +2,11 @@ extends RigidBody3D
 
 @onready var hook_marker = $PackageHook
 
-
+var start_position: Vector3
 var bounce_tween: Tween
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	start_position = global_position
 	 # Replace with function body.
 
 
