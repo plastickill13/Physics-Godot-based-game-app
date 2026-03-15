@@ -34,7 +34,7 @@ npcManager="*res://scripts/npc-manager.gd"
 
 [display]
 
-window/size/mode=4
+window/size/mode=3
 window/size/resizable=false
 window/size/borderless=true
 window/stretch/mode="viewport"
