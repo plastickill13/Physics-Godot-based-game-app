@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://c2j6041m2u020"]
+[gd_scene load_steps=30 format=3 uid="uid://c2j6041m2u020"]
 
 [ext_resource type="Script" uid="uid://cqsak5nrcrmm" path="res://scenes/vehicle.gd" id="1_pu4i8"]
 [ext_resource type="PackedScene" uid="uid://ddn6f5847mxi3" path="res://assets/pickup_truck.fbx" id="2_tvtne"]
@@ -15,7 +15,9 @@
 [ext_resource type="AudioStream" uid="uid://daf7ist2ptnyp" path="res://audio/door-open-close.wav" id="12_srgl8"]
 [ext_resource type="Script" uid="uid://bcxevtmfd7dho" path="res://scenes/package_area.gd" id="13_mhnq0"]
 [ext_resource type="AudioStream" uid="uid://d33a8ffxeeh62" path="res://audio/careless whiskers.mp3" id="14_37whr"]
+[ext_resource type="PackedScene" uid="uid://bh3uull14stci" path="res://scenes/radio-player.tscn" id="14_wg7bq"]
 [ext_resource type="AudioStream" uid="uid://cc3ei3rc6p1pe" path="res://audio/lights.mp3" id="16_37whr"]
+[ext_resource type="AudioStream" uid="uid://cft5fjkkj007d" path="res://audio/(MeowSynth) Running in the 90s.mp3" id="18_4nbl0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d0fkt"]
 size = Vector3(1.36646, 0.910582, 3.61691)
@@ -55,7 +57,6 @@ size = Vector3(3, 1, 1.85027)
 size = Vector3(3.22772, 1.29614, 1.49219)
 
 [node name="vehicle" type="VehicleBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0120463, 0.629174, -0.00812459)
 collision_mask = 2
 mass = 50.0
 script = ExtResource("1_pu4i8")
@@ -171,7 +172,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.119869, 0.127833, -0.017431
 collision_layer = 0
 collision_mask = 8
 script = ExtResource("5_6gcpt")
-radio_sounds = [NodePath("../radio/from_the_start_-_meowfey"), NodePath("../radio/careless_whisker - j1gggs"), NodePath("../radio/meow_meow")]
+radio_sounds = [NodePath(""), NodePath(""), NodePath("")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="door-zone"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.037251, 0.783681, -1.00374)
@@ -223,15 +224,17 @@ spot_range = 20.0
 [node name="backlights" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.119869, 0.127833, -0.0174317)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="backlights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.700157, 1.06296, 1.96586)
-light_color = Color(1, 0, 0.0392157, 1)
+[node name="left-blinker" type="OmniLight3D" parent="backlights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.69145, 0.90305, 1.96586)
+visible = false
+light_color = Color(0.685529, 0.389499, 0.104979, 1)
 light_energy = 0.5
 omni_range = 0.2
 
-[node name="OmniLight3D2" type="OmniLight3D" parent="backlights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.684776, 1.06296, 1.96586)
-light_color = Color(1, 0, 0.0392157, 1)
+[node name="right-blinker" type="OmniLight3D" parent="backlights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.693483, 0.90305, 1.96586)
+visible = false
+light_color = Color(0.685529, 0.389499, 0.104979, 1)
 light_energy = 0.5
 omni_range = 0.2
 
@@ -271,37 +274,15 @@ text = "load package"
 [node name="package-location" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0715239, 0.895686, 1.17126)
 
-[node name="radio" type="Node3D" parent="."]
-
-[node name="from_the_start_-_meowfey" type="AudioStreamPlayer3D" parent="radio"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0153418, 1.50208, 0.012872)
-stream = ExtResource("8_p2hth")
-max_db = 1.75
-max_distance = 50.0
-bus = &"radio-music"
-doppler_tracking = 2
-
-[node name="careless_whisker - j1gggs" type="AudioStreamPlayer3D" parent="radio"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0153418, 1.50208, 0.012872)
-stream = ExtResource("14_37whr")
-max_db = 1.75
-max_distance = 50.0
-bus = &"radio-music"
-doppler_tracking = 2
-
-[node name="meow_meow" type="AudioStreamPlayer3D" parent="radio"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0153418, 1.50208, 0.012872)
-stream = ExtResource("10_37whr")
-max_db = 1.75
-max_distance = 50.0
-bus = &"radio-music"
-doppler_tracking = 2
-
 [node name="headlights" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("16_37whr")
 
+[node name="main-radio" parent="." instance=ExtResource("14_wg7bq")]
+playlist = Array[AudioStream]([ExtResource("14_37whr"), ExtResource("8_p2hth"), ExtResource("10_37whr"), ExtResource("18_4nbl0")])
+track_names = Array[String](["careless whiskers - george meowchel", "from the start - meowfey", "meow song", "zooming in the 90s - aou"])
+
 [connection signal="song_changed" from="door-zone" to="." method="_on_doorzone_song_changed"]
 [connection signal="timeout" from="Timer" to="door-zone" method="_on_timer_timeout"]
-[connection signal="finished" from="radio/from_the_start_-_meowfey" to="door-zone" method="_on_from_the_start__meowfey_finished"]
+[connection signal="finished" from="main-radio" to="main-radio" method="_on_finished"]
 
 [editable path="pickup_truck"]

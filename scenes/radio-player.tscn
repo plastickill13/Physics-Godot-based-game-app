@@ -1,0 +1,11 @@
+[gd_scene load_steps=5 format=3 uid="uid://bh3uull14stci"]
+
+[ext_resource type="Script" uid="uid://blgmg5v8mh7c3" path="res://scenes/main_radio.gd" id="1_fl2ou"]
+[ext_resource type="AudioStream" uid="uid://d33a8ffxeeh62" path="res://audio/careless whiskers.mp3" id="2_1yyys"]
+[ext_resource type="AudioStream" uid="uid://bavxyqeyyntx2" path="res://audio/from the start (meowfey).mp3" id="3_aytev"]
+[ext_resource type="AudioStream" uid="uid://bfg2cplprnh5k" path="res://audio/Meow.mp3" id="4_8g67p"]
+
+[node name="main-radio" type="AudioStreamPlayer3D"]
+script = ExtResource("1_fl2ou")
+playlist = Array[AudioStream]([ExtResource("2_1yyys"), ExtResource("3_aytev"), ExtResource("4_8g67p")])
+track_names = Array[String](["careless whiskers - george meowchel", "from the start - meowfey", "meo Meow MEOW"])

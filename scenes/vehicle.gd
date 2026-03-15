@@ -16,6 +16,10 @@ extends VehicleBody3D
 @export var max_pitch: float = 2.0
 @export var max_audio_speed: float = 20.0 # The speed where the engine screams the loudest
 
+@onready var left_blinker = $"backlights/left-blinker"
+@onready var right_blinker = $"backlights/right-blinker"
+
+@export var blink_speed: float = 15.0 # Higher is a faster flash!
 
 var is_driven: bool = false 
 
@@ -63,6 +67,28 @@ func _physics_process(delta: float) -> void:
 		engine_force = 0.0
 		brake = 0.125
 	
+	var time_sec = Time.get_ticks_msec() / 1000.0
+	var flash_on = sin(time_sec * blink_speed) > 0.0
+
+	# 2. CHECK THE STEERING DIRECTION
+	# We use a small "deadzone" (0.1) so the lights don't flash 
+	# if you just lightly tap the wheel or hit a bump.
+	
+	if steering > 0.1: 
+		# Turning Left
+		left_blinker.visible = flash_on
+		right_blinker.visible = false
+		
+	elif steering < -0.1:
+		# Turning Right
+		left_blinker.visible = false
+		right_blinker.visible = flash_on
+		
+	else:
+		# Driving Straight (Turn both off)
+		left_blinker.visible = false
+		right_blinker.visible = false
+	
 	if is_driven:
 		if not engine_audio.playing:
 			engine_audio.play()
@@ -80,7 +106,3 @@ func _physics_process(delta: float) -> void:
 		# Turn off the running loop if the player isn't inside
 		
 		
-
-
-func _on_doorzone_song_changed(display_name: String) -> void:
-	pass # Replace with function body.
