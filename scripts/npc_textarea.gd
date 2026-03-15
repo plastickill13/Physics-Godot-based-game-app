@@ -36,5 +36,9 @@ func _unhandled_input(event: InputEvent) -> void:
 				DialogueManager.show_dialogue_balloon(resource, "start", [self])
 			elif moneyManager.packages_delivered == 1:
 				DialogueManager.show_dialogue_balloon(resource, "one_delivered", [self])
+			elif moneyManager.packages_delivered == 5:
+				DialogueManager.show_dialogue_balloon(resource, "five_delivered", [self])
+			else:
+				DialogueManager.show_dialogue_balloon(resource, "endless", [self])
 			
 			
