@@ -18,9 +18,8 @@ config/name="Package: The Deliverance"
 config/description="Hello, this is supposed to be our project for our midterm on Physics. This showcases the Laws of Motion, and how this game should solve a problem."
 config/version="1.0.1"
 run/main_scene="uid://covtxlmc6pq4t"
-config/features=PackedStringArray("4.6", "Forward Plus")
-run/max_fps=30
-boot_splash/image="uid://c37dp02qmpc22"
+config/features=PackedStringArray("4.4", "Forward Plus")
+run/max_fps=60
 config/icon="res://icon.svg"
 
 [audio]
@@ -35,7 +34,7 @@ npcManager="*res://scripts/npc-manager.gd"
 
 [display]
 
-window/size/mode=3
+window/size/mode=4
 window/size/resizable=false
 window/size/borderless=true
 window/stretch/mode="viewport"
@@ -55,9 +54,9 @@ package="a package to be picked up by someone"
 
 [gui]
 
-theme/default_font_antialiasing=0
 theme/default_theme_scale=2.0
 theme/custom_font="uid://k3f47pwwkttm"
+theme/default_font_antialiasing=0
 
 [input]
 
@@ -123,10 +122,6 @@ locale/translations_pot_files=PackedStringArray("res://dialogues/test.dialogue",
 3d_physics/layer_3="package"
 3d_physics/layer_4="player"
 3d_physics/layer_5="npc"
-
-[physics]
-
-3d/physics_engine="GodotPhysics3D"
 
 [rendering]
 
