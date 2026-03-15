@@ -1,7 +1,7 @@
 extends Node
 
 # Custom signals let our HUD know exactly when to update the text
-signal spawn_package()
+#signal spawn_package()
 
 
 var package_delivered = false

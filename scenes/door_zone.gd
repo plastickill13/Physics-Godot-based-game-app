@@ -72,9 +72,9 @@ func enter_truck() -> void:
 	player_node.hide() 
 	
 	truck_camera.make_current()
-	if !start_music:
-		play_random_song()
-		start_music = true
+	#if !start_music:
+		#play_random_song()
+		#start_music = true
 
 func exit_truck() -> void:
 	$"../door".play()
@@ -93,18 +93,15 @@ func exit_truck() -> void:
 	# Switch back to the player's camera (assumes the player has a Camera3D child named PlayerCamera)
 	player_node.get_node("CameraPivot/SpringArm3D/PlayerCamera").make_current()
 
-func play_random_song():
-	if radio_sounds.size() > 0:
-		var random_index = randi() % radio_sounds.size()
-		var selected_sound = radio_sounds[random_index]
-		selected_sound.play()
-		var raw_name = selected_sound.name
-		var clean_name = raw_name.replace("_", " ")
-		song_changed.emit(clean_name)
+#func play_random_song():
+	#if radio_sounds.size() > 0:
+		#var random_index = randi() % radio_sounds.size()
+		#var selected_sound = radio_sounds[random_index]
+		#selected_sound.play()
+		#var raw_name = selected_sound.name
+		#var clean_name = raw_name.replace("_", " ")
+		#song_changed.emit(clean_name)
 
 func _on_timer_timeout() -> void:
 	#player_node.global_position = $"exit-area".global_position
 	pass
-
-func _on_from_the_start__meowfey_finished() -> void:
-	pass # Replace with function body.

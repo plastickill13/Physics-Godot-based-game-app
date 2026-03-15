@@ -4,6 +4,7 @@ extends Node
 signal money_changed(new_amount)
 signal packages_updated(new_count)
 signal payout_earned(amount)
+signal track_changed(new_title: String)
 
 var current_money: float = 0.0
 var packages_delivered: int = 0
