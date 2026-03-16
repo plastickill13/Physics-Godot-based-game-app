@@ -487,8 +487,6 @@ metadata/class = "Gardener"
 transform = Transform3D(-0.749245, 0, 0.662293, 0, 1, 0, -0.662293, 0, -0.749245, -39.1476, 0.996563, -16.799)
 target = NodePath("../player")
 
-[connection signal="song_changed" from="vehicle/door-zone" to="CanvasLayer/Control/MarginContainer/VBoxContainer/Control/radio-song" method="_on_doorzone_song_changed"]
-
 [editable path="vehicle"]
 [editable path="vehicle/pickup_truck"]
 [editable path="player"]
