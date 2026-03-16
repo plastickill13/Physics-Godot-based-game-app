@@ -9,8 +9,6 @@ Skelly: Are ye the new delivery guy?
 	Skelly: Buddy, you don't have a [wave]choice[/wave], deliver this for me!!
 - Maybe
 	Skelly: Hah, well deliver this package for me!
-Skelly: You can either deliver this package to the building on the west, or east from here.
-Skelly: You earn more money based on the distance travel, the farther the delivery drop-off, the more you earn.
 
 do spawn_package()
 do moneyManager.delivering = true
@@ -20,8 +18,16 @@ do moneyManager.delivering = true
 Skelly: What are you doing, brother? Deliver these packages to either destinations.
 - How exactly can I do that?
 	Skelly: To pick up a package click `E` on your keyboard.
-	Skelly: As for the delivery destination, look at your surroundings. That blinking package icon is where you should go.
 	Skelly: Take care of yourself now. [wave]Bye![/wave]
+- Where can I deliver this?
+	Skelly: You can either deliver this package to the building on the west, or east from here.
+	Skelly: You earn more money based on the distance travel, the farther the delivery drop-off, the more you earn.
+	Skelly: Enjoy delivering!
+- I lost the package(s)
+	Skelly: ...
+	...: Skelly deducted P50 from your money.
+	do moneyManager.add_money(-50) 
+	do spawn_package()
 - Alright, I will go now.
 	Skelly: Take care of yourself now.
 => END
