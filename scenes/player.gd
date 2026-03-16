@@ -61,6 +61,10 @@ func _physics_process(delta: float) -> void:
 		stop_bounce_animation()
 		visual_node.rotation_degrees.z = lerp(visual_node.rotation_degrees.z, 0.0, 10.0 * delta)
 		player_audio.stop()
+		
+	if position.y < -100:
+		global_position = Vector3(-50, 10, -12)
+		
 	move_and_slide()
 
 # --- ANIMATION & FX FUNCTIONS ---

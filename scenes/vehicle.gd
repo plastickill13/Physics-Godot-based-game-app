@@ -28,6 +28,10 @@ func _ready() -> void:
 	center_of_mass_mode = RigidBody3D.CENTER_OF_MASS_MODE_CUSTOM
 	center_of_mass = center_of_mass_offset
 
+func _process(delta: float) -> void:
+	if position.y < -100:
+		global_position = Vector3(-60, 5, -16)
+
 func _physics_process(delta: float) -> void:
 	# 1. Get Inputs
 	if not is_driven:
@@ -88,6 +92,8 @@ func _physics_process(delta: float) -> void:
 		# Driving Straight (Turn both off)
 		left_blinker.visible = false
 		right_blinker.visible = false
+	
+	
 	
 	if is_driven:
 		if not engine_audio.playing:
