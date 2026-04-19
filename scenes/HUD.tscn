@@ -12,6 +12,7 @@ glow_enabled = true
 glow_hdr_scale = 0.35
 
 [node name="HUD" type="CanvasLayer"]
+process_mode = 3
 layer = 5
 script = ExtResource("1_fls4u")
 payout_notif = ExtResource("2_nysna")

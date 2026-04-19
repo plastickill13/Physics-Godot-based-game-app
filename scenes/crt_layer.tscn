@@ -10,6 +10,7 @@ shader_parameter/scanline_opacity = 0.2
 shader_parameter/vignette_multiplier = 1.2
 
 [node name="crt-layer" type="CanvasLayer"]
+process_mode = 3
 layer = 99
 
 [node name="ColorRect" type="ColorRect" parent="."]

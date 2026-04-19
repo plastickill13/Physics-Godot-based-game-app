@@ -4,9 +4,10 @@ extends VehicleBody3D
 @export var max_brake_force: float = 10.0
 @export var max_steer_angle: float = 0.6 # Roughly 35 degrees
 @export var steering_speed: float = 5.0
-
+@export var acceleration_image: Texture2D # Drag your illustration here in the Inspector!
+var has_learned_acceleration: bool = false
 # NEW: The "Anti-Flip" weight. This pulls the physical center of gravity down half a meter.
-@export var center_of_mass_offset: Vector3 = Vector3(0.0, -0.25, 0.0) 
+@export var center_of_mass_offset: Vector3 = Vector3(0.0, 0.2, 0.0) 
 
 
 @onready var engine_audio = $"engine-sounds"
@@ -109,6 +110,12 @@ func _physics_process(delta: float) -> void:
 			if engine_audio.playing:
 				engine_audio.stop()
 	
+	if Input.is_action_pressed("move_forward"):
+		if not has_learned_acceleration:
+			has_learned_acceleration = true
+			
+			var desc = "Pressing the gas pedal pushes the vehicle forward.\nThe longer you hold it, the more momentum you build up!"
+			InfoDialog.trigger_info("Acceleration", desc, acceleration_image)
 		# Turn off the running loop if the player isn't inside
 		
 		

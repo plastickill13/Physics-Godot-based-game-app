@@ -12,7 +12,7 @@ signal track_changed(new_title: String)
 func _ready() -> void:
 	# Start playing the first song as soon as the game loads
 	if playlist.size() > 0:
-		play_track(2)
+		play_track(0)
 
 func _unhandled_input(event: InputEvent) -> void:
 	# Let the player press a button (like 'R' or D-Pad Right) to skip songs!

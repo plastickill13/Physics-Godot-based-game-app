@@ -1,7 +1,8 @@
-[gd_scene load_steps=30 format=3 uid="uid://c2j6041m2u020"]
+[gd_scene load_steps=31 format=3 uid="uid://c2j6041m2u020"]
 
 [ext_resource type="Script" uid="uid://cqsak5nrcrmm" path="res://scenes/vehicle.gd" id="1_pu4i8"]
 [ext_resource type="PackedScene" uid="uid://ddn6f5847mxi3" path="res://assets/pickup_truck.fbx" id="2_tvtne"]
+[ext_resource type="Texture2D" uid="uid://07jejorio3wa" path="res://assets/tree/Branch_6.png" id="2_wsn1b"]
 [ext_resource type="ArrayMesh" uid="uid://dvqygq57caiio" path="res://assets/wheel.res" id="3_psfx0"]
 [ext_resource type="Material" uid="uid://bb43ngplsfis2" path="res://addons/flexible_toon_shader/FlexibleToonMaterial.tres" id="3_vuxys"]
 [ext_resource type="Script" uid="uid://bbtqc6bjuyiqc" path="res://scenes/cargo_zone.gd" id="4_psfx0"]
@@ -61,6 +62,7 @@ collision_mask = 2
 mass = 50.0
 script = ExtResource("1_pu4i8")
 max_engine_force = 200.0
+acceleration_image = ExtResource("2_wsn1b")
 
 [node name="col-bottom" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.178829, 0.428912, 0.0621435)
@@ -278,8 +280,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0715239, 0.895686, 1.17126)
 stream = ExtResource("16_37whr")
 
 [node name="main-radio" parent="." instance=ExtResource("14_wg7bq")]
-playlist = Array[AudioStream]([ExtResource("14_37whr"), ExtResource("8_p2hth"), ExtResource("10_37whr"), ExtResource("18_4nbl0")])
-track_names = Array[String](["careless whiskers - george meowchel", "from the start - meowfey", "meow song", "zooming in the 90s - aou"])
+bus = &"radio-music"
+playlist = Array[AudioStream]([ExtResource("8_p2hth"), ExtResource("14_37whr"), ExtResource("10_37whr"), ExtResource("18_4nbl0")])
+track_names = Array[String](["from the start - meowfey", "careless whiskers - george meowchel", "meow song", "zooming in the 90s - aou"])
 
 [connection signal="song_changed" from="door-zone" to="." method="_on_doorzone_song_changed"]
 [connection signal="timeout" from="Timer" to="door-zone" method="_on_timer_timeout"]

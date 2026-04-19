@@ -31,6 +31,7 @@ buses/default_bus_layout="uid://bfrg6bicgh51j"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 moneyManager="*res://scripts/money-manager.gd"
 npcManager="*res://scripts/npc-manager.gd"
+InfoDialog="*res://scenes/info_dialog.tscn"
 
 [display]
 
