@@ -1,0 +1,72 @@
+[gd_scene load_steps=4 format=3 uid="uid://dficnjj7ywye0"]
+
+[ext_resource type="PackedScene" uid="uid://d200lp0bt34jg" path="res://assets/city-assets/cat.fbx" id="1_myi5k"]
+[ext_resource type="Script" uid="uid://b70i6awxkp6xc" path="res://scripts/cat.gd" id="1_se5fe"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_myi5k"]
+
+[node name="cat" type="CharacterBody3D"]
+script = ExtResource("1_se5fe")
+
+[node name="cat" parent="." instance=ExtResource("1_myi5k")]
+
+[node name="Armature" parent="cat" index="0"]
+transform = Transform3D(100, -1.32349e-21, -5.78515e-29, 0, -4.37114e-06, 100, -1.32349e-21, -100, -4.37114e-06, 0, 0, 0)
+
+[node name="Skeleton3D" parent="cat/Armature" index="0"]
+bones/1/rotation = Quaternion(-0.758077, 4.452e-17, 4.45199e-17, 0.652165)
+bones/1/scale = Vector3(1, 1, 1)
+bones/2/position = Vector3(-1.93737e-25, 0.02403, 1.04555e-09)
+bones/2/rotation = Quaternion(0.177485, -4.78538e-18, -8.54934e-17, 0.984123)
+bones/2/scale = Vector3(1, 1, 1)
+bones/3/position = Vector3(6.30837e-25, 0.015195, -1.65983e-09)
+bones/3/rotation = Quaternion(0.144435, -5.54798e-17, -4.62456e-17, 0.989514)
+bones/3/scale = Vector3(1, 1, 1)
+bones/5/rotation = Quaternion(-0.687561, -0.0227012, -0.0726587, 0.722125)
+bones/5/scale = Vector3(1, 1, 1)
+bones/6/position = Vector3(1.21854e-10, 0.01056, -1.60999e-09)
+bones/6/rotation = Quaternion(0.0461758, -0.0953947, 0.0419937, 0.993481)
+bones/6/scale = Vector3(1, 1, 1)
+bones/8/rotation = Quaternion(-0.831247, 0.0383284, 0.065769, 0.550666)
+bones/8/scale = Vector3(1, 1, 1)
+bones/9/position = Vector3(-1.21854e-10, 0.01056, -1.60999e-09)
+bones/9/rotation = Quaternion(-0.23232, 0.118583, -0.0497654, 0.9641)
+bones/9/scale = Vector3(1, 1, 1)
+bones/11/position = Vector3(5.2025e-19, -0.000577837, 0.00250517)
+bones/11/rotation = Quaternion(-1.4321e-06, 0.354353, 0.935112, -5.96501e-07)
+bones/11/scale = Vector3(1, 1, 1)
+bones/12/position = Vector3(2.54386e-15, 0.0104804, -3.10516e-10)
+bones/12/rotation = Quaternion(-0.141247, 3.41624e-14, -4.25438e-07, 0.989974)
+bones/12/scale = Vector3(1, 1, 1)
+bones/13/position = Vector3(-3.03587e-15, 0.0109507, 1.98148e-09)
+bones/13/rotation = Quaternion(-0.531792, -5.33753e-08, -1.75178e-06, 0.846875)
+bones/13/scale = Vector3(1, 1, 1)
+bones/15/rotation = Quaternion(0.997733, 0.0670931, 0.000357568, -0.00531565)
+bones/15/scale = Vector3(1, 1, 1)
+bones/16/position = Vector3(9.61608e-10, 0.0107389, 1.99323e-09)
+bones/16/rotation = Quaternion(-0.551394, -0.0453693, 0.0434573, 0.831876)
+bones/16/scale = Vector3(1, 1, 1)
+bones/17/position = Vector3(-2.73919e-10, 0.00915962, 1.10633e-09)
+bones/17/rotation = Quaternion(0.271102, 0.00405381, 0.0143912, 0.962434)
+bones/17/scale = Vector3(1, 1, 1)
+bones/19/rotation = Quaternion(0.937451, -0.0630394, -0.0229705, -0.341589)
+bones/19/scale = Vector3(1, 1, 1)
+bones/20/position = Vector3(-9.61608e-10, 0.0107389, 1.99323e-09)
+bones/20/rotation = Quaternion(-0.459288, 0.0377908, -0.0462991, 0.886275)
+bones/20/scale = Vector3(1, 1, 1)
+bones/21/position = Vector3(2.73919e-10, 0.00915962, 1.10633e-09)
+bones/21/rotation = Quaternion(0.357548, -0.00534641, -0.0139627, 0.933775)
+bones/21/scale = Vector3(1, 1, 1)
+
+[node name="AnimationPlayer" parent="cat" index="1"]
+autoplay = "walk"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, -1.31134e-07, 3, 0, -3, -1.31134e-07, 0, 1.77762, 0)
+shape = SubResource("CapsuleShape3D_myi5k")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[editable path="cat"]
