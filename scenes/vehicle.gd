@@ -4,10 +4,19 @@ extends VehicleBody3D
 @export var max_brake_force: float = 10.0
 @export var max_steer_angle: float = 0.6 # Roughly 35 degrees
 @export var steering_speed: float = 5.0
+
+# Variables for in-game context clues tutorial about physics
 @export var acceleration_image: Texture2D # Drag your illustration here in the Inspector!
+@export var reaction_image: Texture2D
+@export var inertia_image: Texture2D
+
+var has_learned_inertia: bool = false
 var has_learned_acceleration: bool = false
+var has_learned_reaction: bool = false
+var previous_speed: float = 0.0
+
 # NEW: The "Anti-Flip" weight. This pulls the physical center of gravity down half a meter.
-@export var center_of_mass_offset: Vector3 = Vector3(0.0, 0.2, 0.0) 
+@export var center_of_mass_offset: Vector3 = Vector3(0.0, -0.5, 0.0)
 
 
 @onready var engine_audio = $"engine-sounds"
@@ -36,11 +45,10 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	# 1. Get Inputs
 	if not is_driven:
-		while engine_force > 0:
-			engine_force -= 0.5
-		brake = 10.0 # Keeps the truck from rolling away on hills!
+		engine_force = move_toward(engine_force, 0.0, 100.0 * delta)
+		brake = 10.0 
 		steering = 0.0
-		return 
+		return
 	
 	var accel_input = Input.get_axis("move_backward", "move_forward")
 	var steer_input = Input.get_axis("move_right", "move_left")
@@ -105,11 +113,11 @@ func _physics_process(delta: float) -> void:
 		var target_pitch = lerp(idle_pitch, max_pitch, speed_ratio)
 		engine_audio.pitch_scale = lerp(engine_audio.pitch_scale, target_pitch, 5.0 * delta)
 		
-		if current_speed <= 0.005:
-			
-			if engine_audio.playing:
-				engine_audio.stop()
-	
+		#if current_speed <= 0.005:
+			#
+			#if engine_audio.playing:
+				#engine_audio.stop()
+	#
 	if Input.is_action_pressed("move_forward"):
 		if not has_learned_acceleration:
 			has_learned_acceleration = true
@@ -118,4 +126,27 @@ func _physics_process(delta: float) -> void:
 			InfoDialog.trigger_info("Acceleration", desc, acceleration_image)
 		# Turn off the running loop if the player isn't inside
 		
-		
+
+	
+	# Calculate how much speed we lost since the exact last frame
+	var deceleration = previous_speed - current_speed
+	
+	# TRIGGER: If we instantly lost a massive amount of speed (a crash!)
+	if deceleration > 10.0: 
+		if not has_learned_reaction:
+			has_learned_reaction = true
+			
+			var title = "Newton's Third Law: Action/Reaction"
+			var desc = "Ouch! You just hit a wall.\n\nFor every action, there is an equal and opposite reaction. \nYour truck applied a massive force to that wall, and the wall \napplied the exact same force back into your bumper, stopping you instantly."
+			InfoDialog.trigger_info(title, desc, reaction_image)
+
+	# Save the current speed to compare it during the next frame
+	previous_speed = current_speed
+	
+	if linear_velocity.length() > 8.0 and not Input.is_action_pressed("move_forward") and not Input.is_action_pressed("move_backward"):
+		if not has_learned_inertia:
+			has_learned_inertia = true
+			
+			var title = "Newton's First Law: Inertia"
+			var desc = "Notice how you keep moving even when you let off the gas?\n\nAn object in motion stays in motion. \nThe heavy mass of your truck carries momentum, \nand only the friction of the road\n (or your brakes!) will slow it down."
+			InfoDialog.trigger_info(title, desc, inertia_image)

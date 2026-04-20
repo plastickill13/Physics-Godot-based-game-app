@@ -11,7 +11,8 @@ const MAX_TILT_DEGREES = 15.0
 @onready var pickup_zone = $"interactable-area"
 @onready var player_audio = $walk
 
-
+var has_learned_fma: bool = false
+@export var fma_image: Texture2D
 
 var carried_package: RigidBody3D = null
 
@@ -131,18 +132,21 @@ func try_pickup_package() -> void:
 			break # Stop looping so we only pick up one box at a time!
 
 func drop_package() -> void:
-	# 1. Un-glue it from the player and put it back in the main world level
 	carried_package.reparent(get_tree().current_scene)
-	
-	# 2. Turn gravity and physics back on
 	carried_package.freeze = false
 	
-	# 3. Give it a gentle toss forward and slightly up
-	# We use the player's forward direction (-Z axis)
 	var throw_direction = -global_transform.basis.z + Vector3(0, 0.5, 0)
 	
-	# apply_central_impulse acts like a sudden kick to the physics object
-	carried_package.apply_central_impulse(throw_direction.normalized() * 4.0)
+	# Apply the force to toss the box!
+	var throw_force = 4.0
+	carried_package.apply_central_impulse(throw_direction.normalized() * throw_force)
 	
-	# 4. Clear our hands
+	# TRIGGER: The exact moment they toss their very first box
+	if not has_learned_fma:
+		has_learned_fma = true
+		
+		var title = "Newton's Second Law: F = ma"
+		var desc = "You just applied an Impulse (Force) to that box!\n\nBecause the cardboard box has a low Mass, \nyour throw causes high Acceleration. \nIf that box were filled with lead, it would barely leave your hands!"
+		InfoDialog.trigger_info(title, desc, fma_image)
+		
 	carried_package = null
