@@ -1,0 +1,64 @@
+~ start
+???: *Meow.*
+do do_meow()
+???: ...
+???: Look, I can tell you're surprised. Yes, I can talk. Name's [shake]Mingming[/shake].
+Mingming: The local street dogs are sniffing around my stash. I need a reliable getaway driver. You in?
+- "Pspspsps."
+	Mingming: Do not patronize me, human. Are you taking the job or not?
+- I'm in. What's the cargo?
+	Mingming: Catnip. Premium stuff. Don't ask where I got it.
+- I don't work for cats.
+	Mingming: Everyone works for cats. You just don't know it yet. Take the box!
+
+do spawn_package()
+do moneyManager.delivering = true
+=> END
+
+~ delivering
+Mingming: Why is the engine not running? The hounds are closing in!
+- How do I carry this?
+	Mingming: With your opposable thumbs! Press `E`, you hairless ape!
+- Where is the drop-off?
+	Mingming: East or West drop zones. The further you drive, the less the dogs can track it. I pay for distance.
+- I lost the stash...
+	Mingming: *Loud, aggressive hissing!*
+	Mingming: Unbelievable. I'm taking P50 from your wallet while you sleep to cover the loss.
+	do moneyManager.add_money(-50) 
+	do spawn_package()
+- Hitting the road now!
+	Mingming: Godspeed. Keep the windows rolled up.
+=> END
+
+~ one_delivered
+Mingming: *Purrs deeply.* The stash is secure. Good driving, human.
+Mingming: The syndicate has 4 more packages. We need to move them before the sun comes up.
+- I am the master of the roads.
+	Mingming: Less bragging, more driving. Here is the cargo.
+	do spawn_package()
+	do spawn_package()
+	do spawn_package()
+	do spawn_package()
+	do moneyManager.delivering = true
+- I need a break first.
+	Mingming: Time is money, but fine. Don't keep me waiting too long.
+=> END	
+
+~ five_delivered
+Mingming: You actually did it. The territory is ours. 
+Mingming: Here is P200. I found it under a couch cushion, but it spends the same.
+do moneyManager.add_money(200)
+do moneyManager.deliver_package()
+Mingming: We run this town now. Come back if you want to expand our empire.
+=> END
+
+~ endless
+Mingming: The human returns. Ready to move more product?
+- Let's ride.
+	Mingming: That's the spirit. Two more boxes. Try not to run over any mice, I'm saving those for later.
+	do spawn_package()
+	do spawn_package()
+	do moneyManager.delivering = true
+- I need a nap.
+	Mingming: Cats respect naps. Dismissed.
+=> END

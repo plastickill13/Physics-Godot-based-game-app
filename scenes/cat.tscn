@@ -1,11 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://dficnjj7ywye0"]
+[gd_scene load_steps=10 format=3 uid="uid://dficnjj7ywye0"]
 
 [ext_resource type="PackedScene" uid="uid://d200lp0bt34jg" path="res://assets/city-assets/cat.fbx" id="1_myi5k"]
 [ext_resource type="Script" uid="uid://b70i6awxkp6xc" path="res://scripts/cat.gd" id="1_se5fe"]
+[ext_resource type="Script" uid="uid://bp2nj2abmuw8e" path="res://scripts/dialogue-npc.gd" id="3_t8pth"]
+[ext_resource type="Resource" uid="uid://0slpo0kfkdt5" path="res://dialogues/cat.dialogue" id="4_cxap7"]
+[ext_resource type="PackedScene" uid="uid://cllidq86otntd" path="res://scenes/spawn_package.tscn" id="5_tol8a"]
+[ext_resource type="AudioStream" uid="uid://cws1xgm53m3ky" path="res://audio/meowsfx.mp3" id="6_tol8a"]
+[ext_resource type="AudioStream" uid="uid://dg53ihwf4pxcl" path="res://audio/virtual_vibes-real-cat-sound-effect-383821.mp3" id="7_o55mh"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_myi5k"]
+radius = 1.00865
+height = 2.86926
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_o55mh"]
+radius = 10.0
 
 [node name="cat" type="CharacterBody3D"]
+collision_layer = 16
+collision_mask = 2
 script = ExtResource("1_se5fe")
 
 [node name="cat" parent="." instance=ExtResource("1_myi5k")]
@@ -62,11 +74,43 @@ bones/21/scale = Vector3(1, 1, 1)
 autoplay = "walk"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(3, 0, 0, 0, -1.31134e-07, 3, 0, -3, -1.31134e-07, 0, 1.77762, 0)
+transform = Transform3D(3, 0, 0, 0, -1.31134e-07, 3, 0, -3, -1.31134e-07, 0, 2.48255, 0.166562)
 shape = SubResource("CapsuleShape3D_myi5k")
 
 [node name="Timer" type="Timer" parent="."]
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.034481, -4.76837e-07, -0.0156064)
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("3_t8pth")
+dialogue_resource = ExtResource("4_cxap7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.30457, 0)
+shape = SubResource("SphereShape3D_o55mh")
+
+[node name="talk-label" type="Label3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.48569, 0)
+billboard = 1
+fixed_size = true
+text = "talk
+"
+font_size = 64
+
+[node name="Marker3D" parent="." instance=ExtResource("5_tol8a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.61867e-07, 4.19296, -8.84581)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("6_tol8a")
+
+[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("7_o55mh")
+
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
+[connection signal="body_exited" from="Area3D" to="Area3D" method="_on_body_exited"]
 
 [editable path="cat"]

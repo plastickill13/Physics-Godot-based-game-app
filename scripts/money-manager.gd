@@ -5,10 +5,16 @@ signal money_changed(new_amount)
 signal packages_updated(new_count)
 signal payout_earned(amount)
 signal track_changed(new_title: String)
-
+signal fuel_changed(new_amount)
+var current_speed: float = 0.0
 var current_money: float = 0.0
 var packages_delivered: int = 0
 var delivering: bool = false
+
+var max_fuel: float = 100.0
+var current_fuel: float = 100.0
+var price_per_liter: float = 5.50 
+
 
 
 func add_money(amount: float) -> void:

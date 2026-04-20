@@ -1,68 +1,71 @@
-[gd_scene load_steps=2052 format=4 uid="uid://d1lnjyhhj651l"]
+[gd_scene load_steps=2063 format=4 uid="uid://d1lnjyhhj651l"]
 
-[ext_resource type="Texture2D" uid="uid://bptrim3sl4clu" path="res://assets/gas-station/textures/AsphaltDamaged.jpg" id="1_vsbrr"]
-[ext_resource type="Texture2D" uid="uid://bv0xdu7whekhp" path="res://assets/gas-station/textures/Asphalt.jpg" id="2_csk8o"]
-[ext_resource type="Texture2D" uid="uid://876rv0wgc1yi" path="res://assets/gas-station/textures/Fuel_pump.png" id="3_5lixs"]
-[ext_resource type="Texture2D" uid="uid://xhjs8i18dedc" path="res://assets/gas-station/textures/Concrete.jpg" id="4_npr6j"]
-[ext_resource type="Texture2D" uid="uid://bsu75v5lw5ahh" path="res://assets/gas-station/textures/MetalPlates.jpg" id="5_ml64t"]
-[ext_resource type="Texture2D" uid="uid://dc2bn0sw6peya" path="res://assets/gas-station/textures/Sign.jpg" id="6_17635"]
-[ext_resource type="Texture2D" uid="uid://dq0koo1uw1evn" path="res://assets/gas-station/textures/Roof_tiles.jpg" id="7_4wffs"]
-[ext_resource type="Texture2D" uid="uid://b8ktwy536jvac" path="res://assets/gas-station/textures/Plaster.jpg" id="8_s730j"]
-[ext_resource type="Texture2D" uid="uid://60gkwayq10bs" path="res://assets/gas-station/textures/Office_Ceiling.jpg" id="9_bmtt8"]
-[ext_resource type="Texture2D" uid="uid://exxb0a3dh3pf" path="res://assets/gas-station/textures/BrickSmallPainted.jpg" id="10_vgq7m"]
-[ext_resource type="Texture2D" uid="uid://doss23sba0gtq" path="res://assets/gas-station/textures/Refrigerador.jpg" id="11_rsqxi"]
-[ext_resource type="Texture2D" uid="uid://cjraapcqxbr6f" path="res://assets/gas-station/textures/Refrigerador_01.jpg" id="12_lxaux"]
-[ext_resource type="Texture2D" uid="uid://cryxpj52jxpkt" path="res://assets/gas-station/textures/Refrigerador_02.jpg" id="13_ureyx"]
-[ext_resource type="Texture2D" uid="uid://cuns51gjnyodo" path="res://assets/gas-station/textures/Shelving.png" id="14_p5n8i"]
-[ext_resource type="Texture2D" uid="uid://ixolnwfif3bq" path="res://assets/gas-station/textures/Metal_02.jpg" id="15_5a577"]
-[ext_resource type="Texture2D" uid="uid://crvvkqk3ns2kr" path="res://assets/gas-station/textures/Marble.jpg" id="16_bg8ck"]
-[ext_resource type="Texture2D" uid="uid://cpyw1x848vmyn" path="res://assets/gas-station/textures/Metal_01.jpg" id="17_gvln3"]
-[ext_resource type="Texture2D" uid="uid://cq0sfp3umffsv" path="res://assets/gas-station/textures/Door_01.jpg" id="18_qyhau"]
-[ext_resource type="Texture2D" uid="uid://f80fdvgor7hu" path="res://assets/gas-station/textures/Door.jpg" id="19_g5t1s"]
-[ext_resource type="Texture2D" uid="uid://db4u32i0sgwcc" path="res://assets/gas-station/textures/Light.jpg" id="20_grgmq"]
-[ext_resource type="Texture2D" uid="uid://c4p2kc3dg7348" path="res://assets/gas-station/textures/Metal_03.jpg" id="21_syf0e"]
-[ext_resource type="Texture2D" uid="uid://ytivx6tat3lc" path="res://assets/gas-station/textures/Deposit.jpg" id="22_haq5q"]
-[ext_resource type="Texture2D" uid="uid://colefdhnptsx0" path="res://assets/gas-station/textures/Metal.jpg" id="23_5n48l"]
-[ext_resource type="Texture2D" uid="uid://b3r535ceov4kk" path="res://assets/gas-station/textures/Checker.png" id="24_wienp"]
-[ext_resource type="Texture2D" uid="uid://1kc0yq6p6mor" path="res://assets/gas-station/textures/Board.jpg" id="25_ludd3"]
-[ext_resource type="Texture2D" uid="uid://cje2e1ygyhqmt" path="res://assets/gas-station/textures/Foods_01.jpg" id="26_6p5kk"]
-[ext_resource type="Texture2D" uid="uid://b5cmenvji441q" path="res://assets/gas-station/textures/Foods_02.jpg" id="27_o6u8x"]
-[ext_resource type="Texture2D" uid="uid://j0b007torqx3" path="res://assets/gas-station/textures/Foods_03.jpg" id="28_o08yo"]
-[ext_resource type="Texture2D" uid="uid://wv5kbneykkb0" path="res://assets/gas-station/textures/Foods_04.jpg" id="29_yowlx"]
-[ext_resource type="Texture2D" uid="uid://bobbtan44s0xw" path="res://assets/gas-station/textures/Foods_07.jpg" id="30_3avl8"]
-[ext_resource type="Texture2D" uid="uid://dpsplbj3ns1en" path="res://assets/gas-station/textures/Sweets_others.jpg" id="31_cgq05"]
-[ext_resource type="Texture2D" uid="uid://htiltryhnqpl" path="res://assets/gas-station/textures/Pack_lighters.jpg" id="32_j5a4w"]
-[ext_resource type="Texture2D" uid="uid://b5wn5ugxmsko2" path="res://assets/gas-station/textures/Management.png" id="33_c268m"]
-[ext_resource type="Texture2D" uid="uid://brrgbp27x3ytt" path="res://assets/gas-station/textures/Carpet_01.jpg" id="34_i0los"]
-[ext_resource type="Texture2D" uid="uid://b456pmywrio85" path="res://assets/gas-station/textures/Coffee_machine.png" id="35_q1uw1"]
-[ext_resource type="Texture2D" uid="uid://bq06t6y30jmaj" path="res://assets/gas-station/textures/Others.png" id="36_i61wj"]
-[ext_resource type="Texture2D" uid="uid://dlfr5ew3bw8oj" path="res://assets/gas-station/textures/ice_slush_machine.png" id="37_6ycfh"]
-[ext_resource type="Texture2D" uid="uid://80f7aj6ongq7" path="res://assets/gas-station/textures/6twelve.jpg" id="38_arj67"]
-[ext_resource type="Texture2D" uid="uid://if8op4jpprte" path="res://assets/gas-station/textures/Fridge.png" id="39_nukun"]
-[ext_resource type="Texture2D" uid="uid://2i07pjsnd7p3" path="res://assets/gas-station/textures/Tree_01.png" id="40_pomv8"]
-[ext_resource type="Texture2D" uid="uid://b7u7d7i3qa8cv" path="res://assets/gas-station/textures/Tree.png" id="41_8osb5"]
-[ext_resource type="Texture2D" uid="uid://d03ml5x0hnqsj" path="res://assets/gas-station/textures/Bush.png" id="42_nnih8"]
-[ext_resource type="Texture2D" uid="uid://cmj1qadqw34mj" path="res://assets/gas-station/textures/Background.png" id="43_lmdfs"]
-[ext_resource type="Texture2D" uid="uid://cg8hffdqy4wko" path="res://assets/gas-station/textures/Background_01.png" id="44_y35ql"]
-[ext_resource type="Texture2D" uid="uid://2yfkqy0kqlkv" path="res://assets/gas-station/textures/Road.jpg" id="45_huxp7"]
-[ext_resource type="Texture2D" uid="uid://b6y1g7rbpsfkd" path="res://assets/gas-station/textures/Ground.jpg" id="46_npnin"]
-[ext_resource type="Texture2D" uid="uid://ba3s0bu8wodu4" path="res://assets/gas-station/textures/ICE.png" id="47_ws5f4"]
-[ext_resource type="Texture2D" uid="uid://dbm66k0olfw7k" path="res://assets/gas-station/textures/Trash.png" id="48_cwhts"]
-[ext_resource type="Texture2D" uid="uid://x8xl4qd4cd5n" path="res://assets/gas-station/textures/TilesPlain.jpg" id="49_8dlkf"]
-[ext_resource type="Texture2D" uid="uid://bgqk66enp4hig" path="res://assets/gas-station/textures/Brick.jpg" id="50_jxbl1"]
-[ext_resource type="Texture2D" uid="uid://djbleopt7jopd" path="res://assets/gas-station/textures/Concrete_01.png" id="51_140ir"]
-[ext_resource type="Texture2D" uid="uid://cl5s5xgq4ww4b" path="res://assets/gas-station/textures/Bathrooms.png" id="52_y5u1d"]
-[ext_resource type="Texture2D" uid="uid://bm2j57ifktnts" path="res://assets/gas-station/textures/Sanitary.png" id="53_ps0rk"]
-[ext_resource type="Texture2D" uid="uid://c62wqsptv357u" path="res://assets/gas-station/textures/Toilets_Sing.png" id="54_x3s3a"]
-[ext_resource type="Texture2D" uid="uid://d3l3g4wcj115v" path="res://assets/gas-station/textures/Camera.png" id="55_fbydh"]
-[ext_resource type="Texture2D" uid="uid://syxih2go6elk" path="res://assets/gas-station/textures/Fusible.png" id="56_yp7ll"]
-[ext_resource type="Texture2D" uid="uid://d1amg2cww0yp0" path="res://assets/gas-station/textures/spotlight.png" id="57_hytv3"]
-[ext_resource type="Texture2D" uid="uid://cfw3vgnyotafh" path="res://assets/gas-station/textures/spotlight_Emissor.png" id="58_q51v3"]
-[ext_resource type="Texture2D" uid="uid://civpob3nmglkq" path="res://assets/gas-station/textures/6twelve_Sign.png" id="59_td6wg"]
-[ext_resource type="Texture2D" uid="uid://07r8kbd0lrq8" path="res://assets/gas-station/textures/6twelve_Sign_Emissor.png" id="60_hkqjs"]
-[ext_resource type="Texture2D" uid="uid://8a8e6s3sn0kw" path="res://assets/gas-station/textures/Tiles.jpg" id="61_fx6y3"]
-[ext_resource type="Texture2D" uid="uid://drtj6qpb7548t" path="res://assets/gas-station/textures/Carpet.jpg" id="62_tto3j"]
-[ext_resource type="Texture2D" uid="uid://bj4iyv176l3l4" path="res://assets/gas-station/textures/Tiles_01.png" id="63_jif42"]
+[ext_resource type="Texture2D" uid="uid://bptrim3sl4clu" path="res://assets/gas-station/Textures/AsphaltDamaged.jpg" id="1_vsbrr"]
+[ext_resource type="Texture2D" uid="uid://bv0xdu7whekhp" path="res://assets/gas-station/Textures/Asphalt.jpg" id="2_csk8o"]
+[ext_resource type="Texture2D" uid="uid://876rv0wgc1yi" path="res://assets/gas-station/Textures/Fuel_pump.png" id="3_5lixs"]
+[ext_resource type="Texture2D" uid="uid://xhjs8i18dedc" path="res://assets/gas-station/Textures/Concrete.jpg" id="4_npr6j"]
+[ext_resource type="Texture2D" uid="uid://bsu75v5lw5ahh" path="res://assets/gas-station/Textures/MetalPlates.jpg" id="5_ml64t"]
+[ext_resource type="Texture2D" uid="uid://dc2bn0sw6peya" path="res://assets/gas-station/Textures/Sign.jpg" id="6_17635"]
+[ext_resource type="Texture2D" uid="uid://dq0koo1uw1evn" path="res://assets/gas-station/Textures/Roof_tiles.jpg" id="7_4wffs"]
+[ext_resource type="Texture2D" uid="uid://b8ktwy536jvac" path="res://assets/gas-station/Textures/Plaster.jpg" id="8_s730j"]
+[ext_resource type="Texture2D" uid="uid://60gkwayq10bs" path="res://assets/gas-station/Textures/Office_Ceiling.jpg" id="9_bmtt8"]
+[ext_resource type="Texture2D" uid="uid://exxb0a3dh3pf" path="res://assets/gas-station/Textures/BrickSmallPainted.jpg" id="10_vgq7m"]
+[ext_resource type="Texture2D" uid="uid://doss23sba0gtq" path="res://assets/gas-station/Textures/Refrigerador.jpg" id="11_rsqxi"]
+[ext_resource type="Texture2D" uid="uid://cjraapcqxbr6f" path="res://assets/gas-station/Textures/Refrigerador_01.jpg" id="12_lxaux"]
+[ext_resource type="Texture2D" uid="uid://cryxpj52jxpkt" path="res://assets/gas-station/Textures/Refrigerador_02.jpg" id="13_ureyx"]
+[ext_resource type="Texture2D" uid="uid://cuns51gjnyodo" path="res://assets/gas-station/Textures/Shelving.png" id="14_p5n8i"]
+[ext_resource type="Texture2D" uid="uid://ixolnwfif3bq" path="res://assets/gas-station/Textures/Metal_02.jpg" id="15_5a577"]
+[ext_resource type="Texture2D" uid="uid://crvvkqk3ns2kr" path="res://assets/gas-station/Textures/Marble.jpg" id="16_bg8ck"]
+[ext_resource type="Texture2D" uid="uid://cpyw1x848vmyn" path="res://assets/gas-station/Textures/Metal_01.jpg" id="17_gvln3"]
+[ext_resource type="Texture2D" uid="uid://cq0sfp3umffsv" path="res://assets/gas-station/Textures/Door_01.jpg" id="18_qyhau"]
+[ext_resource type="Texture2D" uid="uid://f80fdvgor7hu" path="res://assets/gas-station/Textures/Door.jpg" id="19_g5t1s"]
+[ext_resource type="Texture2D" uid="uid://db4u32i0sgwcc" path="res://assets/gas-station/Textures/Light.jpg" id="20_grgmq"]
+[ext_resource type="Texture2D" uid="uid://c4p2kc3dg7348" path="res://assets/gas-station/Textures/Metal_03.jpg" id="21_syf0e"]
+[ext_resource type="Texture2D" uid="uid://ytivx6tat3lc" path="res://assets/gas-station/Textures/Deposit.jpg" id="22_haq5q"]
+[ext_resource type="Texture2D" uid="uid://colefdhnptsx0" path="res://assets/gas-station/Textures/Metal.jpg" id="23_5n48l"]
+[ext_resource type="Texture2D" uid="uid://b3r535ceov4kk" path="res://assets/gas-station/Textures/Checker.png" id="24_wienp"]
+[ext_resource type="Texture2D" uid="uid://1kc0yq6p6mor" path="res://assets/gas-station/Textures/Board.jpg" id="25_ludd3"]
+[ext_resource type="Texture2D" uid="uid://cje2e1ygyhqmt" path="res://assets/gas-station/Textures/Foods_01.jpg" id="26_6p5kk"]
+[ext_resource type="Texture2D" uid="uid://b5cmenvji441q" path="res://assets/gas-station/Textures/Foods_02.jpg" id="27_o6u8x"]
+[ext_resource type="Texture2D" uid="uid://j0b007torqx3" path="res://assets/gas-station/Textures/Foods_03.jpg" id="28_o08yo"]
+[ext_resource type="Texture2D" uid="uid://wv5kbneykkb0" path="res://assets/gas-station/Textures/Foods_04.jpg" id="29_yowlx"]
+[ext_resource type="Texture2D" uid="uid://bobbtan44s0xw" path="res://assets/gas-station/Textures/Foods_07.jpg" id="30_3avl8"]
+[ext_resource type="Texture2D" uid="uid://dpsplbj3ns1en" path="res://assets/gas-station/Textures/Sweets_others.jpg" id="31_cgq05"]
+[ext_resource type="Texture2D" uid="uid://htiltryhnqpl" path="res://assets/gas-station/Textures/Pack_lighters.jpg" id="32_j5a4w"]
+[ext_resource type="Texture2D" uid="uid://b5wn5ugxmsko2" path="res://assets/gas-station/Textures/Management.png" id="33_c268m"]
+[ext_resource type="Texture2D" uid="uid://brrgbp27x3ytt" path="res://assets/gas-station/Textures/Carpet_01.jpg" id="34_i0los"]
+[ext_resource type="Texture2D" uid="uid://b456pmywrio85" path="res://assets/gas-station/Textures/Coffee_machine.png" id="35_q1uw1"]
+[ext_resource type="Texture2D" uid="uid://bq06t6y30jmaj" path="res://assets/gas-station/Textures/Others.png" id="36_i61wj"]
+[ext_resource type="Texture2D" uid="uid://dlfr5ew3bw8oj" path="res://assets/gas-station/Textures/ice_slush_machine.png" id="37_6ycfh"]
+[ext_resource type="Texture2D" uid="uid://80f7aj6ongq7" path="res://assets/gas-station/Textures/6twelve.jpg" id="38_arj67"]
+[ext_resource type="Texture2D" uid="uid://if8op4jpprte" path="res://assets/gas-station/Textures/Fridge.png" id="39_nukun"]
+[ext_resource type="Texture2D" uid="uid://2i07pjsnd7p3" path="res://assets/gas-station/Textures/Tree_01.png" id="40_pomv8"]
+[ext_resource type="Texture2D" uid="uid://b7u7d7i3qa8cv" path="res://assets/gas-station/Textures/Tree.png" id="41_8osb5"]
+[ext_resource type="Texture2D" uid="uid://d03ml5x0hnqsj" path="res://assets/gas-station/Textures/Bush.png" id="42_nnih8"]
+[ext_resource type="Texture2D" uid="uid://cmj1qadqw34mj" path="res://assets/gas-station/Textures/Background.png" id="43_lmdfs"]
+[ext_resource type="Texture2D" uid="uid://cg8hffdqy4wko" path="res://assets/gas-station/Textures/Background_01.png" id="44_y35ql"]
+[ext_resource type="Texture2D" uid="uid://2yfkqy0kqlkv" path="res://assets/gas-station/Textures/Road.jpg" id="45_huxp7"]
+[ext_resource type="Texture2D" uid="uid://b6y1g7rbpsfkd" path="res://assets/gas-station/Textures/Ground.jpg" id="46_npnin"]
+[ext_resource type="Texture2D" uid="uid://ba3s0bu8wodu4" path="res://assets/gas-station/Textures/ICE.png" id="47_ws5f4"]
+[ext_resource type="Texture2D" uid="uid://dbm66k0olfw7k" path="res://assets/gas-station/Textures/Trash.png" id="48_cwhts"]
+[ext_resource type="Texture2D" uid="uid://x8xl4qd4cd5n" path="res://assets/gas-station/Textures/TilesPlain.jpg" id="49_8dlkf"]
+[ext_resource type="Texture2D" uid="uid://bgqk66enp4hig" path="res://assets/gas-station/Textures/Brick.jpg" id="50_jxbl1"]
+[ext_resource type="Texture2D" uid="uid://djbleopt7jopd" path="res://assets/gas-station/Textures/Concrete_01.png" id="51_140ir"]
+[ext_resource type="Texture2D" uid="uid://cl5s5xgq4ww4b" path="res://assets/gas-station/Textures/Bathrooms.png" id="52_y5u1d"]
+[ext_resource type="Texture2D" uid="uid://bm2j57ifktnts" path="res://assets/gas-station/Textures/Sanitary.png" id="53_ps0rk"]
+[ext_resource type="Texture2D" uid="uid://c62wqsptv357u" path="res://assets/gas-station/Textures/Toilets_Sing.png" id="54_x3s3a"]
+[ext_resource type="Texture2D" uid="uid://d3l3g4wcj115v" path="res://assets/gas-station/Textures/Camera.png" id="55_fbydh"]
+[ext_resource type="Texture2D" uid="uid://syxih2go6elk" path="res://assets/gas-station/Textures/Fusible.png" id="56_yp7ll"]
+[ext_resource type="Texture2D" uid="uid://d1amg2cww0yp0" path="res://assets/gas-station/Textures/spotlight.png" id="57_hytv3"]
+[ext_resource type="Texture2D" uid="uid://cfw3vgnyotafh" path="res://assets/gas-station/Textures/spotlight_Emissor.png" id="58_q51v3"]
+[ext_resource type="Texture2D" uid="uid://civpob3nmglkq" path="res://assets/gas-station/Textures/6twelve_Sign.png" id="59_td6wg"]
+[ext_resource type="Texture2D" uid="uid://07r8kbd0lrq8" path="res://assets/gas-station/Textures/6twelve_Sign_Emissor.png" id="60_hkqjs"]
+[ext_resource type="Texture2D" uid="uid://8a8e6s3sn0kw" path="res://assets/gas-station/Textures/Tiles.jpg" id="61_fx6y3"]
+[ext_resource type="Texture2D" uid="uid://drtj6qpb7548t" path="res://assets/gas-station/Textures/Carpet.jpg" id="62_tto3j"]
+[ext_resource type="Texture2D" uid="uid://bj4iyv176l3l4" path="res://assets/gas-station/Textures/Tiles_01.png" id="63_jif42"]
+[ext_resource type="Script" uid="uid://2bd4qkjbku7" path="res://scripts/gas_area.gd" id="64_csk8o"]
+[ext_resource type="AudioStream" uid="uid://dwsluy8hmyruh" path="res://audio/deny.wav" id="65_5lixs"]
+[ext_resource type="Script" uid="uid://bghhr1tppfj3c" path="res://scripts/entry.gd" id="66_npr6j"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ge440"]
 resource_name = "AsphaltDamaged"
@@ -32937,6 +32940,30 @@ size = Vector3(13.3654, 1.36523, 15.413)
 [sub_resource type="BoxShape3D" id="BoxShape3D_npr6j"]
 size = Vector3(4.28541, 3.93445, 7.78394)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_17635"]
+size = Vector3(1, 3.24109, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ml64t"]
+size = Vector3(8.4855, 3.05774, 4.00446)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4wffs"]
+size = Vector3(2.41776, 2.33386, 2.82262)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s730j"]
+size = Vector3(4.72815, 2.10156, 1.48633)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bmtt8"]
+size = Vector3(12.2294, 4.38232, 0.197754)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vgq7m"]
+size = Vector3(1.26086, 1, 5.21497)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rsqxi"]
+size = Vector3(1.74963, 1.36328, 0.851685)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lxaux"]
+size = Vector3(1.30411, 1.11719, 3.46362)
+
 [node name="Gas_station" type="Node3D"]
 transform = Transform3D(0.0199826, 0, -0.9998, 0, 1, 0, 0.9998, 0, 0.0199826, -16.4657, 1.04666, -92.3334)
 
@@ -37808,6 +37835,22 @@ shape = SubResource("BoxShape3D_5lixs")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.1154, 1.46722, -17.7249)
 shape = SubResource("BoxShape3D_npr6j")
 
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.28122, 1.12054, 1.63155)
+shape = SubResource("BoxShape3D_17635")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.6954, 1.12054, 1.24549)
+shape = SubResource("BoxShape3D_17635")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5872, 1.12054, 6.65905)
+shape = SubResource("BoxShape3D_17635")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.02409, 1.12054, 6.56609)
+shape = SubResource("BoxShape3D_17635")
+
 [node name="lighting" type="Node3D" parent="."]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="lighting"]
@@ -37842,3 +37885,141 @@ omni_range = 20.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.16098, 6.02152, 9.26334)
 light_energy = 2.0
 omni_range = 20.0
+
+[node name="gas_area" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.795265, 0, 1.16333)
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("64_csk8o")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="gas_area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.159042, 1.02887, 0.128988)
+shape = SubResource("BoxShape3D_ml64t")
+
+[node name="Label3D" type="Label3D" parent="gas_area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.294853, 3.31236, -0.00589371)
+billboard = 1
+fixed_size = true
+text = "refuel"
+
+[node name="gas_area2" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.90258, 0, 6.53243)
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("64_csk8o")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="gas_area2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.159042, 1.02887, 0.128988)
+shape = SubResource("BoxShape3D_ml64t")
+
+[node name="Label3D" type="Label3D" parent="gas_area2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.294853, 3.31236, -0.00589371)
+billboard = 1
+fixed_size = true
+text = "refuel"
+
+[node name="gas_area3" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4412, 0, 6.79913)
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("64_csk8o")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="gas_area3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.159042, 1.02887, 0.128988)
+shape = SubResource("BoxShape3D_ml64t")
+
+[node name="Label3D" type="Label3D" parent="gas_area3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.294853, 3.31236, -0.00589371)
+billboard = 1
+fixed_size = true
+text = "refuel"
+
+[node name="gas_area4" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5521, 0, 1.24805)
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("64_csk8o")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="gas_area4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.159042, 1.02887, 0.128988)
+shape = SubResource("BoxShape3D_ml64t")
+
+[node name="Label3D" type="Label3D" parent="gas_area4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.294853, 3.31236, -0.00589371)
+billboard = 1
+fixed_size = true
+text = "refuel"
+
+[node name="deny" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("65_5lixs")
+
+[node name="entry" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2028, 0.337181, -14.1104)
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("66_npr6j")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="entry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0171509, 0.666931, -0.374783)
+shape = SubResource("BoxShape3D_4wffs")
+
+[node name="Label3D" type="Label3D" parent="entry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.41982, 0)
+visible = false
+billboard = 1
+fixed_size = true
+text = "enter"
+
+[node name="outside" type="Marker3D" parent="entry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.016716, 0.966931, 0.836323)
+
+[node name="inside" type="Marker3D" parent="entry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0304794, 0.966931, -1.52503)
+
+[node name="store_bounds" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.423393, 0, -21.184)
+collision_layer = 2
+collision_mask = 0
+
+[node name="rack1" type="CollisionShape3D" parent="store_bounds"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.42854, 0.550781, 0.269749)
+shape = SubResource("BoxShape3D_s730j")
+
+[node name="rack2" type="CollisionShape3D" parent="store_bounds"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.50441, 0.550781, -3.52632)
+shape = SubResource("BoxShape3D_s730j")
+
+[node name="rack3" type="CollisionShape3D" parent="store_bounds"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.36407, 0.550781, 3.49565)
+shape = SubResource("BoxShape3D_s730j")
+
+[node name="rack4" type="CollisionShape3D" parent="store_bounds"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.29157, 0.550781, 7.12265)
+shape = SubResource("BoxShape3D_s730j")
+
+[node name="storehouse" type="CollisionShape3D" parent="store_bounds"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.98257, 1.69116, -3.85471)
+shape = SubResource("BoxShape3D_bmtt8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="store_bounds"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.69919, 0.631841, 4.20169)
+shape = SubResource("BoxShape3D_vgq7m")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="store_bounds"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.73453, 0.501302, -2.89768)
+shape = SubResource("BoxShape3D_rsqxi")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="store_bounds"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.49989, 0.610375, -2.08672)
+shape = SubResource("BoxShape3D_lxaux")
+
+[connection signal="body_entered" from="gas_area" to="gas_area" method="_on_body_entered"]
+[connection signal="body_exited" from="gas_area" to="gas_area" method="_on_body_exited"]
+[connection signal="body_entered" from="gas_area2" to="gas_area2" method="_on_body_entered"]
+[connection signal="body_exited" from="gas_area2" to="gas_area2" method="_on_body_exited"]
+[connection signal="body_entered" from="gas_area3" to="gas_area3" method="_on_body_entered"]
+[connection signal="body_exited" from="gas_area3" to="gas_area3" method="_on_body_exited"]
+[connection signal="body_entered" from="gas_area4" to="gas_area4" method="_on_body_entered"]
+[connection signal="body_exited" from="gas_area4" to="gas_area4" method="_on_body_exited"]
+[connection signal="body_entered" from="entry" to="entry" method="_on_body_entered"]
+[connection signal="body_exited" from="entry" to="entry" method="_on_body_exited"]

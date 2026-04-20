@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://kpf57x6vrndl"]
+[gd_scene load_steps=13 format=3 uid="uid://kpf57x6vrndl"]
 
 [ext_resource type="PackedScene" uid="uid://db7ujjleeus5j" path="res://assets/skeleton.glb" id="1_7n8xq"]
 [ext_resource type="PackedScene" uid="uid://cnehluehwp1ie" path="res://assets/godot_plush_model.glb" id="1_rv78h"]
@@ -7,6 +7,7 @@
 [ext_resource type="Shader" uid="uid://dnixfrns3rt86" path="res://addons/flexible_toon_shader/flexible_toon.gdshader" id="3_4wlns"]
 [ext_resource type="Script" uid="uid://crvd5lyg54ral" path="res://scripts/npc_textarea.gd" id="5_4wlns"]
 [ext_resource type="PackedScene" uid="uid://cllidq86otntd" path="res://scenes/spawn_package.tscn" id="7_hwkja"]
+[ext_resource type="AudioStream" uid="uid://bpfquwtw8twls" path="res://audio/skelly.mp3" id="8_0tygy"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tl2vt"]
 height = 1.69355
@@ -36,19 +37,19 @@ shader_parameter/border_width = 0.01
 [sub_resource type="SphereShape3D" id="SphereShape3D_7n8xq"]
 radius = 2.0
 
-[node name="npc" type="CharacterBody3D" unique_id=1373199526]
+[node name="npc" type="CharacterBody3D"]
 collision_layer = 16
 collision_mask = 10
 script = ExtResource("1_tl2vt")
 
-[node name="skeleton" parent="." unique_id=79440244 instance=ExtResource("1_7n8xq")]
+[node name="skeleton" parent="." instance=ExtResource("1_7n8xq")]
 transform = Transform3D(-0.5, 0, 4.37114e-08, 0, 0.5, 0, -4.37114e-08, 0, -0.5, 0, 1.04645, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1628848991]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.751444, 0)
 shape = SubResource("CapsuleShape3D_tl2vt")
 
-[node name="sprite" parent="." unique_id=648171116 instance=ExtResource("1_rv78h")]
+[node name="sprite" parent="." instance=ExtResource("1_rv78h")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 visible = false
 
@@ -79,26 +80,29 @@ material_override = SubResource("StandardMaterial3D_hwkja")
 surface_material_override/0 = SubResource("ShaderMaterial_0tygy")
 
 [node name="AnimationPlayer" parent="sprite" index="1"]
-autoplay = &"idle"
+autoplay = "idle"
 
-[node name="Area3D" type="Area3D" parent="." unique_id=767539092]
+[node name="Area3D" type="Area3D" parent="."]
 collision_layer = 0
 collision_mask = 8
 script = ExtResource("5_4wlns")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1625964260]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.03321, 0)
 shape = SubResource("SphereShape3D_7n8xq")
 
-[node name="talk-label" type="Label3D" parent="Area3D" unique_id=498612530]
+[node name="talk-label" type="Label3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.42657, 0)
 billboard = 1
 fixed_size = true
 text = "talk
 "
 
-[node name="Marker3D" parent="." unique_id=1139457007 instance=ExtResource("7_hwkja")]
+[node name="Marker3D" parent="." instance=ExtResource("7_hwkja")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.61867e-07, 2.81554, -2.99541)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("8_0tygy")
 
 [connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area3D" to="Area3D" method="_on_body_exited"]

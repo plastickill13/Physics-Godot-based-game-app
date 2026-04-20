@@ -10,6 +10,9 @@ extends CharacterBody3D
 @onready var anim_player = $cat/AnimationPlayer
 @onready var visual_mesh = $cat
 
+
+var is_flying: bool = false
+var spin_speed: float = 15.0
 # Grab the default gravity from project settings
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -22,6 +25,30 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	# 1. Apply gravity so the cat stays on the ground
+	if is_flying:
+		# 1. Apply gravity so the cat comes back down
+		velocity.y -= gravity * delta
+		
+		# 2. Tumble uncontrollably!
+		visual_mesh.rotation.x += spin_speed * delta
+		visual_mesh.rotation.y += spin_speed * delta
+		visual_mesh.rotation.z += spin_speed * delta
+		
+		move_and_slide()
+		
+		# 3. Check if we finally hit the ground
+		if is_on_floor() and velocity.y <= 0:
+			is_flying = false
+			
+			# Snap the cat back upright
+			visual_mesh.rotation = Vector3.ZERO 
+			
+			# Start wandering again like nothing happened!
+			pick_new_target() 
+			
+		# Return here so it doesn't run the rest of the walking code!
+		return
+		
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 
@@ -55,6 +82,18 @@ func _physics_process(delta: float) -> void:
 
 	# Apply the movement
 	move_and_slide()
+
+func hit_by_truck(impact_velocity: Vector3) -> void:
+	is_flying = true
+	
+	# Apply the massive force from the truck!
+	velocity = impact_velocity
+	
+	# Pause the wander timer so it doesn't try to calculate paths mid-air
+	wander_timer.stop() 
+	
+	# If you have a flailing animation, play it! Otherwise, freeze them.
+	anim_player.stop()
 
 func pick_new_target() -> void:
 	# 1. Pick a random 3D coordinate around the cat

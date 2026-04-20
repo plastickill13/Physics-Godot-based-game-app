@@ -7,7 +7,7 @@ var dialogue_line = await DialogueManager.get_next_dialogue_line(resource, "star
 func _ready() -> void:
 	label.visible = false # Replace with function body.
 var player_node: Node3D
-
+var has_known = false
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
@@ -16,6 +16,7 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: Node3D) -> void:
 	if body.name == 'player':
 		player_node = body
+		$"../AudioStreamPlayer3D".play()
 		label.visible = true
 
 
@@ -30,10 +31,12 @@ func spawn_package():
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
 		if player_node:
-			if moneyManager.delivering == true:
-				DialogueManager.show_dialogue_balloon(resource, "delivering", [self])
-			elif moneyManager.packages_delivered == 0:
+			if !has_known:
 				DialogueManager.show_dialogue_balloon(resource, "start", [self])
+				has_known = true
+			elif moneyManager.delivering == true:
+				DialogueManager.show_dialogue_balloon(resource, "delivering", [self])
+			
 			elif moneyManager.packages_delivered == 1:
 				DialogueManager.show_dialogue_balloon(resource, "one_delivered", [self])
 			elif moneyManager.packages_delivered == 5:

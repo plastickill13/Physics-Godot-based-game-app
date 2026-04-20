@@ -144,7 +144,7 @@ func drop_package() -> void:
 	# TRIGGER: The exact moment they toss their very first box
 	if not has_learned_fma:
 		has_learned_fma = true
-		
+		await get_tree().create_timer(1.0).timeout
 		var title = "Newton's Second Law: F = ma"
 		var desc = "You just applied an Impulse (Force) to that box!\n\nBecause the cardboard box has a low Mass, \nyour throw causes high Acceleration. \nIf that box were filled with lead, it would barely leave your hands!"
 		InfoDialog.trigger_info(title, desc, fma_image)

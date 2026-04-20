@@ -15,6 +15,7 @@ var has_learned_acceleration: bool = false
 var has_learned_reaction: bool = false
 var previous_speed: float = 0.0
 
+@export var fuel_burn_rate: float = 0.5 # Liters burned per second of driving
 # NEW: The "Anti-Flip" weight. This pulls the physical center of gravity down half a meter.
 @export var center_of_mass_offset: Vector3 = Vector3(0.0, -0.5, 0.0)
 
@@ -55,6 +56,7 @@ func _physics_process(delta: float) -> void:
 	
 	# NEW: Speed-Sensitive Steering
 	var current_speed = linear_velocity.length()
+	moneyManager.current_speed = current_speed
 	# Creates a ratio: At 0 speed it's 1.0 (100% steering). As you approach 20 speed, it smoothly drops to 0.3 (30% steering).
 	var steer_dampening = clamp(1.0 - (current_speed / 20.0), 0.3, 1.0)
 	
@@ -63,22 +65,36 @@ func _physics_process(delta: float) -> void:
 	steering = lerp(steering, target_steer, steering_speed * delta)
 	
 	# 3. Arcade Acceleration & Braking
-	if accel_input > 0:
-		# Pushing forward
-		engine_force = accel_input * max_engine_force
-		brake = 0.0
-	elif accel_input < 0:
-		# Pushing backward (Braking or Reversing)
-		if linear_velocity.length() > 1.0 and transform.basis.z.dot(linear_velocity.normalized()) < 0:
-			brake = max_brake_force
-			engine_force = 0.0
-		else:
+	if moneyManager.current_fuel <= 0:
+		engine_force = 0.0
+		brake = 0.5 # Slowly roll to a stop
+		
+		# Optional: Play a sputtering engine sound here!
+		
+	else:
+		# The tank has gas! Run normal driving logic.
+		if accel_input > 0:
 			engine_force = accel_input * max_engine_force
 			brake = 0.0
-	else:
-		# Letting go of the gas
-		engine_force = 0.0
-		brake = 0.125
+			
+			# NEW: Burn fuel only when stepping on the gas!
+			moneyManager.current_fuel -= fuel_burn_rate * delta
+			moneyManager.fuel_changed.emit(moneyManager.current_fuel)
+			
+		elif accel_input < 0:
+			if linear_velocity.length() > 1.0 and transform.basis.z.dot(linear_velocity.normalized()) < 0:
+				brake = max_brake_force
+				engine_force = 0.0
+			else:
+				engine_force = accel_input * max_engine_force
+				brake = 0.0
+				
+				# NEW: Burn fuel when reversing too!
+				moneyManager.current_fuel -= fuel_burn_rate * delta
+				moneyManager.fuel_changed.emit(moneyManager.current_fuel)
+		else:
+			engine_force = 0.0
+			brake = 0.125
 	
 	var time_sec = Time.get_ticks_msec() / 1000.0
 	var flash_on = sin(time_sec * blink_speed) > 0.0
@@ -121,9 +137,9 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("move_forward"):
 		if not has_learned_acceleration:
 			has_learned_acceleration = true
-			
-			var desc = "Pressing the gas pedal pushes the vehicle forward.\nThe longer you hold it, the more momentum you build up!"
-			InfoDialog.trigger_info("Acceleration", desc, acceleration_image)
+			await get_tree().create_timer(1.5).timeout
+			var desc = "Pressing (W) pushes the vehicle forward.\nThe longer you hold it, the more momentum you build up!"
+			InfoDialog.trigger_info("Newton's Second Law: Acceleration", desc, acceleration_image)
 		# Turn off the running loop if the player isn't inside
 		
 
@@ -135,7 +151,7 @@ func _physics_process(delta: float) -> void:
 	if deceleration > 10.0: 
 		if not has_learned_reaction:
 			has_learned_reaction = true
-			
+			await get_tree().create_timer(0.5).timeout
 			var title = "Newton's Third Law: Action/Reaction"
 			var desc = "Ouch! You just hit a wall.\n\nFor every action, there is an equal and opposite reaction. \nYour truck applied a massive force to that wall, and the wall \napplied the exact same force back into your bumper, stopping you instantly."
 			InfoDialog.trigger_info(title, desc, reaction_image)
@@ -146,7 +162,29 @@ func _physics_process(delta: float) -> void:
 	if linear_velocity.length() > 8.0 and not Input.is_action_pressed("move_forward") and not Input.is_action_pressed("move_backward"):
 		if not has_learned_inertia:
 			has_learned_inertia = true
-			
+			await get_tree().create_timer(2.0).timeout
 			var title = "Newton's First Law: Inertia"
 			var desc = "Notice how you keep moving even when you let off the gas?\n\nAn object in motion stays in motion. \nThe heavy mass of your truck carries momentum, \nand only the friction of the road\n (or your brakes!) will slow it down."
 			InfoDialog.trigger_info(title, desc, inertia_image)
+
+
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	if body.has_method("hit_by_truck"):
+		print('hit')
+		# 2. How fast is the truck currently driving?
+		var truck_speed = linear_velocity.length()
+		
+		# 3. Only launch them if we are moving fast enough! 
+		# (So we don't send them flying by just parking too close)
+		if truck_speed > 3.0:
+			
+			# 4. Calculate the launch trajectory. 
+			# We push them forward from the truck (-Z axis), and add a Y value to pop them up into the air!
+			var launch_dir = -global_transform.basis.z + Vector3(0, 0.8, 0)
+			
+			# 5. Multiply the direction by the truck's speed (Newton's Second Law!)
+			# The 1.5 is an extra multiplier to make the launch feel more exaggerated and arcade-like.
+			var impact_force = launch_dir.normalized() * (truck_speed * 1.5)
+			
+			# 6. Send the cat flying!
+			body.hit_by_truck(impact_force) # Replace with function body.

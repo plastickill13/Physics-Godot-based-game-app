@@ -92,6 +92,7 @@ size = Vector3(200, 2, 200)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fbfj4"]
 albedo_color = Color(0.453318, 0.579339, 0.131655, 1)
 albedo_texture = ExtResource("26_1nmm8")
+uv1_scale = Vector3(50, 50, 50)
 
 [node name="lvl1-traningyard" type="Node3D"]
 
@@ -230,24 +231,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.2612, 2.6521, -13.7363)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("20_vnbyh")]
 
-[node name="package-text2" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/Control2" index="0"]
-layout_mode = 0
-anchors_preset = 0
-anchor_top = 0.0
-anchor_bottom = 0.0
-offset_top = 0.0
-offset_bottom = 26.0
-grow_vertical = 1
-
-[node name="package-text3" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/Control2" index="1"]
-layout_mode = 0
-anchors_preset = 0
-anchor_top = 0.0
-anchor_bottom = 0.0
-offset_top = 0.0
-offset_bottom = 26.0
-grow_vertical = 1
-
 [node name="crt-layer" parent="." instance=ExtResource("21_y0v1j")]
 
 [node name="zones" type="Node3D" parent="."]
@@ -262,9 +245,8 @@ target = NodePath("../player")
 [node name="Vending Machine #1 No Edgeline" parent="." instance=ExtResource("24_uxerf")]
 
 [node name="cat" parent="." instance=ExtResource("25_kehwm")]
-transform = Transform3D(-0.18583, 0, 0.0739396, 0, 0.2, 0, -0.0739396, 0, -0.18583, -34.8792, 1.28507, -9.58468)
+transform = Transform3D(-0.18583, 0, 0.0739396, 0, 0.2, 0, -0.0739396, 0, -0.18583, -23.3733, 1.30593, -71.5986)
 collision_layer = 8
-collision_mask = 2
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_kehwm")
@@ -525,7 +507,7 @@ skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_fbfj4")
 
 [node name="Gas_station" parent="." instance=ExtResource("27_1nmm8")]
-transform = Transform3D(0.84637, 0, 0.532595, 0, 1, 0, -0.532595, 0, 0.84637, -16.0852, 1.04666, -61.5475)
+transform = Transform3D(0.84637, 0, 0.532595, 0, 1, 0, -0.532595, 0, 0.84637, -16.0852, 1.04666, -62.8541)
 
 [editable path="vehicle"]
 [editable path="vehicle/pickup_truck"]
