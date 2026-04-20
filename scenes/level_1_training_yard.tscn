@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://di7j4co4gfogh"]
+[gd_scene load_steps=42 format=3 uid="uid://di7j4co4gfogh"]
 
 [ext_resource type="Script" uid="uid://bqxlstimu8llx" path="res://scripts/herecomesthesun.gd" id="1_wdrx6"]
 [ext_resource type="PackedScene" uid="uid://c2j6041m2u020" path="res://scenes/vehicle.tscn" id="2_yp1ml"]
@@ -24,6 +24,8 @@
 [ext_resource type="PackedScene" uid="uid://c6chcre6lftj3" path="res://scenes/drop_off_zone.tscn" id="22_bewor"]
 [ext_resource type="PackedScene" uid="uid://b1loswtt2cope" path="res://scenes/vendingmachine.tscn" id="24_uxerf"]
 [ext_resource type="PackedScene" uid="uid://dficnjj7ywye0" path="res://scenes/cat.tscn" id="25_kehwm"]
+[ext_resource type="Texture2D" uid="uid://b6y1g7rbpsfkd" path="res://assets/gas-station/Textures/Ground.jpg" id="26_1nmm8"]
+[ext_resource type="PackedScene" uid="uid://d1lnjyhhj651l" path="res://gas_station.tscn" id="27_1nmm8"]
 [ext_resource type="PackedScene" uid="uid://kpf57x6vrndl" path="res://scenes/npc.tscn" id="27_gbg5t"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jtl3q"]
@@ -89,6 +91,7 @@ size = Vector3(200, 2, 200)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fbfj4"]
 albedo_color = Color(0.453318, 0.579339, 0.131655, 1)
+albedo_texture = ExtResource("26_1nmm8")
 
 [node name="lvl1-traningyard" type="Node3D"]
 
@@ -520,6 +523,9 @@ shape = SubResource("4_ground_shape")
 mesh = SubResource("BoxMesh_fbfj4")
 skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_fbfj4")
+
+[node name="Gas_station" parent="." instance=ExtResource("27_1nmm8")]
+transform = Transform3D(0.84637, 0, 0.532595, 0, 1, 0, -0.532595, 0, 0.84637, -16.0852, 1.04666, -61.5475)
 
 [editable path="vehicle"]
 [editable path="vehicle/pickup_truck"]
