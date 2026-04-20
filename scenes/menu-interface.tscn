@@ -1,7 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://650kwkx1awab"]
+[gd_scene load_steps=9 format=3 uid="uid://650kwkx1awab"]
 
 [ext_resource type="Script" uid="uid://c2grxaejw5q8a" path="res://scenes/menu_interface.gd" id="1_bw4i8"]
+[ext_resource type="Texture2D" uid="uid://du8bsrwp4jrfd" path="res://assets/icons/play (1).svg" id="2_1fr6w"]
 [ext_resource type="AudioStream" uid="uid://dthkh418jip0v" path="res://audio/game-start.mp3" id="2_m2354"]
+[ext_resource type="Texture2D" uid="uid://db8y46rlsj2q1" path="res://assets/icons/cog (1).svg" id="3_nguvj"]
+[ext_resource type="Texture2D" uid="uid://gw4ib6o3j80o" path="res://assets/icons/square-arrow-right-exit (1).svg" id="4_tvnlt"]
+[ext_resource type="Texture2D" uid="uid://cdat0cbmj0jep" path="res://assets/icons/box.svg" id="6_nmqg5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7my6y"]
 
@@ -39,11 +43,20 @@ theme_override_constants/separation = 20
 modulate = Color(2, 2, 2, 1)
 material = SubResource("ShaderMaterial_7my6y")
 layout_mode = 2
-text = "Package:
-The Deliverance"
+text = "Midnight Driver"
 label_settings = SubResource("LabelSettings_n7fws")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Physics-based Video Game"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "-- Group 3 --"
+horizontal_alignment = 1
 
 [node name="Control" type="Control" parent="MarginContainer"]
 layout_mode = 2
@@ -66,34 +79,31 @@ theme_override_constants/separation = 20
 [node name="play-button" type="Button" parent="MarginContainer/Control/VBoxContainer2"]
 layout_mode = 2
 text = "Play"
+icon = ExtResource("2_1fr6w")
 
 [node name="settings-button" type="Button" parent="MarginContainer/Control/VBoxContainer2"]
 layout_mode = 2
 text = "Settings"
+icon = ExtResource("3_nguvj")
 
 [node name="exit-button" type="Button" parent="MarginContainer/Control/VBoxContainer2"]
 layout_mode = 2
 text = "Exit"
+icon = ExtResource("4_tvnlt")
 
 [node name="Label2" type="Label" parent="MarginContainer/Control/VBoxContainer2"]
 layout_mode = 2
-text = "ver 1.0.1"
+text = "ver 2.0.2"
 horizontal_alignment = 1
-
-[node name="Label" type="Label" parent="MarginContainer/Control"]
-layout_mode = 1
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_left = -526.0
-offset_top = -31.0
-offset_right = -442.0
-offset_bottom = -5.0
-grow_vertical = 2
-text = "Group 3"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_m2354")
 autoplay = true
+
+[node name="Box" type="Sprite2D" parent="."]
+position = Vector2(965, 105)
+scale = Vector2(1.33333, 1.16667)
+texture = ExtResource("6_nmqg5")
 
 [connection signal="pressed" from="MarginContainer/Control/VBoxContainer2/play-button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="MarginContainer/Control/VBoxContainer2/settings-button" to="." method="_on_settingsbutton_pressed"]

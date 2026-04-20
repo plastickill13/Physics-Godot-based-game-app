@@ -1,11 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://coj64goaxhtxy"]
+[gd_scene load_steps=5 format=3 uid="uid://coj64goaxhtxy"]
 
 [ext_resource type="Script" uid="uid://dkl71jr6kmcrs" path="res://scripts/info_dialog.gd" id="1_1qbih"]
+[ext_resource type="Shader" uid="uid://dx5tyk8ua76mg" path="res://shaders/control.gdshader" id="2_av7ao"]
+[ext_resource type="Texture2D" uid="uid://doep3oigrb2y8" path="res://assets/icons/check.svg" id="3_v0601"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v0601"]
+shader = ExtResource("2_av7ao")
+shader_parameter/blur_amount = 2.5
 
 [node name="InfoDialog" type="CanvasLayer"]
 process_mode = 3
 layer = 10
 script = ExtResource("1_1qbih")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_v0601")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.392157)
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 anchors_preset = 8
@@ -51,5 +66,6 @@ size_flags_vertical = 6
 [node name="Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Got it!"
+icon = ExtResource("3_v0601")
 
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

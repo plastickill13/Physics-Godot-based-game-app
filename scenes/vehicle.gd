@@ -129,6 +129,19 @@ func _physics_process(delta: float) -> void:
 		var target_pitch = lerp(idle_pitch, max_pitch, speed_ratio)
 		engine_audio.pitch_scale = lerp(engine_audio.pitch_scale, target_pitch, 5.0 * delta)
 		
+		var deceleration = previous_speed - current_speed
+	
+	# TRIGGER: If we instantly lost a massive amount of speed (a crash!)
+		if deceleration > 10.0: 
+			if not has_learned_reaction:
+				has_learned_reaction = true
+				await get_tree().create_timer(0.5).timeout
+				var title = "Newton's Third Law: Action/Reaction"
+				var desc = "Ouch! You just hit a wall.\n\nFor every action, there is an equal and opposite reaction. \nYour truck applied a massive force to that wall, and the wall \napplied the exact same force back into your bumper, stopping you instantly."
+				InfoDialog.trigger_info(title, desc, reaction_image)
+
+	# Save the current speed to compare it during the next frame
+		previous_speed = current_speed
 		#if current_speed <= 0.005:
 			#
 			#if engine_audio.playing:
@@ -145,19 +158,7 @@ func _physics_process(delta: float) -> void:
 
 	
 	# Calculate how much speed we lost since the exact last frame
-	var deceleration = previous_speed - current_speed
 	
-	# TRIGGER: If we instantly lost a massive amount of speed (a crash!)
-	if deceleration > 10.0: 
-		if not has_learned_reaction:
-			has_learned_reaction = true
-			await get_tree().create_timer(0.5).timeout
-			var title = "Newton's Third Law: Action/Reaction"
-			var desc = "Ouch! You just hit a wall.\n\nFor every action, there is an equal and opposite reaction. \nYour truck applied a massive force to that wall, and the wall \napplied the exact same force back into your bumper, stopping you instantly."
-			InfoDialog.trigger_info(title, desc, reaction_image)
-
-	# Save the current speed to compare it during the next frame
-	previous_speed = current_speed
 	
 	if linear_velocity.length() > 8.0 and not Input.is_action_pressed("move_forward") and not Input.is_action_pressed("move_backward"):
 		if not has_learned_inertia:

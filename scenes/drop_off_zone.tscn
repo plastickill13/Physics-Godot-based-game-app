@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://c6chcre6lftj3"]
+[gd_scene load_steps=5 format=3 uid="uid://c6chcre6lftj3"]
 
 [ext_resource type="Script" uid="uid://gs26qd71irjj" path="res://scripts/drop_off_zone.gd" id="1_igchk"]
 [ext_resource type="PackedScene" uid="uid://be1di3bljswsr" path="res://scenes/confetti.tscn" id="2_8rxl2"]
+[ext_resource type="Texture2D" uid="uid://cdat0cbmj0jep" path="res://assets/icons/box.svg" id="3_l3dfr"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_igchk"]
 radius = 3.0
@@ -17,10 +18,16 @@ transform = Transform3D(1.2343, 0, 0, 0, 1, 0, 0, 0, 1.26631, 0, 0, 0)
 shape = SubResource("SphereShape3D_igchk")
 
 [node name="Label3D" type="Label3D" parent="."]
+visible = false
 billboard = 1
 fixed_size = true
 text = "📦"
 font_size = 18
 outline_size = 2
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+visibility_range_end = 50.0
+billboard = 1
+texture = ExtResource("3_l3dfr")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

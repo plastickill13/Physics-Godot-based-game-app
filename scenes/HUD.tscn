@@ -1,10 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://dn0mjbr4ta4wo"]
+[gd_scene load_steps=10 format=3 uid="uid://dn0mjbr4ta4wo"]
 
 [ext_resource type="Script" uid="uid://ohuw545g0e6p" path="res://scripts/hud-update.gd" id="1_fls4u"]
 [ext_resource type="Script" uid="uid://br81ari4cj2nw" path="res://scenes/nowplaying.gd" id="1_qpvh6"]
 [ext_resource type="Script" uid="uid://ckngtjqhakluh" path="res://scripts/audio-visualizer.gd" id="2_1etfg"]
 [ext_resource type="PackedScene" uid="uid://bah0gx51vjggg" path="res://payout_notif.tscn" id="2_nysna"]
 [ext_resource type="AudioStream" uid="uid://dgp4mdiacvy71" path="res://audio/delivered.wav" id="4_7hsmw"]
+[ext_resource type="Texture2D" uid="uid://cx848gnn08e45" path="res://assets/icons/gauge.svg" id="6_f6qnu"]
+[ext_resource type="Texture2D" uid="uid://imwp3neesrvo" path="res://assets/icons/fuel.svg" id="7_twldb"]
+[ext_resource type="Texture2D" uid="uid://cdat0cbmj0jep" path="res://assets/icons/box.svg" id="8_8cuoo"]
 
 [sub_resource type="Environment" id="Environment_qpvh6"]
 background_mode = 3
@@ -202,8 +205,9 @@ size_flags_vertical = 0
 
 [node name="Label" type="Label" parent="Control/MarginContainer/VBoxContainer/Control2"]
 layout_mode = 0
+offset_left = 3.0
 offset_top = -65.0
-offset_right = 171.0
+offset_right = 174.0
 offset_bottom = -7.0
 text = "Fuel
 "
@@ -223,3 +227,15 @@ environment = SubResource("Environment_qpvh6")
 
 [node name="delivered" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_7hsmw")
+
+[node name="Gauge" type="Sprite2D" parent="."]
+position = Vector2(979, 65)
+texture = ExtResource("6_f6qnu")
+
+[node name="Fuel" type="Sprite2D" parent="."]
+position = Vector2(123, 550)
+texture = ExtResource("7_twldb")
+
+[node name="Box" type="Sprite2D" parent="."]
+position = Vector2(336, 64)
+texture = ExtResource("8_8cuoo")
