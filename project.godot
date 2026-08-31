@@ -14,9 +14,9 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
-config/name="Package: The Deliverance"
-config/description="Hello, this is supposed to be our project for our midterm on Physics. This showcases the Laws of Motion, and how this game should solve a problem."
-config/version="1.0.1"
+config/name="Midnight Driver"
+config/description="Hello, this is supposed to be our project for our midterm on Physics. This showcases the Laws of Motion, and how it interacts in a real-life like scenario of moving vehicles and objects being thrown around."
+config/version="2.0.2"
 run/main_scene="uid://covtxlmc6pq4t"
 config/features=PackedStringArray("4.4", "Forward Plus")
 run/max_fps=60
