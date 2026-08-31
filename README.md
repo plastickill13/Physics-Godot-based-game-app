@@ -1,8 +1,25 @@
-# driving-game
-A Physics-based driving game made with Godot 4.4.
+# Midnight Driver
+A Physics-based driving game made with Godot 4.4. This is a simple game which highlights how physics affect movement, specifically on how it works with objects and vehicles. Collaborated with a creative team of 4 to deliver the project for uni. 
 
-## Overview
-A 3D physics-based vehicle simulation game developed in Godot 4. This project serves as an interactive demonstration of classical mechanics, specifically Newton's Laws of Motion, applied within a game development context. Players operate a delivery truck, navigating environmental hazards while managing unsecured, physics-enabled cargo.
+Inspired by [easy delivery co.](https://store.steampowered.com/app/3293010/Easy_Delivery_Co/)
+
+
+## Screenshots
+
+<img width="1919" height="1079" alt="Screenshot 2026-08-31 172413" src="https://github.com/user-attachments/assets/139f0614-902e-4dd0-b65b-3e3d5a3b40ad" />
+
+
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/59391aae-fc3b-45a9-a100-df2d39d12102" />
+
+
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/04ecc886-236a-4c3c-9958-26a5c5c9b30c" />
+
+## In-Game Features
+
+- Car Stereo
+- Simple Delivery System
+- Cool car manuevering system 😎
+
 
 ## Core Gameplay Mechanics
 
